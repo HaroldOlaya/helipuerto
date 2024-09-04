@@ -1,0 +1,57 @@
+#include <16f877A.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#use delay(clock=20000000)
+#fuses hs,NOWDT,NOPROTECT,NOLVP,NOWRT,NOBROWNOUT
+#byte port_a=5
+#byte port_b=6
+#byte port_c=7
+#byte port_d=8
+int16 time = 500;
+int ledEncendido=0;
+bool whil=true;
+bool menu=false;
+bool oscilar=false;
+void arriba();
+void abajo();
+void derecha();
+void izquierda();
+void encenderLed(led);
+void apagarLed(led);
+void osciladorLed();
+#INT_EXT
+void EXT_isr(void){
+   oscilar=false;
+   menu=true;
+
+}
+
+
+void main(){
+   enable_interrupts(INT_EXT);
+   ext_int_edge(H_TO_L);
+   enable_interrupts(GLOBAL);
+   set_tris_b(0xff);
+   set_tris_d(0x00);
+   set_tris_c(0x00);
+   port_d=0x00;
+   port_b=0xff;
+   port_c=0x00;
+   while(whil){      
+      while(menu){
+      output_high(pin_c0);
+   }
+}  
+void derecha(){
+output_high(pin_c0);
+}
+void izquierda(){
+output_high(pin_c0);
+}
+void arriba(){
+output_high(pin_c0);
+
+}
+void abajo(){
+output_high(pin_c0);
+}

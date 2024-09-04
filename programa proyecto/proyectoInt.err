@@ -1,0 +1,4 @@
+>>> Warning 216 "proyectoInt.c" Line 65(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+      Memory usage:   ROM=4%      RAM=7% - 9%
+      0 Errors,  1 Warnings.
+Build Successful.

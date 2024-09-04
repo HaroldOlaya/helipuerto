@@ -1,0 +1,76 @@
+#include <16f877A.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#use delay(clock=20000000)
+#fuses hs,NOWDT,NOPROTECT,NOLVP,NOWRT,NOBROWNOUT
+#byte port_a=5
+#byte port_b=6
+#byte port_c=7
+#byte port_d=8
+int16 time = 500;
+int ledEncendido=0;
+bool whil=true;
+bool menu=false;
+bool oscilar=false;
+void encenderLed(led);
+void apagarLed(led);
+void osciladorLed();
+#INT_EXT
+void EXT_isr(void){
+   oscilar=false;
+   menu=true;
+}
+
+
+void main(){
+   enable_interrupts(INT_EXT);
+   ext_int_edge(H_TO_L);
+   enable_interrupts(GLOBAL);
+   set_tris_b(0xff);
+   set_tris_d(0x00);
+   port_d=0x00;
+   port_b=0xff;
+   while(whil){      
+      while(menu){
+         output_high(pin_d0+ledEncendido);
+         if(menu && input(pin_b1)==0){
+            while(input(pin_b1)==0);
+            if (ledEncendido<7){
+               ledEncendido++;
+               encenderLed(ledEncendido);
+            }
+         }
+         if(menu && input(pin_b2)==0){
+            while(input(pin_b2)==0);
+            if (ledEncendido>0){
+               ledEncendido--;
+               apagarLed(ledEncendido);
+            }
+         }
+         if(menu && input(pin_b3)==0){
+            while(input(pin_b3)==0);
+            oscilar=true;
+            menu=false;
+            osciladorLed();
+         }
+      }
+   }
+}  
+
+void encenderLed(ledEncendido){
+   output_high(pin_d0 + ledEncendido);
+   output_low(pin_d0 + (ledEncendido-1));
+}
+void apagarLed(ledEncendido){
+   output_low(pin_d0 + ledEncendido+1);
+   output_high(pin_d0 + (ledEncendido));
+}
+void osciladorLed(){          
+   while(!menu && oscilar){
+      output_bit(pin_d0 + ledEncendido, 0);
+      delay_ms(time);
+      output_bit(pin_d0 + ledEncendido, 1);
+      delay_ms(time);
+   }
+}
+

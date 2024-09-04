@@ -1,0 +1,66 @@
+#include <16f877A.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#use delay(clock=20000000)
+#fuses hs,NOWDT,NOPROTECT,NOLVP,NOWRT,NOBROWNOUT
+#byte port_a=5
+#byte port_b=6
+#byte port_c=7
+#byte port_d=8
+int16 time = 500;
+bool whil=true;
+bool menu=false;
+void mover(pin);
+#INT_EXT
+void EXT_isr(void){
+   menu=false;
+   output_low(pin_c0);
+   delay_ms(300);
+  
+}
+
+
+void main(){
+   enable_interrupts(INT_EXT);
+   ext_int_edge(H_TO_L);
+   enable_interrupts(GLOBAL);
+   set_tris_b(0xff);
+   set_tris_d(0x00);
+   set_tris_c(0x00);
+   port_d=0x00;
+   port_b=0xff;
+   port_c=0x00;
+   while(whil){ 
+      if(input(pin_b5)==0){
+        while(input(pin_b5)==0);
+        output_high(pin_c0);
+        menu=true;
+      }
+      while(menu){
+      
+      if(menu && input(pin_b1)==0){
+        while(input(pin_b1)==0);
+        mover(0);
+      }
+      if(menu && input(pin_b2)==0){
+        while(input(pin_b2)==0);
+        mover(1);
+      }
+      if(menu && input(pin_b3)==0){
+        while(input(pin_b3)==0);
+        mover(2);
+      }
+      if(menu && input(pin_b4)==0){
+        while(input(pin_b1)==0);
+        mover(3);
+      }
+     }
+} 
+}
+void mover(pin){
+   output_high(pin_d0 + pin);
+   delay_ms(time);
+   output_low(pin_d0 + pin);
+   delay_ms(time);
+}
+
