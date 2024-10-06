@@ -1,8 +1,8 @@
-D G "GYRO_ZOUT_L" 3 30 "0x48"
-D G "__PCM__" 0 40 ""5.015""
-D G "__DEVICE__" 0 40 "877"
-D G "__DATE__" 0 40 ""05-oct.-24""
-D G "__TIME__" 0 40 ""20:54:35"" "Standard Header file for the PIC16F877A device ////////////////"
+C L "MAIN" 0 21 1 "FUNCTION"
+D G "__PCM__" 0 65 ""5.015""
+D G "__DEVICE__" 0 65 "877"
+D G "__DATE__" 0 65 ""05-oct.-24""
+D G "__TIME__" 0 65 ""22:12:59"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -886,25 +886,98 @@ V L "grz" 3 100 "float" `693
 F G "mpu6050_get_temp" 3 105 "float()" `694 
 V L "tmpv" 3 106 "sint16" `695 
 V L "tmp_mpu" 3 107 "float" `696 
-V G "Ax" 0 8 "float" `700 
-V G "Ay" 0 8 "float" `701 
-V G "Az" 0 8 "float" `702 
-V G "Gx" 0 8 "float" `703 
-V G "Gy" 0 8 "float" `704 
-V G "Gz" 0 8 "float" `705 
-V G "t" 0 8 "float" `706  "Variables para almacenar los datos del acelerometro y giroscopio"
-F G "MAIN" 0 11 "void()" `707 
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
-C L "MAIN" 0 12 1 "FUNCTION"
+D G "LEFT_SERVO_PIN" 4 43 "PIN_D6"
+D G "RIGHT_SERVO_PIN" 4 44 "PIN_D7"
+D G "TIMER_1_DIV" 4 52 "2" "Number of divisions for timer 1"
+D G "SHORT_TIME" 4 61 "0.0009" "Shortest pulse width high time"
+D G "CENTER_TIME" 4 62 "0.0015" "The high time for center"
+D G "LONG_TIME" 4 63 "0.0021" "Longest pulse width high time"
+D G "PULSE_TIME" 4 64 "0.0200" "The total time for the pulse"
+D G "LEFT" 4 69 "0"
+D G "RIGHT" 4 70 "1"
+D G "FORWARD" 4 72 "0"
+D G "BACKWARD" 4 73 "1"
+D G "TIMER_RATE" 4 88 "getenv("CLOCK") / 4 / TIMER_1_DIV"
+D G "SHORT_TICKS" 4 90 " (int16)((float)TIMER_RATE * SHORT_TIME)"
+D G "CENTER_TICKS" 4 91 " (int16)((float)TIMER_RATE * CENTER_TIME)"
+D G "LONG_TICKS" 4 92 " (int16)((float)TIMER_RATE * LONG_TIME)"
+D G "LOW_TICKS" 4 93 " (int16)(((float)TIMER_RATE * (PULSE_TIME - CENTER_TIME)) - 42)"
+D G "PULSE_CHANGE" 4 94 " (int16)(LONG_TICKS - CENTER_TICKS)"
+V G "servo_speeds" 4 96 "[1]" `700 
+V G "right_adjust" 4 101 "sint16" `703 
+V G "left_adjust" 4 102 "sint16" `704 
+V G "stop_right_servo" 4 103 "int1" `705 
+V G "stop_left_servo" 4 104 "int1" `706 
+f G "stop_servos" 4 105 "void()" `707  "Purpose:    Initializes timer1, enables necessary interrupts,"
+C L "stop_servos" 4 2 2 "FUNCTION"
+F G "init_servos" 4 113 "void()" `708 
+C L "set_servo" 4 2 5 "FUNCTION"
+V L "side" 4 144 "int8" `710 
+V L "direction" 4 144 "int8" `711 
+V L "speed" 4 144 "int8" `712 
+F G "set_servo" 4 145 "void(int8 side,int8 direction,int8 speed)" `709 
+C L "stop_servos" 4 2 1 "FUNCTION"
+F G "stop_servos" 4 178 "void()" `707 
+C L "pause_servos" 4 2 2 "FUNCTION"
+F G "pause_servos" 4 189 "void()" `713 
+C L "resume_servos" 4 2 1 "FUNCTION"
+F G "resume_servos" 4 197 "void()" `714 
+C L "isr_ccp1" 4 2 1 "FUNCTION"
+F G "isr_ccp1" 4 206 "void()" `715 
+V L "TOGGLE_LEFT" 4 207 "int1" `716 
+C L "isr_ccp1" 4 2 1 "FUNCTION"
+C L "isr_ccp1" 4 2 1 "FUNCTION"
+C L "isr_ccp1" 4 2 1 "FUNCTION"
+C L "isr_ccp1" 4 2 1 "FUNCTION"
+C L "isr_ccp2" 4 2 1 "FUNCTION"
+F G "isr_ccp2" 4 230 "void()" `717 
+V L "TOGGLE_RIGHT" 4 231 "int1" `718 
+D G "use_servo_1" 0 9 ""
+D G "use_servo_2" 0 10 ""
+D G "servo_1" 0 12 "PIN_C1"
+D G "servo_2" 0 13 "PIN_C2"
+C G "" 5 1 1 "*"
+C G "" 5 1 1 "*"
+D G "v_min" 5 9 "11"
+D G "v_max" 5 10 "48"
+V G "cont_st" 5 12 "int16" `719 
+V G "pwm_st" 5 13 "int8[10]" `720 
+F G "timer_0" 5 17 "void()" `721 
+F G "servo_init" 5 65 "void()" `722 
+V L "x" 5 72 "int16" `724 
+V L "eMin" 5 72 "int16" `725 
+V L "eMax" 5 72 "int16" `726 
+V L "sMin" 5 72 "int16" `727 
+V L "sMax" 5 72 "int16" `728 
+F G "map_int" 5 73 "int16(int16 x,int16 eMin,int16 eMax,int16 sMin,int16 sMax)" `723 
+V L "angle1" 5 78 "int8" `736 
+F G "servo_1_write" 5 79 "void(int8 angle1)" `735 
+V L "angle2" 5 85 "int8" `738 
+F G "servo_2_write" 5 86 "void(int8 angle2)" `737 
+V G "Ax" 0 16 "float" `739 
+V G "Ay" 0 16 "float" `740 
+V G "Az" 0 16 "float" `741 
+V G "Gx" 0 16 "float" `742 
+V G "Gy" 0 16 "float" `743 
+V G "Gz" 0 16 "float" `744 
+V G "t" 0 16 "float" `745  "Variables para almacenar los datos del acelerometro y giroscopio"
+F G "MAIN" 0 19 "void()" `746 
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

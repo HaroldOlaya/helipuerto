@@ -4,22 +4,13 @@
 #use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
 #use standard_io(D)
 #include <lcd.c>                    // Libreria para el manejo de la LCD 20x4
-#include <MPU6050.c> 
-#include <servos.c>
-#define use_servo_1
-#define use_servo_2
-// Utiliza el servo 1
-#define servo_1 PIN_C1
-#define servo_2 PIN_C2
-// Pin del servo 1
-#include <servo_st.c>  // Libreria para el manejo del modulo MPU6050
+#include <MPU6050.c>                      // Libreria para el manejo del modulo MPU6050
 float Ax, Ay, Az, Gx, Gy, Gz, t;          // Variables para almacenar los datos del acelerometro y giroscopio
 
 void main()
 {
-   lcd_init();    
-   servo_init();  // Inicializa la pantalla LCD
-   MPU6050_init();
+   lcd_init();                            // Inicializa la pantalla LCD
+   MPU6050_init();                        // Inicializa MPU6050
    
    while(true)
    {
@@ -39,23 +30,6 @@ void main()
       lcd_gotoxy(1,2);
       printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);  // Imprime Gx y Gy en la segunda línea
       
-      delay_ms(200);
-      servo_1_write(0);       // 0°
-      delay_ms(1000);
-      
-      servo_1_write(90);      // 90°
-      delay_ms(1000);
-      
-      servo_1_write(180);     // 180°
-      delay_ms(1000);
-      servo_2_write(0);       // 0°
-      delay_ms(1000);
-      
-      servo_2_write(90);      // 90°
-      delay_ms(1000);
-      
-      servo_2_write(180);     // 180°
-      delay_ms(1000);// Retraso para que la pantalla pueda actualizarse
+      delay_ms(200); // Retraso para que la pantalla pueda actualizarse
    } 
 }
-

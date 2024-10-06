@@ -20,6 +20,8 @@ void main()
    lcd_init();    
    servo_init();  // Inicializa la pantalla LCD
    MPU6050_init();
+   servo_attach(1, PIN_C0);  // Servo 1 en RC0
+   servo_attach(2, PIN_C1);// Inicializa MPU6050
    
    while(true)
    {

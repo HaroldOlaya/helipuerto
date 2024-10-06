@@ -17,7 +17,8 @@ Type=4
 3=..\..\micros_avanzados\programa lcd\programalcd.c
 4=mpu6050.h
 5=..\..\..\..\..\Music\MPU6050\MPU6050 Lectura\MPU6050 Lectura.c
-6=
+6=..\..\..\..\..\Music\Control Servomotor\Servomotor\Servomotor.c
+7=
 [Units]
 Count=1
 1=helipuerto (main)
