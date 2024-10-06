@@ -1,0 +1,231 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+008     lcdlat
+008     lcd
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-024 Ax
+025-028 Ay
+029-02C Az
+02D-030 Gx
+031-034 Gy
+035-038 Gz
+039-03C t
+03D-03E mpu6050_get_gz.gzv
+03D-03E mpu6050_get_ay.ayv
+03D-03E mpu6050_get_gy.gyv
+03D-03E mpu6050_get_gx.gxv
+03D     @PSTRINGCN7_652.P1
+03D     mpu6050_write.add
+03D-03E mpu6050_get_az.azv
+03D     lcd_init.i
+03D-03E mpu6050_get_ax.axv
+03D-040 @PRINTF_L32D_652FPFPF.P1
+03D-03E mpu6050_get_temp.tmpv
+03E     mpu6050_write.data
+03E-041 lcd_init.LCD_INIT_STRING
+03E     @PSTRINGCN7_652.@SCRATCH1
+03F-042 mpu6050_get_gx.grx
+03F-042 mpu6050_get_gz.grz
+03F-042 mpu6050_get_ay.acy
+03F-042 mpu6050_get_ax.acx
+03F-042 mpu6050_get_temp.tmp_mpu
+03F-042 mpu6050_get_gy.gry
+03F-042 mpu6050_get_az.acz
+03F     @PSTRINGCN7_652.@SCRATCH2
+040     @PSTRINGCN7_652.@SCRATCH3
+041     @PRINTF_L32D_652FPFPF.P1
+041     @PSTRINGCN7_652.@SCRATCH4
+042     lcd_init.@SCRATCH1
+042     @PRINTF_L32D_652FPFPF.@SCRATCH1
+043     mpu6050_get_ax.@SCRATCH1
+043     mpu6050_get_ay.@SCRATCH1
+043     mpu6050_get_az.@SCRATCH1
+043     mpu6050_get_gx.@SCRATCH1
+043     mpu6050_get_gy.@SCRATCH1
+043     mpu6050_get_gz.@SCRATCH1
+043     mpu6050_get_temp.@SCRATCH1
+043     @PRINTF_L32D_652FPFPF.@SCRATCH2
+044     mpu6050_read.add
+044     mpu6050_get_ax.@SCRATCH2
+044     mpu6050_get_ay.@SCRATCH2
+044     mpu6050_get_az.@SCRATCH2
+044     mpu6050_get_gx.@SCRATCH2
+044     mpu6050_get_gy.@SCRATCH2
+044     mpu6050_get_gz.@SCRATCH2
+044     mpu6050_get_temp.@SCRATCH2
+044     @PRINTF_L32D_652FPFPF.@SCRATCH3
+045-046 @SITOF.P1
+045     mpu6050_read.retval
+045     mpu6050_get_ax.@SCRATCH3
+045     mpu6050_get_ay.@SCRATCH3
+045     mpu6050_get_az.@SCRATCH3
+045     mpu6050_get_gx.@SCRATCH3
+045     mpu6050_get_gy.@SCRATCH3
+045     mpu6050_get_gz.@SCRATCH3
+045     mpu6050_get_temp.@SCRATCH3
+045     @PRINTF_L32D_652FPFPF.@SCRATCH4
+046     @I2C_WRITE_1.P1
+046     @I2C_READ_1.P2
+046     mpu6050_get_ax.@SCRATCH4
+046     mpu6050_get_ay.@SCRATCH4
+046     mpu6050_get_az.@SCRATCH4
+046     mpu6050_get_gx.@SCRATCH4
+046     mpu6050_get_gy.@SCRATCH4
+046     mpu6050_get_gz.@SCRATCH4
+046     mpu6050_get_temp.@SCRATCH4
+046     @PRINTF_L32D_652FPFPF.@SCRATCH5
+047     @I2C_READ_1.@SCRATCH1
+047     mpu6050_get_ax.@SCRATCH5
+047     mpu6050_get_ay.@SCRATCH5
+047     mpu6050_get_az.@SCRATCH5
+047     mpu6050_get_gx.@SCRATCH5
+047     mpu6050_get_gy.@SCRATCH5
+047     mpu6050_get_gz.@SCRATCH5
+047     mpu6050_get_temp.@SCRATCH5
+047     @PRINTF_L32D_652FPFPF.@SCRATCH6
+048     @I2C_READ_1.@SCRATCH2
+048     mpu6050_get_ax.@SCRATCH6
+048     mpu6050_get_ay.@SCRATCH6
+048     mpu6050_get_az.@SCRATCH6
+048     mpu6050_get_gx.@SCRATCH6
+048     mpu6050_get_gy.@SCRATCH6
+048     mpu6050_get_gz.@SCRATCH6
+048     mpu6050_get_temp.@SCRATCH6
+048     @PRINTF_L32D_652FPFPF.@SCRATCH7
+049-04C @DIVFF.P1
+049     mpu6050_get_temp.@SCRATCH7
+049     @PRINTF_L32D_652FPFPF.@SCRATCH8
+04A-04D @DIV3232.P1
+04A-04D @FTOSD.P2
+04A     lcd_putc.c
+04A-04D @MULFF.P1
+04A     mpu6050_get_temp.@SCRATCH8
+04B     @delay_ms1.P1
+04B     lcd_gotoxy.x
+04B-04E @ADDFF.P1
+04C     lcd_gotoxy.y
+04D-050 @DIVFF.P1
+04D     lcd_gotoxy.address
+04E-051 @MULFF.P1
+04E-051 @DIV3232.P2
+04E     lcd_gotoxy.@SCRATCH1
+04E     @FTOSD.@SCRATCH1
+04F-052 @ADDFF.P1
+04F     lcd_send_byte.address
+050     lcd_send_byte.n
+051     lcd_read_byte.low
+051     lcd_send_byte.@SCRATCH1
+051     @DIVFF.@SCRATCH1
+052     lcd_read_byte.high
+052     lcd_send_nibble.n
+052     @DIVFF.@SCRATCH2
+052     @MULFF.@SCRATCH1
+052     @DIV3232.@SCRATCH1
+053     lcd_read_byte.@SCRATCH1
+053     @DIVFF.@SCRATCH3
+053     @ADDFF.@SCRATCH1
+053     @MULFF.@SCRATCH2
+053     @DIV3232.@SCRATCH2
+054     @DIVFF.@SCRATCH4
+054     @ADDFF.@SCRATCH2
+054     @MULFF.@SCRATCH3
+054     @DIV3232.@SCRATCH3
+055     @DIVFF.@SCRATCH5
+055     @ADDFF.@SCRATCH3
+055     @MULFF.@SCRATCH4
+055     @DIV3232.@SCRATCH4
+056     @DIVFF.@SCRATCH6
+056     @ADDFF.@SCRATCH4
+056     @MULFF.@SCRATCH5
+056     @DIV3232.@SCRATCH5
+057     @ADDFF.@SCRATCH5
+058     @ADDFF.@SCRATCH6
+059     @ADDFF.@SCRATCH7
+05A     @ADDFF.@SCRATCH8
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const710.call
+00000D  @const724.call
+000016  @const725.call
+00001F  @delay_ms1
+000033  lcd_send_nibble
+000044  lcd_read_nibble
+00004A  lcd_send_byte
+000050  lcd_read_byte
+00008C  lcd_init
+0000CA  @I2C_WRITE_1
+000126  mpu6050_write
+00016E  mpu6050_init
+000180  mpu6050_read
+0001D0  @I2C_READ_1
+000244  @SITOF
+000269  @DIVFF
+000333  mpu6050_get_ax
+00036F  mpu6050_get_ay
+0003AB  mpu6050_get_az
+0003E7  mpu6050_get_gx
+000424  mpu6050_get_gy
+000461  mpu6050_get_gz
+00049E  mpu6050_get_temp
+0004DF  @ADDFF
+000637  lcd_gotoxy
+000649  lcd_putc
+000675  @DIV3232
+0006C4  @PSTRINGCN7_652
+000800  @PRINTF_L32D_652FPFPF
+000814  @MULFF
+00089A  @FTOSD
+00095F  MAIN
+00095F  @cinit1
+00096B  @cinit2
+
+Project Directory:
+    C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\corte 2 helipuerto\
+
+Project Files:
+    helipuerto.c                                            [05-oct.-24 20:30  CRC=7F82787F]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
+    MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
+
+Source signature=6B9887C7
+
+Units:
+    helipuerto (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   helipuerto.xsym
+    Errors:      helipuerto.err
+    Ext Symbols: helipuerto.esym
+    INHX8:       helipuerto.hex
+    Symbols:     helipuerto.sym
+    List:        helipuerto.lst
+    Debug/COFF:  helipuerto.cof
+    Project:     helipuerto.ccspjt
+    Call Tree:   helipuerto.tre
+    Statistics:  helipuerto.STA

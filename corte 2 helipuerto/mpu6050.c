@@ -1,73 +1,109 @@
-/* #include "i2c.h"
+/* #include <MPU6050.c>
+*
+* Creada por: Ing. Abiezer Hernandez O.
+* Fecha de creacion: 24/04/2019
+* Electronica y Circuitos
+*
 */
 
-#include "mpu6050.h"
+#define W_DATA         0xD0
+#define R_DATA         0xD1
+#define PWR_MGMT_1     0x6B
+#define PWR_MGMT_2     0x6C
+#define SMPRT_DIV      0x19
+#define CONFIG_R       0x1A
+#define GYRO_CONFIG    0x1B
+#define ACCEL_CONFIG   0x1C
+#define ACCEL_XOUT_H   0x3B
+#define ACCEL_XOUT_L   0x3C
+#define ACCEL_YOUT_H   0x3D
+#define ACCEL_YOUT_L   0x3E
+#define ACCEL_ZOUT_H   0x3F
+#define ACCEL_ZOUT_L   0x40
+#define TEMP_OUT_H     0x41
+#define TEMP_OUT_L     0x42
+#define GYRO_XOUT_H    0x43
+#define GYRO_XOUT_L    0x44
+#define GYRO_YOUT_H    0x45
+#define GYRO_YOUT_L    0x46
+#define GYRO_ZOUT_H    0x47
+#define GYRO_ZOUT_L    0x48
 
-void MPU6050_Write(unsigned char add, unsigned char data)
+void mpu6050_write(int add, int data)
 {
-   I2C_Start();
-   I2C_Write(W_DATA);
-   I2C_Write(add);
-   I2C_Write(data);
-   I2C_Stop();
+   i2c_start();
+   i2c_write(W_DATA);
+   i2c_write(add);
+   i2c_write(data);
+   i2c_stop();
 }
 
-void MPU6050_Init(void)
+unsigned int mpu6050_read(int add)
 {
-    MPU6050_Write(PWR_MGMT_1, 0x80);
-    __delay_ms(10);
-    MPU6050_Write(PWR_MGMT_1, 0x00);
-    __delay_ms(10);
-    MPU6050_Write(CONFIG_R, 0x01);
-    __delay_ms(10);
-    MPU6050_Write(GYRO_CONFIG, 0x00);
+   unsigned int retval;
+   i2c_start();
+   i2c_write(W_DATA);
+   i2c_write(add);
+   i2c_start();
+   i2c_write(R_DATA);
+   retval = i2c_read(0);
+   i2c_stop();
+   return retval;
 }
 
-int MPU6050_Read(unsigned char add)
+void mpu6050_init()
 {
-    int retval;
-    I2C_Start();
-    I2C_Write(W_DATA);
-    I2C_Write(add);
-    I2C_Restart();
-    I2C_Write(R_DATA);
-    retval = I2C_Read();
-    I2C_Nack();
-    I2C_Stop();
-    return retval;
+   mpu6050_write(PWR_MGMT_1, 0x00);
+   delay_ms(100);
+   mpu6050_write(SMPRT_DIV, 0x07);
+   delay_ms(100);
 }
 
-float MPU6050_Read_Ax(void)
+float mpu6050_get_ax(void)
 {
-    return (float)(((int)(MPU6050_Read(ACCEL_XOUT_H) << 8 | MPU6050_Read(ACCEL_XOUT_L)))/(float)16384);
+   signed long axv = make16(mpu6050_read(ACCEL_XOUT_H), mpu6050_read(ACCEL_XOUT_L));
+   float acx = (float)axv/(float)16384;
+   return acx;
 }
 
-float MPU6050_Read_Ay(void)
+float mpu6050_get_ay(void)
 {
-    return (float)(((int)(MPU6050_Read(ACCEL_YOUT_H) << 8 | MPU6050_Read(ACCEL_YOUT_L)))/(float)16384);
+   signed long ayv = make16(mpu6050_read(ACCEL_YOUT_H), mpu6050_read(ACCEL_YOUT_L));
+   float acy = (float)ayv/(float)16384;
+   return acy;
 }
 
-float MPU6050_Read_Az(void)
+float mpu6050_get_az(void)
 {
-    return (float)(((int)(MPU6050_Read(ACCEL_ZOUT_H) << 8 | MPU6050_Read(ACCEL_ZOUT_L)))/(float)16384);
+   signed long azv = make16(mpu6050_read(ACCEL_ZOUT_H), mpu6050_read(ACCEL_ZOUT_L));
+   float acz = (float)azv/(float)16384;
+   return acz;
 }
 
-float MPU6050_Read_Gx(void)
+float mpu6050_get_gx(void)
 {
-    return (float)(((int)(MPU6050_Read(GYRO_XOUT_H) << 8 | MPU6050_Read(GYRO_XOUT_L)))/(float)131);
+   signed long gxv = make16(mpu6050_read(GYRO_XOUT_H), mpu6050_read(GYRO_XOUT_L));
+   float grx = (float)gxv/(float)131;
+   return grx;
 }
 
-float MPU6050_Read_Gy(void)
+float mpu6050_get_gy(void)
 {
-    return (float)(((int)(MPU6050_Read(GYRO_YOUT_H) << 8 | MPU6050_Read(GYRO_YOUT_L)))/(float)131);
+   signed long gyv = make16(mpu6050_read(GYRO_YOUT_H), mpu6050_read(GYRO_YOUT_L));
+   float gry = (float)gyv/(float)131;
+   return gry;
 }
 
-float MPU6050_Read_Gz(void)
+float mpu6050_get_gz(void)
 {
-    return (float)(((int)(MPU6050_Read(GYRO_ZOUT_H) << 8 | MPU6050_Read(GYRO_ZOUT_L)))/(float)131);;
+   signed long gzv = make16(mpu6050_read(GYRO_ZOUT_H), mpu6050_read(GYRO_ZOUT_L));
+   float grz = (float)gzv/(float)131;
+   return grz;
 }
 
-float MPU6050_Read_Temperature(void)
+float mpu6050_get_temp()
 {
-    return (float)(((int)(MPU6050_Read(TEMP_OUT_H) << 8 | MPU6050_Read(TEMP_OUT_L)))/(float)340+(float)36.53);
+   signed long tmpv = make16(mpu6050_read(TEMP_OUT_H), mpu6050_read(TEMP_OUT_L));
+   float tmp_mpu = (float)(tmpv/(float)340 + (float)36.53);
+   return tmp_mpu;
 }
