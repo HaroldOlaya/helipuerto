@@ -1,0 +1,61 @@
+#include <16f877a.h>
+#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,NOBROWNOUT
+#use delay(clock=20000000)
+#use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
+#use standard_io(D)
+#include <lcd.c>                    // Libreria para el manejo de la LCD 20x4
+#include <MPU6050.c> 
+#include <servos.c>
+#define use_servo_1
+#define use_servo_2
+// Utiliza el servo 1
+#define servo_1 PIN_C1
+#define servo_2 PIN_C2
+// Pin del servo 1
+#include <servo_st.c>  // Libreria para el manejo del modulo MPU6050
+float Ax, Ay, Az, Gx, Gy, Gz, t;          // Variables para almacenar los datos del acelerometro y giroscopio
+
+void main()
+{
+   lcd_init();    
+   servo_init();  // Inicializa la pantalla LCD
+   MPU6050_init();
+   
+   while(true)
+   {
+      Ax = MPU6050_get_Ax();              // Acelerometro eje x
+      Ay = MPU6050_get_Ay();              // Acelerometro eje y
+      Az = MPU6050_get_Az();              // Acelerometro eje z
+      
+      Gx = MPU6050_get_Gx();              // Giroscopio eje x
+      Gy = MPU6050_get_Gy();              // Giroscopio eje y
+      Gz = MPU6050_get_Gz();              // Giroscopio eje z
+      
+      t = MPU6050_get_Temp();             // Temperatura
+      
+      lcd_gotoxy(1,1);
+      printf(lcd_putc, "Ax:%0.2f Ay:%0.2f", Ax, Ay);  // Imprime Ax y Ay en la primera línea
+      
+      lcd_gotoxy(1,2);
+      printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);  // Imprime Gx y Gy en la segunda línea
+      
+      delay_ms(200);
+      servo_1_write(0);       // 0°
+      delay_ms(1000);
+      
+      servo_1_write(90);      // 90°
+      delay_ms(1000);
+      
+      servo_1_write(180);     // 180°
+      delay_ms(1000);
+      servo_2_write(0);       // 0°
+      delay_ms(1000);
+      
+      servo_2_write(90);      // 90°
+      delay_ms(1000);
+      
+      servo_2_write(180);     // 180°
+      delay_ms(1000);// Retraso para que la pantalla pueda actualizarse
+   } 
+}
+

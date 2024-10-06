@@ -1,26 +1,25 @@
 
-ROM used:   2920/8192 (36%)
-            2939/8192 (36%) including unused fragments
+ROM used:   2784/8192 (34%)
+            2840/8192 (35%) including unused fragments
 
-            1.7 Average locations per line
-            13.8 Average locations per statement
+            1.9 Average locations per line
+            17.4 Average locations per statement
 
-RAM used:   63/368 (17%) at main() level
-            93/368 (25%) worst case
+RAM used:   58/368 (16%) at main() level
+            87/368 (24%) worst case
 
 Stack used: 6 worst case (5 in main + 1 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   62    29  14  helipuerto.c
+   80    31  19  helipuerto.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
-  456    84  40  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
-  110    24  11  MPU6050.c
-  249    54  25  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\servos.c
-  146    21  10  servo_st.c
+  456    84  52  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  110    24  15  MPU6050.c
+  146    21  13  servo_st.c
 ----- -----
- 1694   212 Total
+ 1463   160 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -34,7 +33,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     62   2    6   814  7.2  lcd_init
 0     18   1    4   208  6.3  lcd_gotoxy
 0     44   2    1   354  4.7  lcd_putc
-0     72   2    2   102  1.8  mpu6050_write
+0     72   3    2   102  1.8  mpu6050_write
 0    196   7    2   174  2.4  mpu6050_read
 0     18   1    0    88  1.7  mpu6050_init
 0     37   1    2   104  3.2  @SITOF
@@ -46,44 +45,42 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     61   2   12   140  3.5  mpu6050_get_gy
 0     61   2   12   140  3.5  mpu6050_get_gz
  Inline        16   127  3.7  @ADDFF
-0    409  14   14   189  2.0  mpu6050_get_temp
-0     59   2    1   420  5.8  isr_ccp1
-0     59   2    1   433  5.0  isr_ccp2
-0     61   2    0   277  4.2  timer_0
-0     14   0    0    78  1.6  servo_init
-1    127   4   14   156  5.1  map_int
- Inline         5             @MUL1616
- Inline         5             @DIV1616
+0    409  15   14   166  3.6  mpu6050_get_temp
+0     53   2    0   277  4.2  timer_0
+0     14   1    0    78  1.6  servo_init
+1    127   5   14   156  5.1  map_int
+ Inline         5    69  1.6  @MUL1616
+ Inline         5    33  1.3  @DIV1616
 0     20   1    1    85  2.3  servo_1_write
-1     18   1    1    83  2.5  servo_2_write
-1    304  10    1   819  2.9  MAIN
-0      9   0    0             @const749
- Inline        13             @MULFF
- Inline         5             @FTOSD
+0     20   1    1    83  2.5  servo_2_write
+1    314  11    1   879  2.9  MAIN
+0      9   0    0    72  2.7  @const730
+ Inline        13    78  1.6  @MULFF
+ Inline         5   162  4.3  @FTOSD
 0     79   3   13             @DIV3232
-1    351  12   13             @PRINTF_L32D_652FPFPF
-1     91   3    5             @PSTRINGCN7_652
-0      9   0    0             @const763
- Inline         0             @cinit1
+1    351  13   13             @PRINTF_L32D_652FPFPF
+0     87   3    5   879  2.9  @PSTRINGCN7_652
+0      9   0    0    83  2.5  @const744
+ Inline         0   819  2.9  @cinit1
 
 Program metrics:
-    Functions               27
-    Statements              212
-    Comments                332
-    Volume (V)              12431
-    Difficulty (D)          98.1
-    Effort to implement (E) 1219860
-    Time to implement (T)   18 hours, 50 minutes
-    Est Delivered Bugs (B)  4
-    Cyclomatic Complexity   15
-    Maintainability (MI)    68
+    Functions               33
+    Statements              160
+    Comments                288
+    Volume (V)              15186
+    Difficulty (D)          111.6
+    Effort to implement (E) 1694067
+    Time to implement (T)   26 hours, 9 minutes
+    Est Delivered Bugs (B)  5
+    Cyclomatic Complexity   12
+    Maintainability (MI)    64
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-00060    93  0  
-00061-007FF  1932  19  
-00800-00FFF   891  1157  
+00004-0004E    75  0  
+0004F-007FF  1913  56  
+00800-00FFF   792  1256  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

@@ -12,17 +12,17 @@
 // Configuración de entrada/salida estándar para los puertos
 #use standard_io(D)
 #use standard_io(A)
-#define use_servo_1 
-#define use_servo_2 
-// Definiciones para el uso de los servos
-#define servo_1 PIN_A0   // Pin del servo 1
-#define servo_2 PIN_A1   // Pin del servo 2
+
 // Inclusión de librerías necesarias
 #include <lcd.c>         // Librería para el manejo de la LCD
 #include <MPU6050.c>     // Librería para el manejo del MPU6050     // Librería para el control de servos
 #include <servo_st.c>    // Librería adicional para el manejo de servos
 
-
+// Definiciones para el uso de los servos
+#define use_servo_1
+#define use_servo_2
+#define servo_1 PIN_A0   // Pin del servo 1
+#define servo_2 PIN_A1   // Pin del servo 2
 
 // Declaración de variables para almacenar los datos del acelerómetro y giroscopio
 float Ax, Ay, Az, Gx, Gy, Gz, t;

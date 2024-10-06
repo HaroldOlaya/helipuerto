@@ -18,7 +18,9 @@ Type=4
 4=mpu6050.h
 5=..\..\..\..\..\Music\MPU6050\MPU6050 Lectura\MPU6050 Lectura.c
 6=..\..\..\..\..\Music\Control Servomotor\Servomotor\Servomotor.c
-7=
+7=..\..\..\..\..\Music\Libreria Servo\servo_st.c
+8=servo_st.c
+9=
 [Units]
 Count=1
 1=helipuerto (main)
