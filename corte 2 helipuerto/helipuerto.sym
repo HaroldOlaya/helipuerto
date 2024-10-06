@@ -1,13 +1,13 @@
-004-005 @WRITE_PROGRAM_MEMORY8.P1
-004-005 @READ_PROGRAM_MEMORY8.P2
-008     PSP_DATA
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
 008     lcdlat
 008     lcd
-015     CCP_1
+008     PSP_DATA
 015     CCP_1_LOW
+015     CCP_1
 016     CCP_1_HIGH
-01B     CCP_2_LOW
 01B     CCP_2
+01B     CCP_2_LOW
 01C     CCP_2_HIGH
 020     @TRIS_C
 021-024 Ax
@@ -17,26 +17,26 @@
 031-034 Gy
 035-038 Gz
 039-03C t
-03D-03E mpu6050_get_gz.gzv
-03D-03E mpu6050_get_ay.ayv
-03D-03E mpu6050_get_gy.gyv
-03D-03E mpu6050_get_gx.gxv
-03D     @PSTRINGCN7_652.P1
-03D     mpu6050_write.add
-03D-03E mpu6050_get_az.azv
 03D     lcd_init.i
+03D-03E mpu6050_get_gz.gzv
+03D     @PSTRINGCN7_652.P1
+03D-040 @PRINTF_L32D_652FPFPF.P2
+03D-03E mpu6050_get_ay.ayv
+03D-03E mpu6050_get_gx.gxv
 03D-03E mpu6050_get_ax.axv
-03D-040 @PRINTF_L32D_652FPFPF.P1
+03D     mpu6050_write.add
+03D-03E mpu6050_get_gy.gyv
 03D-03E mpu6050_get_temp.tmpv
-03E     mpu6050_write.data
+03D-03E mpu6050_get_az.azv
 03E-041 lcd_init.LCD_INIT_STRING
+03E     mpu6050_write.data
 03E     @PSTRINGCN7_652.@SCRATCH1
-03F-042 mpu6050_get_gx.grx
-03F-042 mpu6050_get_gz.grz
+03F-042 mpu6050_get_gy.gry
 03F-042 mpu6050_get_ay.acy
 03F-042 mpu6050_get_ax.acx
+03F-042 mpu6050_get_gz.grz
+03F-042 mpu6050_get_gx.grx
 03F-042 mpu6050_get_temp.tmp_mpu
-03F-042 mpu6050_get_gy.gry
 03F-042 mpu6050_get_az.acz
 03F     @PSTRINGCN7_652.@SCRATCH2
 040     @PSTRINGCN7_652.@SCRATCH3
@@ -61,8 +61,8 @@
 044     mpu6050_get_gz.@SCRATCH2
 044     mpu6050_get_temp.@SCRATCH2
 044     @PRINTF_L32D_652FPFPF.@SCRATCH3
-045-046 @SITOF.P1
 045     mpu6050_read.retval
+045-046 @SITOF.P1
 045     mpu6050_get_ax.@SCRATCH3
 045     mpu6050_get_ay.@SCRATCH3
 045     mpu6050_get_az.@SCRATCH3
@@ -102,14 +102,14 @@
 049-04C @DIVFF.P1
 049     mpu6050_get_temp.@SCRATCH7
 049     @PRINTF_L32D_652FPFPF.@SCRATCH8
-04A-04D @DIV3232.P1
-04A-04D @FTOSD.P2
 04A     lcd_putc.c
 04A-04D @MULFF.P1
+04A-04D @FTOSD.P2
+04A-04D @DIV3232.P3
 04A     mpu6050_get_temp.@SCRATCH8
-04B     @delay_ms1.P1
-04B     lcd_gotoxy.x
 04B-04E @ADDFF.P1
+04B     lcd_gotoxy.x
+04B     @delay_ms1.P1
 04C     lcd_gotoxy.y
 04D-050 @DIVFF.P1
 04D     lcd_gotoxy.address
@@ -163,49 +163,48 @@
 ROM Allocation:
 000004  @const710.call
 00000D  @const724.call
-000016  @const725.call
-00001F  @delay_ms1
-000033  lcd_send_nibble
-000044  lcd_read_nibble
-00004A  lcd_send_byte
-000050  lcd_read_byte
-00008C  lcd_init
-0000CA  @I2C_WRITE_1
-000126  mpu6050_write
-00016E  mpu6050_init
-000180  mpu6050_read
-0001D0  @I2C_READ_1
-000244  @SITOF
-000269  @DIVFF
-000333  mpu6050_get_ax
-00036F  mpu6050_get_ay
-0003AB  mpu6050_get_az
-0003E7  mpu6050_get_gx
-000424  mpu6050_get_gy
-000461  mpu6050_get_gz
-00049E  mpu6050_get_temp
-0004DF  @ADDFF
-000637  lcd_gotoxy
-000649  lcd_putc
-000675  @DIV3232
-0006C4  @PSTRINGCN7_652
+000016  @delay_ms1
+00002A  lcd_send_nibble
+00003B  lcd_read_nibble
+000041  lcd_send_byte
+000047  lcd_read_byte
+000083  lcd_init
+0000C1  @I2C_WRITE_1
+00011D  mpu6050_write
+000165  mpu6050_init
+000177  mpu6050_read
+0001C7  @I2C_READ_1
+00023B  @SITOF
+000260  @DIVFF
+00032A  mpu6050_get_ax
+000366  mpu6050_get_ay
+0003A2  mpu6050_get_az
+0003DE  mpu6050_get_gx
+00041B  mpu6050_get_gy
+000458  mpu6050_get_gz
+000495  mpu6050_get_temp
+0004D6  @ADDFF
+00062E  lcd_gotoxy
+000640  lcd_putc
+00066C  @DIV3232
+0006BB  @PSTRINGCN7_652
+000712  MAIN
+000712  @cinit1
+00071E  @cinit2
 000800  @PRINTF_L32D_652FPFPF
 000814  @MULFF
 00089A  @FTOSD
-00095F  MAIN
-00095F  @cinit1
-00096B  @cinit2
 
 Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\corte 2 helipuerto\
 
 Project Files:
-    helipuerto.c                                            [05-oct.-24 20:30  CRC=7F82787F]
+    helipuerto.c                                            [05-oct.-24 20:54  CRC=F941C5AA]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
 
-Source signature=6B9887C7
+Source signature=E557D4F2
 
 Units:
     helipuerto (main)

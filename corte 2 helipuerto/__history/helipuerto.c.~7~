@@ -24,12 +24,22 @@ void main()
       
       t = MPU6050_get_Temp();             // Temperatura
       
+      //lcd_clear();
       lcd_gotoxy(1,1);
-      printf(lcd_putc, "Ax:%0.2f Ay:%0.2f", Ax, Ay);  // Imprime Ax y Ay en la primera línea
+      printf(lcd_putc, "Ax:%0.2f Ay:%0.2f", Ax, Ay); // Imprime Ax y Ay en la primera línea
       
       lcd_gotoxy(1,2);
-      printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);  // Imprime Gx y Gy en la segunda línea
+      printf(lcd_putc, "Az:%0.2f Gx:%0.2f", Az, Gx); // Imprime Az y Gx en la segunda línea
       
-      delay_ms(200); // Retraso para que la pantalla pueda actualizarse
-   } 
+      // Si deseas mostrar más información, puedes alternar entre diferentes pantallas con delays
+      delay_ms(200);
+      //lcd_clear();
+      
+      lcd_gotoxy(1,1);
+      printf(lcd_putc, "Gy:%0.2f Gz:%0.2f", Gy, Gz); // Imprime Gy y Gz en la primera línea
+      
+      lcd_gotoxy(1,2);
+      printf(lcd_putc, "T:%0.2f", t); // Imprime la temperatura en la segunda línea
+      delay_ms(200);
+   }
 }

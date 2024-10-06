@@ -1,5 +1,5 @@
 ÀÄhelipuerto
-   ÀÄMAIN  1/317  Ram=0
+   ÀÄMAIN  0/191  Ram=0
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄlcd_init  0/62  Ram=6
       ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -125,29 +125,6 @@
       ÃÄ@PRINTF_L32D_652FPFPF  1/351  Ram=13
       ³  ÀÄ*
       ÃÄ@PSTRINGCN7_652  0/87  Ram=5
-      ³  ÀÄ*
-      ÃÄ@PRINTF_L32D_652FPFPF  1/351  Ram=13
-      ³  ÀÄ*
-      ÃÄ@delay_ms1  0/20  Ram=1
-      ÃÄlcd_gotoxy  0/18  Ram=4
-      ³  ÀÄ*
-      ÃÄlcd_putc  0/44  Ram=1
-      ³  ÀÄ*
-      ÃÄlcd_putc  0/44  Ram=1
-      ³  ÀÄ*
-      ÃÄlcd_putc  0/44  Ram=1
-      ³  ÀÄ*
-      ÃÄ@PRINTF_L32D_652FPFPF  1/351  Ram=13
-      ³  ÀÄ*
-      ÃÄ@PSTRINGCN7_652  0/87  Ram=5
-      ³  ÀÄ*
-      ÃÄ@PRINTF_L32D_652FPFPF  1/351  Ram=13
-      ³  ÀÄ*
-      ÃÄlcd_gotoxy  0/18  Ram=4
-      ³  ÀÄ*
-      ÃÄlcd_putc  0/44  Ram=1
-      ³  ÀÄ*
-      ÃÄlcd_putc  0/44  Ram=1
       ³  ÀÄ*
       ÃÄ@PRINTF_L32D_652FPFPF  1/351  Ram=13
       ³  ÀÄ*
