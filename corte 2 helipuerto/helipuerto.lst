@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 22:43
+CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 23:03
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\corte 2 helipuerto\helipuerto.lst
 
@@ -3532,8 +3532,8 @@ CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 22:43
 0AC5:  BCF    0A.3
 0AC6:  CALL   7A0
 0AC7:  BSF    0A.3
-....................         delay_ms(1000); 
-0AC8:  MOVLW  04
+....................         delay_ms(2000); 
+0AC8:  MOVLW  08
 0AC9:  MOVWF  54
 0ACA:  MOVLW  FA
 0ACB:  MOVWF  62
@@ -3548,8 +3548,8 @@ CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 22:43
 0AD3:  BCF    0A.3
 0AD4:  CALL   7A0
 0AD5:  BSF    0A.3
-....................         delay_ms(1000); 
-0AD6:  MOVLW  04
+....................         delay_ms(2000); 
+0AD6:  MOVLW  08
 0AD7:  MOVWF  54
 0AD8:  MOVLW  FA
 0AD9:  MOVWF  62
@@ -3564,8 +3564,8 @@ CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 22:43
 0AE1:  BCF    0A.3
 0AE2:  CALL   7A0
 0AE3:  BSF    0A.3
-....................         delay_ms(1000); 
-0AE4:  MOVLW  04
+....................         delay_ms(2000); 
+0AE4:  MOVLW  08
 0AE5:  MOVWF  54
 0AE6:  MOVLW  FA
 0AE7:  MOVWF  62
@@ -3581,8 +3581,8 @@ CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 22:43
 0AEE:  BCF    0A.3
 0AEF:  CALL   7B4
 0AF0:  BSF    0A.3
-....................         delay_ms(1000); 
-0AF1:  MOVLW  04
+....................         delay_ms(2000); 
+0AF1:  MOVLW  08
 0AF2:  MOVWF  54
 0AF3:  MOVLW  FA
 0AF4:  MOVWF  62
@@ -3597,8 +3597,8 @@ CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 22:43
 0AFC:  BCF    0A.3
 0AFD:  CALL   7B4
 0AFE:  BSF    0A.3
-....................         delay_ms(1000); 
-0AFF:  MOVLW  04
+....................         delay_ms(2000); 
+0AFF:  MOVLW  08
 0B00:  MOVWF  54
 0B01:  MOVLW  FA
 0B02:  MOVWF  62
@@ -3613,8 +3613,8 @@ CCS PCM C Compiler, Version 5.015, 5967               05-oct.-24 22:43
 0B0A:  BCF    0A.3
 0B0B:  CALL   7B4
 0B0C:  BSF    0A.3
-....................         delay_ms(1000);  
-0B0D:  MOVLW  04
+....................         delay_ms(2000);  
+0B0D:  MOVLW  08
 0B0E:  MOVWF  54
 0B0F:  MOVLW  FA
 0B10:  MOVWF  62
