@@ -35,9 +35,7 @@ void main() {
     // Inicialización de los módulos
     lcd_init();         // Inicializa la pantalla LCD
     servo_init();       // Inicializa el control de los servos
-    MPU6050_init();
-    printf(lcd_putc, " BIENVENIDO");
-    delay_ms(1000);// Inicializa el módulo MPU6050 (acelerómetro y giroscopio)
+    MPU6050_init();     // Inicializa el módulo MPU6050 (acelerómetro y giroscopio)
 
     // Bucle principal
     while (true) {
@@ -62,13 +60,20 @@ void main() {
         delay_ms(200);  // Pequeño retraso para la actualización
 
         // Control del servo 1
-        servo_1_write(90);   // Mueve el servo 1 a 0°
+        servo_1_write(0);   // Mueve el servo 1 a 0°
+        delay_ms(2000);
+        servo_1_write(90);  // Mueve el servo 1 a 90°
+        delay_ms(2000);
+        servo_1_write(180); // Mueve el servo 1 a 180°
         delay_ms(2000);
 
         // Control del servo 2
-        servo_2_write(90);   // Mueve el servo 2 a 0°
+        servo_2_write(0);   // Mueve el servo 2 a 0°
         delay_ms(2000);
-         
+        servo_2_write(90);  // Mueve el servo 2 a 90°
+        delay_ms(2000);
+        servo_2_write(180); // Mueve el servo 2 a 180°
+        delay_ms(2000); 
     }
 }
 
