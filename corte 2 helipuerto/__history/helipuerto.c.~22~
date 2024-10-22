@@ -64,12 +64,9 @@ void main() {
         // Control del servo 1
         servo_1_write(90);   // Mueve el servo 1 a 0°
         delay_ms(2000);
-        servo_1_write(0);   // Mueve el servo 1 a 0°
-        delay_ms(2000);
+
         // Control del servo 2
         servo_2_write(90);   // Mueve el servo 2 a 0°
-        delay_ms(2000);
-        servo_2_write(0);   // Mueve el servo 2 a 0°
         delay_ms(2000);
          
     }

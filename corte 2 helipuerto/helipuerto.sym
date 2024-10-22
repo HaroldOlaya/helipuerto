@@ -259,7 +259,7 @@ ROM Allocation:
 000600  @ADDFF
 000758  @DIV3232
 0007A7  servo_1_write
-0007BD  servo_2_write
+0007BB  servo_2_write
 000800  @PRINTF_L32D_652FPFPF
 000814  @MULFF
 00089A  @FTOSD
@@ -275,13 +275,13 @@ Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\corte 2 helipuerto\
 
 Project Files:
-    helipuerto.c                                            [08-oct.-24 21:21  CRC=CB791CCC]
+    helipuerto.c                                            [21-oct.-24 20:03  CRC=63279A1D]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=D5E6A80F
+Source signature=6D952560
 
 Units:
     helipuerto (main)

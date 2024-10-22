@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.015, 5967               08-oct.-24 21:22
+CCS PCM C Compiler, Version 5.015, 5967               21-oct.-24 20:03
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\corte 2 helipuerto\helipuerto.lst
 
-               ROM used:   2846 words (35%)
+               ROM used:   2868 words (35%)
                            Largest free fragment is 2048
                RAM used:   58 (16%) at main() level
                            87 (24%) worst case
@@ -3269,9 +3269,7 @@ CCS PCM C Compiler, Version 5.015, 5967               08-oct.-24 21:22
 07B7:  BCF    0A.3
 07B8:  MOVF   78,W
 07B9:  MOVWF  2E
-07BA:  BSF    0A.3
-07BB:  BCF    0A.4
-07BC:  GOTO   331 (RETURN)
+07BA:  RETURN
 .................... } 
 .................... #endif 
 ....................  
@@ -3279,28 +3277,26 @@ CCS PCM C Compiler, Version 5.015, 5967               08-oct.-24 21:22
 .................... void servo_2_write(int angle2) 
 .................... { 
 ....................    pwm_st[1] = map_int(angle2, 0, 180, v_min, v_max); 
-07BD:  CLRF   56
-07BE:  MOVF   54,W
-07BF:  MOVWF  55
-07C0:  CLRF   58
-07C1:  CLRF   57
-07C2:  CLRF   5A
-07C3:  MOVLW  B4
-07C4:  MOVWF  59
-07C5:  CLRF   5C
-07C6:  MOVLW  0B
-07C7:  MOVWF  5B
-07C8:  CLRF   5E
-07C9:  MOVLW  30
-07CA:  MOVWF  5D
-07CB:  BSF    0A.3
-07CC:  CALL   1BA
-07CD:  BCF    0A.3
-07CE:  MOVF   78,W
-07CF:  MOVWF  2F
-07D0:  BSF    0A.3
-07D1:  BCF    0A.4
-07D2:  GOTO   33F (RETURN)
+07BB:  CLRF   56
+07BC:  MOVF   54,W
+07BD:  MOVWF  55
+07BE:  CLRF   58
+07BF:  CLRF   57
+07C0:  CLRF   5A
+07C1:  MOVLW  B4
+07C2:  MOVWF  59
+07C3:  CLRF   5C
+07C4:  MOVLW  0B
+07C5:  MOVWF  5B
+07C6:  CLRF   5E
+07C7:  MOVLW  30
+07C8:  MOVWF  5D
+07C9:  BSF    0A.3
+07CA:  CALL   1BA
+07CB:  BCF    0A.3
+07CC:  MOVF   78,W
+07CD:  MOVWF  2F
+07CE:  RETURN
 .................... } 
 .................... #endif 
 ....................  
@@ -3650,7 +3646,7 @@ CCS PCM C Compiler, Version 5.015, 5967               08-oct.-24 21:22
 0B2D:  MOVLW  5A
 0B2E:  MOVWF  54
 0B2F:  BCF    0A.3
-0B30:  GOTO   7A7
+0B30:  CALL   7A7
 0B31:  BSF    0A.3
 ....................         delay_ms(2000); 
 0B32:  MOVLW  08
@@ -3662,30 +3658,59 @@ CCS PCM C Compiler, Version 5.015, 5967               08-oct.-24 21:22
 0B38:  BSF    0A.3
 0B39:  DECFSZ 54,F
 0B3A:  GOTO   334
-....................  
+....................         servo_1_write(0);   // Mueve el servo 1 a 0° 
+0B3B:  CLRF   54
+0B3C:  BCF    0A.3
+0B3D:  CALL   7A7
+0B3E:  BSF    0A.3
+....................         delay_ms(2000); 
+0B3F:  MOVLW  08
+0B40:  MOVWF  54
+0B41:  MOVLW  FA
+0B42:  MOVWF  62
+0B43:  BCF    0A.3
+0B44:  CALL   09C
+0B45:  BSF    0A.3
+0B46:  DECFSZ 54,F
+0B47:  GOTO   341
 ....................         // Control del servo 2 
 ....................         servo_2_write(90);   // Mueve el servo 2 a 0° 
-0B3B:  MOVLW  5A
-0B3C:  MOVWF  54
-0B3D:  BCF    0A.3
-0B3E:  GOTO   7BD
-0B3F:  BSF    0A.3
+0B48:  MOVLW  5A
+0B49:  MOVWF  54
+0B4A:  BCF    0A.3
+0B4B:  CALL   7BB
+0B4C:  BSF    0A.3
 ....................         delay_ms(2000); 
-0B40:  MOVLW  08
-0B41:  MOVWF  54
-0B42:  MOVLW  FA
-0B43:  MOVWF  62
-0B44:  BCF    0A.3
-0B45:  CALL   09C
-0B46:  BSF    0A.3
-0B47:  DECFSZ 54,F
-0B48:  GOTO   342
-0B49:  GOTO   268
+0B4D:  MOVLW  08
+0B4E:  MOVWF  54
+0B4F:  MOVLW  FA
+0B50:  MOVWF  62
+0B51:  BCF    0A.3
+0B52:  CALL   09C
+0B53:  BSF    0A.3
+0B54:  DECFSZ 54,F
+0B55:  GOTO   34F
+....................         servo_2_write(0);   // Mueve el servo 2 a 0° 
+0B56:  CLRF   54
+0B57:  BCF    0A.3
+0B58:  CALL   7BB
+0B59:  BSF    0A.3
+....................         delay_ms(2000); 
+0B5A:  MOVLW  08
+0B5B:  MOVWF  54
+0B5C:  MOVLW  FA
+0B5D:  MOVWF  62
+0B5E:  BCF    0A.3
+0B5F:  CALL   09C
+0B60:  BSF    0A.3
+0B61:  DECFSZ 54,F
+0B62:  GOTO   35C
+0B63:  GOTO   268
 ....................           
 ....................     } 
 .................... } 
 ....................  
-0B4A:  SLEEP
+0B64:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F3A   HS NOWDT NOPUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT
