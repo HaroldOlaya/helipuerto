@@ -1,0 +1,77 @@
+#include <16f877a.h>
+
+// Configuración de fusibles
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
+
+// Configuración de velocidad del reloj
+#use delay(clock=20000000)
+
+// Configuración del bus I2C
+#use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
+
+// Configuración de entrada/salida estándar para los puertos
+#use standard_io(D)
+#use standard_io(A)
+#define use_servo_1 
+#define use_servo_2 
+// Definiciones para el uso de los servos
+#define servo_1 PIN_A0   // Pin del servo 1
+#define servo_2 PIN_A1   // Pin del servo 2
+// Inclusión de librerías necesarias
+#include <lcd.c>         // Librería para el manejo de la LCD
+#include <MPU6050.c>     // Librería para el manejo del MPU6050     // Librería para el control de servos
+#include <servo_st.c>    // Librería adicional para el manejo de servos
+
+
+
+// Declaración de variables para almacenar los datos del acelerómetro y giroscopio
+float Ax, Ay, Az, Gx, Gy, Gz, t;
+
+void main() {
+    // Configuración de los puertos
+    set_tris_d(0x00);  // Configura el puerto D completo como salida para la LCD
+    set_tris_a(0xFC);  // Configura A0 y A1 como salidas para los servos (los demás como entradas)
+    
+    // Inicialización de los módulos
+    lcd_init();         // Inicializa la pantalla LCD
+    servo_init();       // Inicializa el control de los servos
+    MPU6050_init();
+    printf(lcd_putc, " BIENVENIDO");
+    delay_ms(1000);// Inicializa el módulo MPU6050 (acelerómetro y giroscopio)
+
+    // Bucle principal
+    while (true) {
+        // Obtener datos del MPU6050
+        Ax = MPU6050_get_Ax();  // Acelerómetro eje X
+        Ay = MPU6050_get_Ay();  // Acelerómetro eje Y
+        Az = MPU6050_get_Az();  // Acelerómetro eje Z
+        
+        Gx = MPU6050_get_Gx();  // Giroscopio eje X
+        Gy = MPU6050_get_Gy();  // Giroscopio eje Y
+        Gz = MPU6050_get_Gz();  // Giroscopio eje Z
+        
+        t = MPU6050_get_Temp(); // Temperatura
+
+        // Mostrar datos en la pantalla LCD
+        lcd_gotoxy(1, 1);  // Posición (1,1) en la LCD
+        printf(lcd_putc, "Ax:%0.2f Ay:%0.2f", Ax, Ay);  // Imprime Ax y Ay en la primera línea
+        
+        lcd_gotoxy(1, 2);  // Posición (1,2) en la LCD
+        printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);  // Imprime Gx y Gy en la segunda línea
+        
+        delay_ms(200);  // Pequeño retraso para la actualización
+
+        // Control del servo 1
+        servo_1_write(90);   // Mueve el servo 1 a 0°
+        delay_ms(2000);
+        servo_1_write(0);   // Mueve el servo 1 a 0°
+        delay_ms(2000);
+        // Control del servo 2
+        servo_2_write(90);   // Mueve el servo 2 a 0°
+        delay_ms(2000);
+        servo_2_write(0);   // Mueve el servo 2 a 0°
+        delay_ms(2000);
+         
+    }
+}
+

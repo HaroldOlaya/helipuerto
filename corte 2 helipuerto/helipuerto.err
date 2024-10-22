@@ -1,3 +1,7 @@
-      Memory usage:   ROM=35%      RAM=16% - 24%
-      0 Errors,  0 Warnings.
+>>> Warning 205 "helipuerto.c" Line 100(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "helipuerto.c" Line 100(1,1): Condition always FALSE
+>>> Warning 205 "helipuerto.c" Line 107(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "helipuerto.c" Line 107(1,1): Condition always FALSE
+      Memory usage:   ROM=46%      RAM=32% - 42%
+      0 Errors,  4 Warnings.
 Build Successful.

@@ -96,21 +96,10 @@ void main() {
         angle_y = 90 - (int)output_y;  // Calcular ángulo del servo 2
         
         // Limitar ángulos entre 0 y 180
-        // Limitar ángulos entre 0 y 180
-         if (angle_x < 0) {
-             angle_x = 0;  // Si angle_x es menor que 0, establecerlo a 0
-         }
-         if (angle_x > 180) {
-             angle_x = 180;  // Si angle_x es mayor que 180, establecerlo a 180
-         }
-         
-         if (angle_y < 0) {
-             angle_y = 0;  // Si angle_y es menor que 0, establecerlo a 0
-         }
-         if (angle_y > 180) {
-             angle_y = 180;  // Si angle_y es mayor que 180, establecerlo a 180
-         }
-         
+        if (angle_x < 0) angle_x = 0;
+        if (angle_x > 180) angle_x = 180;
+        if (angle_y < 0) angle_y = 0;
+        if (angle_y > 180) angle_y = 180;
 
         // Enviar los ángulos a los servos
         servo_1_write(angle_x);   // Mueve el servo 1 a angle_x

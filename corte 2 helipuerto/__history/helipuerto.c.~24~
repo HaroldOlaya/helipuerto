@@ -1,0 +1,108 @@
+#include <16f877a.h>
+
+// Configuración de fusibles
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
+
+// Configuración de velocidad del reloj
+#use delay(clock=20000000)
+
+// Configuración del bus I2C
+#use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
+
+// Configuración de entrada/salida estándar para los puertos
+#use standard_io(D)
+#use standard_io(A)
+
+// Definiciones para el uso de los servos
+#define servo_1 PIN_A0   // Pin del servo 1
+#define servo_2 PIN_A1   // Pin del servo 2
+
+// Inclusión de librerías necesarias
+#include <lcd.c>         // Librería para el manejo de la LCD
+#include <MPU6050.c>     // Librería para el manejo del MPU6050
+#include <servo_st.c>    // Librería adicional para el manejo de servos
+
+// Declaración de variables para almacenar los datos del acelerómetro y giroscopio
+float Ax, Ay, Az, Gx, Gy, Gz;
+float setpoint_x = 0.0, setpoint_y = 0.0;  // Valores deseados (plataforma nivelada)
+float prev_error_x = 0, prev_error_y = 0;
+float integral_x = 0, integral_y = 0;
+float kp = 1.0, ki = 0.0, kd = 0.0;  // Valores de ajuste para el PID
+
+// Función para calcular ángulos de inclinación usando los datos del acelerómetro
+float calcular_angulo_x(float Ax, float Az) {
+    return atan2(Ax, Az) * (180.0 / 3.14159);  // Convierte radianes a grados
+}
+
+float calcular_angulo_y(float Ay, float Az) {
+    return atan2(Ay, Az) * (180.0 / 3.14159);  // Convierte radianes a grados
+}
+
+// Controlador PID para eje X
+float pid_x(float current_angle) {
+    float error = setpoint_x - current_angle;
+    integral_x += error;  // Integral
+    float derivative = error - prev_error_x;  // Derivada
+    prev_error_x = error;
+    
+    // Fórmula PID
+    return (kp * error) + (ki * integral_x) + (kd * derivative);
+}
+
+// Controlador PID para eje Y
+float pid_y(float current_angle) {
+    float error = setpoint_y - current_angle;
+    integral_y += error;  // Integral
+    float derivative = error - prev_error_y;  // Derivada
+    prev_error_y = error;
+    
+    // Fórmula PID
+    return (kp * error) + (ki * integral_y) + (kd * derivative);
+}
+
+void main() {
+    // Configuración de los puertos
+    set_tris_d(0x00);  // Configura el puerto D completo como salida para la LCD
+    set_tris_a(0xFC);  // Configura A0 y A1 como salidas para los servos (los demás como entradas)
+    
+    // Inicialización de los módulos
+    lcd_init();         // Inicializa la pantalla LCD
+    servo_init();       // Inicializa el control de los servos
+    MPU6050_init();     // Inicializa el MPU6050
+
+    printf(lcd_putc, " BIENVENIDO");
+    delay_ms(1000);
+
+    // Bucle principal
+    while (true) {
+        // Obtener datos del MPU6050
+        Ax = MPU6050_get_Ax();
+        Ay = MPU6050_get_Ay();
+        Az = MPU6050_get_Az();
+        
+        // Calcular ángulos de inclinación
+        float angle_x = calcular_angulo_x(Ax, Az);
+        float angle_y = calcular_angulo_y(Ay, Az);
+
+        // Mostrar ángulos en la pantalla LCD
+        lcd_gotoxy(1, 1);
+        printf(lcd_putc, "AngX:%0.2f", angle_x);
+        lcd_gotoxy(1, 2);
+        printf(lcd_putc, "AngY:%0.2f", angle_y);
+        
+        // Control PID para los servos
+        float correction_x = pid_x(angle_x);  // PID para el servo 1 (eje X)
+        float correction_y = pid_y(angle_y);  // PID para el servo 2 (eje Y)
+        
+        // Limitar la corrección a un rango de 0 a 180 grados
+        correction_x = (correction_x > 180.0) ? 180.0 : (correction_x < 0.0) ? 0.0 : correction_x;
+        correction_y = (correction_y > 180.0) ? 180.0 : (correction_y < 0.0) ? 0.0 : correction_y;
+
+        // Controlar los servos con los valores calculados por el PID
+        servo_1_write((int)correction_x);
+        servo_2_write((int)correction_y);
+
+        delay_ms(200);  // Pequeño retraso para la actualización
+    }
+}
+

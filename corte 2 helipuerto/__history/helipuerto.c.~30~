@@ -1,0 +1,103 @@
+#include <16f877a.h>
+#include <math.h>       // Incluir la librería para funciones matemáticas
+
+// Configuración de fusibles
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
+
+// Configuración de velocidad del reloj
+#use delay(clock=20000000)
+
+// Configuración del bus I2C
+#use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
+
+// Configuración de entrada/salida estándar para los puertos
+#use standard_io(D)
+#use standard_io(A)
+
+// Definiciones para el uso de los servos
+#define servo_1 PIN_A0   // Pin del servo 1
+#define servo_2 PIN_A1   // Pin del servo 2
+
+// Inclusión de librerías necesarias
+#include <lcd.c>         // Librería para el manejo de la LCD
+#include <MPU6050.c>     // Librería para el manejo del MPU6050
+
+// Declaración de variables para almacenar los datos del acelerómetro y giroscopio
+float Ax, Ay, Az;
+float setpoint_x = 0.0, setpoint_y = 0.0;  // Valores deseados para los ángulos (nivelado)
+float prev_error_x = 0, prev_error_y = 0;
+float integral_x = 0, integral_y = 0;
+float kp = 1.0, ki = 0.0, kd = 0.0;  // Parámetros PID iniciales
+
+void mover_servo(int16 angulo, int servo_pin) {
+    // Convierte el ángulo en un ancho de pulso entre 1ms (0°) y 2ms (180°)
+    int16 pulso_ms = 1000 + (angulo * 1000 / 180);  // Pulso entre 1000us y 2000us
+    output_high(servo_pin);        // Envía el pulso HIGH al servo
+    delay_us(pulso_ms);            // Espera el tiempo necesario para el pulso
+    output_low(servo_pin);         // Envía el pulso LOW
+    delay_ms(20 - (pulso_ms / 1000)); // Completa el ciclo de 20 ms
+}
+
+// Función para limitar los valores de corrección dentro de 0 a 180 grados
+int limitar(int valor, int min, int max) {
+    if (valor < min) return min;
+    else if (valor > max) return max;
+    else return valor;
+}
+
+void main() {
+    // Configuración de los puertos
+    set_tris_d(0x00);  // Configura el puerto D completo como salida para la LCD
+    set_tris_a(0xFC);  // Configura A0 y A1 como salidas para los servos (los demás como entradas)
+    
+    // Inicialización de los módulos
+    lcd_init();         // Inicializa la pantalla LCD
+    MPU6050_init();     // Inicializa el MPU6050
+
+    // Mensaje de bienvenida en la LCD
+    printf(lcd_putc, " BIENVENIDO");
+    delay_ms(1000);
+
+    // Bucle principal
+    while (true) {
+        // Obtener datos del MPU6050
+        Ax = MPU6050_get_Ax();
+        Ay = MPU6050_get_Ay();
+        Az = MPU6050_get_Az();
+
+        // Cálculo de los ángulos de inclinación utilizando los datos del acelerómetro
+        float angle_x = atan2(Ax, Az) * (180.0 / 3.14159);  // Convierte radianes a grados
+        float angle_y = atan2(Ay, Az) * (180.0 / 3.14159);  // Convierte radianes a grados
+
+        // Mostrar ángulos en la pantalla LCD
+        lcd_gotoxy(1, 1);
+        printf(lcd_putc, "AngX:%0.2f", angle_x);
+        lcd_gotoxy(1, 2);
+        printf(lcd_putc, "AngY:%0.2f", angle_y);
+        
+        // Control PID para el eje X
+        float error_x = setpoint_x - angle_x;
+        integral_x += error_x;  // Componente integral
+        float derivative_x = error_x - prev_error_x;  // Componente derivada
+        prev_error_x = error_x;
+        float correction_x = (kp * error_x) + (ki * integral_x) + (kd * derivative_x);
+        
+        // Control PID para el eje Y
+        float error_y = setpoint_y - angle_y;
+        integral_y += error_y;  // Componente integral
+        float derivative_y = error_y - prev_error_y;  // Componente derivada
+        prev_error_y = error_y;
+        float correction_y = (kp * error_y) + (ki * integral_y) + (kd * derivative_y);
+
+        // Limitar los valores de corrección entre 0 y 180 grados
+        int correction_x_limited = limitar((int)correction_x, 0, 180);
+        int correction_y_limited = limitar((int)correction_y, 0, 180);
+
+        // Mover los servos con los valores limitados
+        mover_servo(correction_x_limited, servo_1);
+        mover_servo(correction_y_limited, servo_2);
+        
+        delay_ms(200);  // Espera antes de la próxima actualización
+    }
+}
+

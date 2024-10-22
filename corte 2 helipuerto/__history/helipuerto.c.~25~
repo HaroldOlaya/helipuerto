@@ -1,0 +1,81 @@
+#include <16f877a.h>
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
+#use delay(clock=20000000)
+#use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
+
+#use standard_io(D)
+#use standard_io(A)
+
+#define servo_1 PIN_A0
+#define servo_2 PIN_A1
+
+#include <lcd.c>
+#include <MPU6050.c>
+#include <servo_st.c>
+#include <math.h>
+
+// Declaración de variables para el control PID
+float Kp = 1.0, Ki = 0.1, Kd = 0.01;  // Coeficientes PID
+float error_x_prev = 0, error_y_prev = 0;
+float integral_x = 0, integral_y = 0;
+float setpoint_x = 0, setpoint_y = 0;  // El objetivo es mantener ambos ángulos en 0 (horizontal)
+
+// Declaración de variables para almacenar los datos del MPU6050
+float Ax, Ay, Az, Gx, Gy, Gz, t;
+
+// Función PID
+float pid_calculate(float setpoint, float actual, float* integral, float* error_prev) {
+    float error = setpoint - actual;
+    *integral += error;
+    float derivative = error - *error_prev;
+    *error_prev = error;
+    return Kp * error + Ki * (*integral) + Kd * derivative;
+}
+
+void main() {
+    set_tris_d(0x00);  // Puerto D como salida
+    set_tris_a(0xFC);  // A0 y A1 como salidas para los servos
+    
+    lcd_init();         // Inicializa la LCD
+    servo_init();       // Inicializa los servos
+    MPU6050_init();     // Inicializa el MPU6050
+    printf(lcd_putc, "BIENVENIDO");
+    delay_ms(1000);
+
+    while (true) {
+        // Obtener datos del MPU6050
+        Ax = MPU6050_get_Ax();
+        Ay = MPU6050_get_Ay();
+        Az = MPU6050_get_Az();
+        Gx = MPU6050_get_Gx();
+        Gy = MPU6050_get_Gy();
+        Gz = MPU6050_get_Gz();
+        t = MPU6050_get_Temp();
+
+        // Calcular los ángulos de inclinación
+        float pitch = atan2(Ay, Az) * 180.0 / 3.1416;
+        float roll = atan2(Ax, Az) * 180.0 / 3.1416;
+
+        // Mostrar ángulos en la LCD
+        lcd_gotoxy(1, 1);
+        printf(lcd_putc, "Pitch:%0.2f Roll:%0.2f", pitch, roll);
+
+        // Control PID para el servo 1 (controla el ángulo pitch)
+        float pid_output_x = pid_calculate(setpoint_x, pitch, &integral_x, &error_x_prev);
+        int servo_1_pos = 90 + (int)pid_output_x;  // Convertir la salida del PID a un ángulo del servo (0-180°)
+        if (servo_1_pos < 0) servo_1_pos = 0;
+        if (servo_1_pos > 180) servo_1_pos = 180;
+        servo_1_write(servo_1_pos);
+
+        // Control PID para el servo 2 (controla el ángulo roll)
+        float pid_output_y = pid_calculate(setpoint_y, roll, &integral_y, &error_y_prev);
+        int servo_2_pos = 90 + (int)pid_output_y;
+        if (servo_2_pos < 0) servo_2_pos = 0;
+        if (servo_2_pos > 180) servo_2_pos = 180;
+        servo_2_write(servo_2_pos);
+
+        // Pequeño retraso para la actualización
+        delay_ms(200);
+    }
+}
+
