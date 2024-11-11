@@ -20,7 +20,10 @@ Type=4
 6=..\..\..\..\..\Music\Control Servomotor\Servomotor\Servomotor.c
 7=..\..\..\..\..\Music\Libreria Servo\servo_st.c
 8=servo_st.c
-9=
+9=..\..\micros-final\servos16\servos16.c
+10=..\..\micros-final\PID\pid.c
+11=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+12=
 [Units]
 Count=1
 1=helipuerto (main)

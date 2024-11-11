@@ -1,8 +1,8 @@
-C L "MAIN" 0 26 1 "FUNCTION"
-D G "__PCM__" 0 131 ""5.015""
-D G "__DEVICE__" 0 131 "877"
-D G "__DATE__" 0 131 ""10-nov.-24""
-D G "__TIME__" 0 131 ""21:40:03"" "Standard Header file for the PIC16F877A device ////////////////"
+C L "MAIN" 0 24 1 "FUNCTION"
+D G "__PCM__" 0 133 ""5.015""
+D G "__DEVICE__" 0 133 "877"
+D G "__DATE__" 0 133 ""10-nov.-24""
+D G "__TIME__" 0 133 ""21:47:29"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -935,8 +935,10 @@ C L "ldexp" 2 2 6 "FUNCTION"
 V L "value" 2 2209 "float" `757 
 V L "exp" 2 2209 "sint8" `758 
 F G "ldexp" 2 2210 "float(float value,sint8 exp)" `756 
-D G "servo_1" 0 18 "PIN_A0" "Pin del servo 1"
-D G "servo_2" 0 19 "PIN_A1" "Pin del servo 2"
+D G "use_servo_1" 0 16 ""
+D G "use_servo_2" 0 17 ""
+D G "servo_1" 0 19 "PIN_A0" "Pin del servo 1"
+D G "servo_2" 0 20 "PIN_A1" "Pin del servo 2"
 D G "__LCD_C__" 3 76 ""
 T G "LCD_PIN_MAP" 3 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `774  "this is to improve compatability with previous LCD drivers that accepted"
 D G "lcd_output_enable" 3 109 "(x) lcdlat.enable=x"
@@ -1053,73 +1055,77 @@ V L "eMax" 5 72 "int16" `841
 V L "sMin" 5 72 "int16" `842 
 V L "sMax" 5 72 "int16" `843 
 F G "map_int" 5 73 "int16(int16 x,int16 eMin,int16 eMax,int16 sMin,int16 sMax)" `838 
-V G "Ax" 0 27 "float" `850 
-V G "Ay" 0 27 "float" `851 
-V G "Az" 0 27 "float" `852 
-V G "Gx" 0 27 "float" `853 
-V G "Gy" 0 27 "float" `854 
-V G "Gz" 0 27 "float" `855 
-V G "t" 0 27 "float" `856 
-V G "angle_x" 0 28 "int8" `857 
-V G "angle_y" 0 28 "int8" `858  "Variables PID"
-V G "Kp_x" 0 31 "float" `859 
-V G "Ki_x" 0 31 "float" `860 
-V G "Kd_x" 0 31 "float" `861 
-V G "Kp_y" 0 32 "float" `862 
-V G "Ki_y" 0 32 "float" `863 
-V G "Kd_y" 0 32 "float" `864 
-V G "error_x" 0 33 "float" `865 
-V G "error_y" 0 33 "float" `866  "Errores"
-V G "prev_error_x" 0 34 "float" `867 
-V G "prev_error_y" 0 34 "float" `868 
-V G "integral_x" 0 35 "float" `869 
-V G "integral_y" 0 35 "float" `870 
-V G "output_x" 0 36 "float" `871 
-V G "output_y" 0 36 "float" `872  "Salidas del PID"
-C L "round_to_int" 0 26 1 "FUNCTION"
-V L "value" 0 39 "float" `874 
-F G "round_to_int" 0 39 "int8(float value)" `873 
-C L "round_to_int" 0 26 1 "FUNCTION"
-F G "mostrar_menu_pid" 0 43 "void()" `875 
-C L "mostrar_menu_pid" 0 26 1 "FUNCTION"
-C L "mostrar_menu_pid" 0 26 1 "FUNCTION"
-F G "ajustar_pid" 0 50 "void()" `888  "Aquí puedes añadir el código de lógica de entrada para ajustar Kp, Ki, y Kd"
-C L "ajustar_pid" 0 26 2 "FUNCTION"
-F G "MAIN" 0 56 "void()" `889  "Configuración de los puertos"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 2 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 2 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 2 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 2 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 2 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-V L "derivative_x" 0 95 "float" `896 
-V L "derivative_y" 0 96 "float" `897 
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 2 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
-C L "MAIN" 0 26 2 "FUNCTION"
-C L "MAIN" 0 26 1 "FUNCTION"
+V L "angle1" 5 78 "int8" `851 
+F G "servo_1_write" 5 79 "void(int8 angle1)" `850 
+V L "angle2" 5 85 "int8" `853 
+F G "servo_2_write" 5 86 "void(int8 angle2)" `852 
+V G "Ax" 0 29 "float" `854 
+V G "Ay" 0 29 "float" `855 
+V G "Az" 0 29 "float" `856 
+V G "Gx" 0 29 "float" `857 
+V G "Gy" 0 29 "float" `858 
+V G "Gz" 0 29 "float" `859 
+V G "t" 0 29 "float" `860 
+V G "angle_x" 0 30 "int8" `861 
+V G "angle_y" 0 30 "int8" `862  "Variables PID"
+V G "Kp_x" 0 33 "float" `863 
+V G "Ki_x" 0 33 "float" `864 
+V G "Kd_x" 0 33 "float" `865 
+V G "Kp_y" 0 34 "float" `866 
+V G "Ki_y" 0 34 "float" `867 
+V G "Kd_y" 0 34 "float" `868 
+V G "error_x" 0 35 "float" `869 
+V G "error_y" 0 35 "float" `870  "Errores"
+V G "prev_error_x" 0 36 "float" `871 
+V G "prev_error_y" 0 36 "float" `872 
+V G "integral_x" 0 37 "float" `873 
+V G "integral_y" 0 37 "float" `874 
+V G "output_x" 0 38 "float" `875 
+V G "output_y" 0 38 "float" `876  "Salidas del PID"
+C L "round_to_int" 0 28 1 "FUNCTION"
+V L "value" 0 41 "float" `878 
+F G "round_to_int" 0 41 "int8(float value)" `877 
+C L "round_to_int" 0 28 1 "FUNCTION"
+F G "mostrar_menu_pid" 0 45 "void()" `879 
+C L "mostrar_menu_pid" 0 28 1 "FUNCTION"
+C L "mostrar_menu_pid" 0 28 1 "FUNCTION"
+F G "ajustar_pid" 0 52 "void()" `892  "Aquí puedes añadir el código de lógica de entrada para ajustar Kp, Ki, y Kd"
+C L "ajustar_pid" 0 28 2 "FUNCTION"
+F G "MAIN" 0 58 "void()" `893  "Configuración de los puertos"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 2 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 2 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 2 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 2 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 2 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+V L "derivative_x" 0 97 "float" `900 
+V L "derivative_y" 0 98 "float" `901 
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 2 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 2 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

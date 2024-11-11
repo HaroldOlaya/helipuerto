@@ -25,12 +25,12 @@ Lines Stmts  %   Files
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 1     33   1    4             @SFTOI
-1    119   3   13   596  5.9  @MULFF
-0    326   9   16    59  4.2  @ADDFF
-0    204   5   14   208  6.3  @DIVFF
-0     39   1    2   267  6.8  @SITOF
-0     20   1    1   259  6.9  @delay_ms1
- Inline         3  1071  8.0  @I2C_READ_1
+1    119   3   13             @MULFF
+0    326   9   16             @ADDFF
+0    204   5   14             @DIVFF
+0     39   1    2             @SITOF
+0     20   1    1             @delay_ms1
+ Inline         3             @I2C_READ_1
 0     92   2    1             @I2C_WRITE_1
  Inline         3   596  5.9  lcd_read_byte
 0      6   0    0    59  4.2  lcd_read_nibble
@@ -52,8 +52,8 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     53   1    0   277  4.2  timer_0
 0     14   0    0    78  1.6  servo_init
 1    129   3   14   156  5.1  map_int
- Inline         5   858  7.4  @MUL1616
- Inline         5   136  4.9  @DIV1616
+ Inline         5             @MUL1616
+ Inline         5             @DIV1616
 1     22   1    1    85  2.3  servo_1_write
 1     22   1    1    83  2.5  servo_2_write
 1    941  25    4  1719  6.4  MAIN
@@ -68,16 +68,16 @@ Page ROM  %  RAM   Vol Diff  Functions:
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               31
+    Functions               23
     Statements              434
     Comments                565
-    Volume (V)              18020
-    Difficulty (D)          136.6
-    Effort to implement (E) 2461171
-    Time to implement (T)   37 hours, 59 minutes
-    Est Delivered Bugs (B)  6
-    Cyclomatic Complexity   28
-    Maintainability (MI)    111
+    Volume (V)              11327
+    Difficulty (D)          85.8
+    Effort to implement (E) 972260
+    Time to implement (T)   15 hours, 0 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   15
+    Maintainability (MI)    140
 
  Segment     Used  Free
 -----------  ----  ----

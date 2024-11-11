@@ -1,0 +1,7 @@
+>>> Warning 205 "helipuerto_final.c" Line 113(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "helipuerto_final.c" Line 113(1,1): Condition always FALSE
+>>> Warning 205 "helipuerto_final.c" Line 115(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "helipuerto_final.c" Line 115(1,1): Condition always FALSE
+      Memory usage:   ROM=49%      RAM=32% - 42%
+      0 Errors,  4 Warnings.
+Build Successful.
