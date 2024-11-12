@@ -42,8 +42,8 @@ void main() {
     // Variables de control de ángulo
     int min_angle = 70;
     int max_angle = 120;
-    int decreasing_x = 0;  // Control de dirección para servo 1
-    int decreasing_y = 0;  // Control de dirección para servo 2
+    bool decreasing_x = false;  // Control de dirección para servo 1
+    bool decreasing_y = false;  // Control de dirección para servo 2
 
     // Bucle principal
     while (true) {
@@ -66,20 +66,20 @@ void main() {
         // Movimiento suave del servo en eje X
         if (decreasing_x) {
             angle_x--;
-            if (angle_x <= min_angle) decreasing_x = 0;
+            if (angle_x <= min_angle) decreasing_x = false;
         } else {
             angle_x++;
-            if (angle_x >= max_angle) decreasing_x = 1;
+            if (angle_x >= max_angle) decreasing_x = true;
         }
         servo_1_write(angle_x);
 
         // Movimiento suave del servo en eje Y
         if (decreasing_y) {
             angle_y--;
-            if (angle_y <= min_angle) decreasing_y = 0;
+            if (angle_y <= min_angle) decreasing_y = false;
         } else {
             angle_y++;
-            if (angle_y >= max_angle) decreasing_y = 1;
+            if (angle_y >= max_angle) decreasing_y = true;
         }
         servo_2_write(angle_y);
 
