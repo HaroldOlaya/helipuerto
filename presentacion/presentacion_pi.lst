@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
+CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:20
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
-               ROM used:   2922 words (36%)
+               ROM used:   2918 words (36%)
                            Largest free fragment is 2048
                RAM used:   58 (16%) at main() level
                            89 (24%) worst case
@@ -4300,7 +4300,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 014E:  GOTO   13F
 014F:  BSF    0A.3
 0150:  BCF    0A.4
-0151:  GOTO   316 (RETURN)
+0151:  GOTO   312 (RETURN)
 ....................    g_LcdX = 0; 
 ....................    g_LcdY = 0; 
 ....................   #endif 
@@ -4748,7 +4748,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 0212:  CALL   0A7
 0213:  BSF    0A.3
 0214:  BCF    0A.4
-0215:  GOTO   31C (RETURN)
+0215:  GOTO   318 (RETURN)
 .................... } 
 ....................  
 .................... float mpu6050_get_ax(void) 
@@ -4816,7 +4816,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 0538:  MOVWF  7A
 0539:  BSF    0A.3
 053A:  BCF    0A.4
-053B:  GOTO   38E (RETURN)
+053B:  GOTO   38A (RETURN)
 .................... } 
 ....................  
 .................... float mpu6050_get_ay(void) 
@@ -4883,7 +4883,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 0574:  MOVWF  7A
 0575:  BSF    0A.3
 0576:  BCF    0A.4
-0577:  GOTO   399 (RETURN)
+0577:  GOTO   395 (RETURN)
 .................... } 
 ....................  
 .................... float mpu6050_get_az(void) 
@@ -4950,7 +4950,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 05B0:  MOVWF  7A
 05B1:  BSF    0A.3
 05B2:  BCF    0A.4
-05B3:  GOTO   3A4 (RETURN)
+05B3:  GOTO   3A0 (RETURN)
 .................... } 
 ....................  
 .................... float mpu6050_get_gx(void) 
@@ -5018,7 +5018,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 05ED:  MOVWF  7A
 05EE:  BSF    0A.3
 05EF:  BCF    0A.4
-05F0:  GOTO   3AF (RETURN)
+05F0:  GOTO   3AB (RETURN)
 .................... } 
 ....................  
 .................... float mpu6050_get_gy(void) 
@@ -5086,7 +5086,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 062A:  MOVWF  7A
 062B:  BSF    0A.3
 062C:  BCF    0A.4
-062D:  GOTO   3BA (RETURN)
+062D:  GOTO   3B6 (RETURN)
 .................... } 
 ....................  
 .................... float mpu6050_get_gz(void) 
@@ -5154,7 +5154,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 0667:  MOVWF  7A
 0668:  BSF    0A.3
 0669:  BCF    0A.4
-066A:  GOTO   3C5 (RETURN)
+066A:  GOTO   3C1 (RETURN)
 .................... } 
 ....................  
 .................... float mpu6050_get_temp() 
@@ -5260,7 +5260,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 099D:  MOVWF  7A
 099E:  BSF    0A.3
 099F:  BCF    0A.4
-09A0:  GOTO   3CF (RETURN)
+09A0:  GOTO   3CB (RETURN)
 .................... } 
 ....................  
 .................... #include <servo_st.c>    // Librería adicional para el manejo de servos 
@@ -5401,7 +5401,7 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 015C:  MOVWF  01
 015D:  BSF    0A.3
 015E:  BCF    0A.4
-015F:  GOTO   319 (RETURN)
+015F:  GOTO   315 (RETURN)
 .................... } 
 ....................  
 .................... long map_int(int16 x, int16 eMin, int16 eMax, int16 sMin, int16 sMax) 
@@ -5609,384 +5609,377 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 21:14
 0B0C:  MOVLW  07
 0B0D:  MOVWF  1C
 0B0E:  BCF    03.7
-....................     set_tris_d(0x00);  // Configura el puerto D completo como salida para la LCD 
-0B0F:  MOVLW  00
-0B10:  MOVWF  08
-....................     set_tris_a(0xFC);  // Configura A0 y A1 como salidas para los servos 
-0B11:  MOVLW  FC
-0B12:  MOVWF  05
-....................      
 ....................     lcd_init();         // Inicializa la pantalla LCD 
-0B13:  BCF    0A.3
-0B14:  BCF    03.5
-0B15:  GOTO   114
-0B16:  BSF    0A.3
+0B0F:  BCF    0A.3
+0B10:  BCF    03.5
+0B11:  GOTO   114
+0B12:  BSF    0A.3
 ....................     servo_init();       // Inicializa el control de los servos 
-0B17:  BCF    0A.3
-0B18:  GOTO   152
-0B19:  BSF    0A.3
+0B13:  BCF    0A.3
+0B14:  GOTO   152
+0B15:  BSF    0A.3
 ....................     MPU6050_init();     // Inicializa el MPU6050 
-0B1A:  BCF    0A.3
-0B1B:  GOTO   204
-0B1C:  BSF    0A.3
+0B16:  BCF    0A.3
+0B17:  GOTO   204
+0B18:  BSF    0A.3
 ....................  
 ....................     printf(lcd_putc, " BIENVENIDO"); 
-0B1D:  MOVLW  84
-0B1E:  BSF    03.6
-0B1F:  MOVWF  0D
-0B20:  MOVLW  00
-0B21:  MOVWF  0F
-0B22:  BCF    0A.3
-0B23:  BCF    03.6
-0B24:  CALL   254
-0B25:  BSF    0A.3
+0B19:  MOVLW  84
+0B1A:  BSF    03.6
+0B1B:  MOVWF  0D
+0B1C:  MOVLW  00
+0B1D:  MOVWF  0F
+0B1E:  BCF    0A.3
+0B1F:  BCF    03.6
+0B20:  CALL   254
+0B21:  BSF    0A.3
 ....................     delay_ms(1000); 
-0B26:  MOVLW  04
-0B27:  MOVWF  56
-0B28:  MOVLW  FA
-0B29:  MOVWF  64
-0B2A:  BCF    0A.3
-0B2B:  CALL   0A7
-0B2C:  BSF    0A.3
-0B2D:  DECFSZ 56,F
-0B2E:  GOTO   328
+0B22:  MOVLW  04
+0B23:  MOVWF  56
+0B24:  MOVLW  FA
+0B25:  MOVWF  64
+0B26:  BCF    0A.3
+0B27:  CALL   0A7
+0B28:  BSF    0A.3
+0B29:  DECFSZ 56,F
+0B2A:  GOTO   324
 ....................     printf(lcd_putc, "\fvoy a cero"); 
-0B2F:  MOVLW  8A
-0B30:  BSF    03.6
-0B31:  MOVWF  0D
-0B32:  MOVLW  00
-0B33:  MOVWF  0F
-0B34:  BCF    0A.3
-0B35:  BCF    03.6
-0B36:  CALL   254
-0B37:  BSF    0A.3
+0B2B:  MOVLW  8A
+0B2C:  BSF    03.6
+0B2D:  MOVWF  0D
+0B2E:  MOVLW  00
+0B2F:  MOVWF  0F
+0B30:  BCF    0A.3
+0B31:  BCF    03.6
+0B32:  CALL   254
+0B33:  BSF    0A.3
 ....................     delay_ms(1000); 
-0B38:  MOVLW  04
-0B39:  MOVWF  56
-0B3A:  MOVLW  FA
-0B3B:  MOVWF  64
-0B3C:  BCF    0A.3
-0B3D:  CALL   0A7
-0B3E:  BSF    0A.3
-0B3F:  DECFSZ 56,F
-0B40:  GOTO   33A
+0B34:  MOVLW  04
+0B35:  MOVWF  56
+0B36:  MOVLW  FA
+0B37:  MOVWF  64
+0B38:  BCF    0A.3
+0B39:  CALL   0A7
+0B3A:  BSF    0A.3
+0B3B:  DECFSZ 56,F
+0B3C:  GOTO   336
 ....................     servo_1_write(0); 
-0B41:  CLRF   56
-0B42:  BCF    0A.3
-0B43:  CALL   329
-0B44:  BSF    0A.3
+0B3D:  CLRF   56
+0B3E:  BCF    0A.3
+0B3F:  CALL   329
+0B40:  BSF    0A.3
 ....................     // Esperar 5 segundos con los servos en 90 grados 
 ....................     delay_ms(1000); 
-0B45:  MOVLW  04
-0B46:  MOVWF  56
-0B47:  MOVLW  FA
-0B48:  MOVWF  64
-0B49:  BCF    0A.3
-0B4A:  CALL   0A7
-0B4B:  BSF    0A.3
-0B4C:  DECFSZ 56,F
-0B4D:  GOTO   347
+0B41:  MOVLW  04
+0B42:  MOVWF  56
+0B43:  MOVLW  FA
+0B44:  MOVWF  64
+0B45:  BCF    0A.3
+0B46:  CALL   0A7
+0B47:  BSF    0A.3
+0B48:  DECFSZ 56,F
+0B49:  GOTO   343
 ....................     servo_2_write(0); 
-0B4E:  CLRF   56
-0B4F:  BCF    0A.3
-0B50:  CALL   33B
-0B51:  BSF    0A.3
+0B4A:  CLRF   56
+0B4B:  BCF    0A.3
+0B4C:  CALL   33B
+0B4D:  BSF    0A.3
 ....................     delay_ms(1000); 
-0B52:  MOVLW  04
-0B53:  MOVWF  56
-0B54:  MOVLW  FA
-0B55:  MOVWF  64
-0B56:  BCF    0A.3
-0B57:  CALL   0A7
-0B58:  BSF    0A.3
-0B59:  DECFSZ 56,F
-0B5A:  GOTO   354
+0B4E:  MOVLW  04
+0B4F:  MOVWF  56
+0B50:  MOVLW  FA
+0B51:  MOVWF  64
+0B52:  BCF    0A.3
+0B53:  CALL   0A7
+0B54:  BSF    0A.3
+0B55:  DECFSZ 56,F
+0B56:  GOTO   350
 ....................     // Configurar los servos inicialmente en 90 grados 
 ....................     int angle_x = 90; 
 ....................     int angle_y = 90; 
-0B5B:  MOVLW  5A
-0B5C:  MOVWF  54
-0B5D:  MOVWF  55
+0B57:  MOVLW  5A
+0B58:  MOVWF  54
+0B59:  MOVWF  55
 ....................      
 ....................     printf(lcd_putc, "\fvoy a 90"); 
-0B5E:  MOVLW  90
-0B5F:  BSF    03.6
-0B60:  MOVWF  0D
-0B61:  MOVLW  00
-0B62:  MOVWF  0F
-0B63:  BCF    0A.3
-0B64:  BCF    03.6
-0B65:  CALL   254
-0B66:  BSF    0A.3
+0B5A:  MOVLW  90
+0B5B:  BSF    03.6
+0B5C:  MOVWF  0D
+0B5D:  MOVLW  00
+0B5E:  MOVWF  0F
+0B5F:  BCF    0A.3
+0B60:  BCF    03.6
+0B61:  CALL   254
+0B62:  BSF    0A.3
 ....................     delay_ms(1000); 
-0B67:  MOVLW  04
-0B68:  MOVWF  56
-0B69:  MOVLW  FA
-0B6A:  MOVWF  64
-0B6B:  BCF    0A.3
-0B6C:  CALL   0A7
-0B6D:  BSF    0A.3
-0B6E:  DECFSZ 56,F
-0B6F:  GOTO   369
+0B63:  MOVLW  04
+0B64:  MOVWF  56
+0B65:  MOVLW  FA
+0B66:  MOVWF  64
+0B67:  BCF    0A.3
+0B68:  CALL   0A7
+0B69:  BSF    0A.3
+0B6A:  DECFSZ 56,F
+0B6B:  GOTO   365
 ....................     servo_1_write(angle_x); 
-0B70:  MOVF   54,W
-0B71:  MOVWF  56
-0B72:  BCF    0A.3
-0B73:  CALL   329
-0B74:  BSF    0A.3
+0B6C:  MOVF   54,W
+0B6D:  MOVWF  56
+0B6E:  BCF    0A.3
+0B6F:  CALL   329
+0B70:  BSF    0A.3
 ....................     // Esperar 5 segundos con los servos en 90 grados 
 ....................     delay_ms(1000); 
-0B75:  MOVLW  04
-0B76:  MOVWF  56
-0B77:  MOVLW  FA
-0B78:  MOVWF  64
-0B79:  BCF    0A.3
-0B7A:  CALL   0A7
-0B7B:  BSF    0A.3
-0B7C:  DECFSZ 56,F
-0B7D:  GOTO   377
+0B71:  MOVLW  04
+0B72:  MOVWF  56
+0B73:  MOVLW  FA
+0B74:  MOVWF  64
+0B75:  BCF    0A.3
+0B76:  CALL   0A7
+0B77:  BSF    0A.3
+0B78:  DECFSZ 56,F
+0B79:  GOTO   373
 ....................     servo_2_write(angle_y); 
-0B7E:  MOVF   55,W
-0B7F:  MOVWF  56
-0B80:  BCF    0A.3
-0B81:  CALL   33B
-0B82:  BSF    0A.3
+0B7A:  MOVF   55,W
+0B7B:  MOVWF  56
+0B7C:  BCF    0A.3
+0B7D:  CALL   33B
+0B7E:  BSF    0A.3
 ....................     delay_ms(1000); 
-0B83:  MOVLW  04
-0B84:  MOVWF  56
-0B85:  MOVLW  FA
-0B86:  MOVWF  64
-0B87:  BCF    0A.3
-0B88:  CALL   0A7
-0B89:  BSF    0A.3
-0B8A:  DECFSZ 56,F
-0B8B:  GOTO   385
+0B7F:  MOVLW  04
+0B80:  MOVWF  56
+0B81:  MOVLW  FA
+0B82:  MOVWF  64
+0B83:  BCF    0A.3
+0B84:  CALL   0A7
+0B85:  BSF    0A.3
+0B86:  DECFSZ 56,F
+0B87:  GOTO   381
 ....................     // Bucle principal 
 ....................     while (true) { 
 ....................         // Obtener datos del MPU6050 
 ....................         Ax = MPU6050_get_Ax(); 
-0B8C:  BCF    0A.3
-0B8D:  GOTO   500
-0B8E:  BSF    0A.3
-0B8F:  MOVF   7A,W
-0B90:  MOVWF  3B
-0B91:  MOVF   79,W
-0B92:  MOVWF  3A
-0B93:  MOVF   78,W
-0B94:  MOVWF  39
-0B95:  MOVF   77,W
-0B96:  MOVWF  38
+0B88:  BCF    0A.3
+0B89:  GOTO   500
+0B8A:  BSF    0A.3
+0B8B:  MOVF   7A,W
+0B8C:  MOVWF  3B
+0B8D:  MOVF   79,W
+0B8E:  MOVWF  3A
+0B8F:  MOVF   78,W
+0B90:  MOVWF  39
+0B91:  MOVF   77,W
+0B92:  MOVWF  38
 ....................         Ay = MPU6050_get_Ay(); 
-0B97:  BCF    0A.3
-0B98:  GOTO   53C
-0B99:  BSF    0A.3
-0B9A:  MOVF   7A,W
-0B9B:  MOVWF  3F
-0B9C:  MOVF   79,W
-0B9D:  MOVWF  3E
-0B9E:  MOVF   78,W
-0B9F:  MOVWF  3D
-0BA0:  MOVF   77,W
-0BA1:  MOVWF  3C
+0B93:  BCF    0A.3
+0B94:  GOTO   53C
+0B95:  BSF    0A.3
+0B96:  MOVF   7A,W
+0B97:  MOVWF  3F
+0B98:  MOVF   79,W
+0B99:  MOVWF  3E
+0B9A:  MOVF   78,W
+0B9B:  MOVWF  3D
+0B9C:  MOVF   77,W
+0B9D:  MOVWF  3C
 ....................         Az = MPU6050_get_Az(); 
-0BA2:  BCF    0A.3
-0BA3:  GOTO   578
-0BA4:  BSF    0A.3
-0BA5:  MOVF   7A,W
-0BA6:  MOVWF  43
-0BA7:  MOVF   79,W
-0BA8:  MOVWF  42
-0BA9:  MOVF   78,W
-0BAA:  MOVWF  41
-0BAB:  MOVF   77,W
-0BAC:  MOVWF  40
+0B9E:  BCF    0A.3
+0B9F:  GOTO   578
+0BA0:  BSF    0A.3
+0BA1:  MOVF   7A,W
+0BA2:  MOVWF  43
+0BA3:  MOVF   79,W
+0BA4:  MOVWF  42
+0BA5:  MOVF   78,W
+0BA6:  MOVWF  41
+0BA7:  MOVF   77,W
+0BA8:  MOVWF  40
 ....................         Gx = MPU6050_get_Gx(); 
-0BAD:  BCF    0A.3
-0BAE:  GOTO   5B4
-0BAF:  BSF    0A.3
-0BB0:  MOVF   7A,W
-0BB1:  MOVWF  47
-0BB2:  MOVF   79,W
-0BB3:  MOVWF  46
-0BB4:  MOVF   78,W
-0BB5:  MOVWF  45
-0BB6:  MOVF   77,W
-0BB7:  MOVWF  44
+0BA9:  BCF    0A.3
+0BAA:  GOTO   5B4
+0BAB:  BSF    0A.3
+0BAC:  MOVF   7A,W
+0BAD:  MOVWF  47
+0BAE:  MOVF   79,W
+0BAF:  MOVWF  46
+0BB0:  MOVF   78,W
+0BB1:  MOVWF  45
+0BB2:  MOVF   77,W
+0BB3:  MOVWF  44
 ....................         Gy = MPU6050_get_Gy(); 
-0BB8:  BCF    0A.3
-0BB9:  GOTO   5F1
-0BBA:  BSF    0A.3
-0BBB:  MOVF   7A,W
-0BBC:  MOVWF  4B
-0BBD:  MOVF   79,W
-0BBE:  MOVWF  4A
-0BBF:  MOVF   78,W
-0BC0:  MOVWF  49
-0BC1:  MOVF   77,W
-0BC2:  MOVWF  48
+0BB4:  BCF    0A.3
+0BB5:  GOTO   5F1
+0BB6:  BSF    0A.3
+0BB7:  MOVF   7A,W
+0BB8:  MOVWF  4B
+0BB9:  MOVF   79,W
+0BBA:  MOVWF  4A
+0BBB:  MOVF   78,W
+0BBC:  MOVWF  49
+0BBD:  MOVF   77,W
+0BBE:  MOVWF  48
 ....................         Gz = MPU6050_get_Gz(); 
-0BC3:  BCF    0A.3
-0BC4:  GOTO   62E
-0BC5:  BSF    0A.3
-0BC6:  MOVF   7A,W
-0BC7:  MOVWF  4F
-0BC8:  MOVF   79,W
-0BC9:  MOVWF  4E
-0BCA:  MOVF   78,W
-0BCB:  MOVWF  4D
-0BCC:  MOVF   77,W
-0BCD:  MOVWF  4C
+0BBF:  BCF    0A.3
+0BC0:  GOTO   62E
+0BC1:  BSF    0A.3
+0BC2:  MOVF   7A,W
+0BC3:  MOVWF  4F
+0BC4:  MOVF   79,W
+0BC5:  MOVWF  4E
+0BC6:  MOVF   78,W
+0BC7:  MOVWF  4D
+0BC8:  MOVF   77,W
+0BC9:  MOVWF  4C
 ....................         t = MPU6050_get_Temp(); 
-0BCE:  GOTO   000
-0BCF:  MOVF   7A,W
-0BD0:  MOVWF  53
-0BD1:  MOVF   79,W
-0BD2:  MOVWF  52
-0BD3:  MOVF   78,W
-0BD4:  MOVWF  51
-0BD5:  MOVF   77,W
-0BD6:  MOVWF  50
+0BCA:  GOTO   000
+0BCB:  MOVF   7A,W
+0BCC:  MOVWF  53
+0BCD:  MOVF   79,W
+0BCE:  MOVWF  52
+0BCF:  MOVF   78,W
+0BD0:  MOVWF  51
+0BD1:  MOVF   77,W
+0BD2:  MOVWF  50
 ....................  
 ....................         // Mostrar datos en la pantalla LCD 
 ....................         lcd_gotoxy(1, 1); 
-0BD7:  MOVLW  01
-0BD8:  MOVWF  64
-0BD9:  MOVWF  65
-0BDA:  BCF    0A.3
-0BDB:  CALL   216
-0BDC:  BSF    0A.3
+0BD3:  MOVLW  01
+0BD4:  MOVWF  64
+0BD5:  MOVWF  65
+0BD6:  BCF    0A.3
+0BD7:  CALL   216
+0BD8:  BSF    0A.3
 ....................         printf(lcd_putc, "Ax:%0.2f Ay:%0.2f", Ax, Ay); 
-0BDD:  MOVLW  41
-0BDE:  MOVWF  63
-0BDF:  BCF    0A.3
-0BE0:  CALL   228
-0BE1:  BSF    0A.3
-0BE2:  MOVLW  78
-0BE3:  MOVWF  63
-0BE4:  BCF    0A.3
-0BE5:  CALL   228
-0BE6:  BSF    0A.3
-0BE7:  MOVLW  3A
-0BE8:  MOVWF  63
-0BE9:  BCF    0A.3
-0BEA:  CALL   228
-0BEB:  BSF    0A.3
-0BEC:  MOVLW  C9
-0BED:  MOVWF  04
-0BEE:  MOVF   3B,W
-0BEF:  MOVWF  59
-0BF0:  MOVF   3A,W
-0BF1:  MOVWF  58
-0BF2:  MOVF   39,W
-0BF3:  MOVWF  57
-0BF4:  MOVF   38,W
-0BF5:  MOVWF  56
-0BF6:  MOVLW  02
-0BF7:  MOVWF  5A
-0BF8:  CALL   1A1
-0BF9:  MOVLW  99
-0BFA:  BSF    03.6
-0BFB:  MOVWF  0D
-0BFC:  MOVLW  00
-0BFD:  MOVWF  0F
-0BFE:  BCF    03.0
-0BFF:  MOVLW  04
-0C00:  BCF    03.6
-0C01:  MOVWF  56
-0C02:  BCF    0A.3
-0C03:  CALL   6BA
-0C04:  BSF    0A.3
-0C05:  MOVLW  C9
-0C06:  MOVWF  04
-0C07:  MOVF   3F,W
-0C08:  MOVWF  59
-0C09:  MOVF   3E,W
-0C0A:  MOVWF  58
-0C0B:  MOVF   3D,W
-0C0C:  MOVWF  57
-0C0D:  MOVF   3C,W
-0C0E:  MOVWF  56
-0C0F:  MOVLW  02
-0C10:  MOVWF  5A
-0C11:  CALL   1A1
+0BD9:  MOVLW  41
+0BDA:  MOVWF  63
+0BDB:  BCF    0A.3
+0BDC:  CALL   228
+0BDD:  BSF    0A.3
+0BDE:  MOVLW  78
+0BDF:  MOVWF  63
+0BE0:  BCF    0A.3
+0BE1:  CALL   228
+0BE2:  BSF    0A.3
+0BE3:  MOVLW  3A
+0BE4:  MOVWF  63
+0BE5:  BCF    0A.3
+0BE6:  CALL   228
+0BE7:  BSF    0A.3
+0BE8:  MOVLW  C9
+0BE9:  MOVWF  04
+0BEA:  MOVF   3B,W
+0BEB:  MOVWF  59
+0BEC:  MOVF   3A,W
+0BED:  MOVWF  58
+0BEE:  MOVF   39,W
+0BEF:  MOVWF  57
+0BF0:  MOVF   38,W
+0BF1:  MOVWF  56
+0BF2:  MOVLW  02
+0BF3:  MOVWF  5A
+0BF4:  CALL   1A1
+0BF5:  MOVLW  99
+0BF6:  BSF    03.6
+0BF7:  MOVWF  0D
+0BF8:  MOVLW  00
+0BF9:  MOVWF  0F
+0BFA:  BCF    03.0
+0BFB:  MOVLW  04
+0BFC:  BCF    03.6
+0BFD:  MOVWF  56
+0BFE:  BCF    0A.3
+0BFF:  CALL   6BA
+0C00:  BSF    0A.3
+0C01:  MOVLW  C9
+0C02:  MOVWF  04
+0C03:  MOVF   3F,W
+0C04:  MOVWF  59
+0C05:  MOVF   3E,W
+0C06:  MOVWF  58
+0C07:  MOVF   3D,W
+0C08:  MOVWF  57
+0C09:  MOVF   3C,W
+0C0A:  MOVWF  56
+0C0B:  MOVLW  02
+0C0C:  MOVWF  5A
+0C0D:  CALL   1A1
 ....................          
 ....................         lcd_gotoxy(1, 2); 
-0C12:  MOVLW  01
-0C13:  MOVWF  64
-0C14:  MOVLW  02
-0C15:  MOVWF  65
-0C16:  BCF    0A.3
-0C17:  CALL   216
-0C18:  BSF    0A.3
+0C0E:  MOVLW  01
+0C0F:  MOVWF  64
+0C10:  MOVLW  02
+0C11:  MOVWF  65
+0C12:  BCF    0A.3
+0C13:  CALL   216
+0C14:  BSF    0A.3
 ....................         printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy); 
-0C19:  MOVLW  47
-0C1A:  MOVWF  63
-0C1B:  BCF    0A.3
-0C1C:  CALL   228
-0C1D:  BSF    0A.3
-0C1E:  MOVLW  78
-0C1F:  MOVWF  63
-0C20:  BCF    0A.3
-0C21:  CALL   228
-0C22:  BSF    0A.3
-0C23:  MOVLW  3A
-0C24:  MOVWF  63
-0C25:  BCF    0A.3
-0C26:  CALL   228
-0C27:  BSF    0A.3
-0C28:  MOVLW  C9
-0C29:  MOVWF  04
-0C2A:  MOVF   47,W
-0C2B:  MOVWF  59
-0C2C:  MOVF   46,W
-0C2D:  MOVWF  58
-0C2E:  MOVF   45,W
-0C2F:  MOVWF  57
-0C30:  MOVF   44,W
-0C31:  MOVWF  56
-0C32:  MOVLW  02
-0C33:  MOVWF  5A
-0C34:  CALL   1A1
-0C35:  MOVLW  A2
-0C36:  BSF    03.6
-0C37:  MOVWF  0D
-0C38:  MOVLW  00
-0C39:  MOVWF  0F
-0C3A:  BCF    03.0
-0C3B:  MOVLW  04
-0C3C:  BCF    03.6
-0C3D:  MOVWF  56
-0C3E:  BCF    0A.3
-0C3F:  CALL   6BA
-0C40:  BSF    0A.3
-0C41:  MOVLW  C9
-0C42:  MOVWF  04
-0C43:  MOVF   4B,W
-0C44:  MOVWF  59
-0C45:  MOVF   4A,W
-0C46:  MOVWF  58
-0C47:  MOVF   49,W
-0C48:  MOVWF  57
-0C49:  MOVF   48,W
-0C4A:  MOVWF  56
-0C4B:  MOVLW  02
-0C4C:  MOVWF  5A
-0C4D:  CALL   1A1
+0C15:  MOVLW  47
+0C16:  MOVWF  63
+0C17:  BCF    0A.3
+0C18:  CALL   228
+0C19:  BSF    0A.3
+0C1A:  MOVLW  78
+0C1B:  MOVWF  63
+0C1C:  BCF    0A.3
+0C1D:  CALL   228
+0C1E:  BSF    0A.3
+0C1F:  MOVLW  3A
+0C20:  MOVWF  63
+0C21:  BCF    0A.3
+0C22:  CALL   228
+0C23:  BSF    0A.3
+0C24:  MOVLW  C9
+0C25:  MOVWF  04
+0C26:  MOVF   47,W
+0C27:  MOVWF  59
+0C28:  MOVF   46,W
+0C29:  MOVWF  58
+0C2A:  MOVF   45,W
+0C2B:  MOVWF  57
+0C2C:  MOVF   44,W
+0C2D:  MOVWF  56
+0C2E:  MOVLW  02
+0C2F:  MOVWF  5A
+0C30:  CALL   1A1
+0C31:  MOVLW  A2
+0C32:  BSF    03.6
+0C33:  MOVWF  0D
+0C34:  MOVLW  00
+0C35:  MOVWF  0F
+0C36:  BCF    03.0
+0C37:  MOVLW  04
+0C38:  BCF    03.6
+0C39:  MOVWF  56
+0C3A:  BCF    0A.3
+0C3B:  CALL   6BA
+0C3C:  BSF    0A.3
+0C3D:  MOVLW  C9
+0C3E:  MOVWF  04
+0C3F:  MOVF   4B,W
+0C40:  MOVWF  59
+0C41:  MOVF   4A,W
+0C42:  MOVWF  58
+0C43:  MOVF   49,W
+0C44:  MOVWF  57
+0C45:  MOVF   48,W
+0C46:  MOVWF  56
+0C47:  MOVLW  02
+0C48:  MOVWF  5A
+0C49:  CALL   1A1
 ....................  
 ....................         delay_ms(1000); 
-0C4E:  MOVLW  04
-0C4F:  MOVWF  56
-0C50:  MOVLW  FA
-0C51:  MOVWF  64
-0C52:  BCF    0A.3
-0C53:  CALL   0A7
-0C54:  BSF    0A.3
-0C55:  DECFSZ 56,F
-0C56:  GOTO   450
-0C57:  GOTO   38C
+0C4A:  MOVLW  04
+0C4B:  MOVWF  56
+0C4C:  MOVLW  FA
+0C4D:  MOVWF  64
+0C4E:  BCF    0A.3
+0C4F:  CALL   0A7
+0C50:  BSF    0A.3
+0C51:  DECFSZ 56,F
+0C52:  GOTO   44C
+0C53:  GOTO   388
 ....................     }} 
 ....................  
-0C58:  SLEEP
+0C54:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F3A   HS NOWDT NOPUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

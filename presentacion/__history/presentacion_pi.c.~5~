@@ -20,6 +20,9 @@
 float Ax, Ay, Az, Gx, Gy, Gz, t;
 
 void main() {
+    set_tris_d(0x00);  // Configura el puerto D completo como salida para la LCD
+    set_tris_a(0xFC);  // Configura A0 y A1 como salidas para los servos
+    
     lcd_init();         // Inicializa la pantalla LCD
     servo_init();       // Inicializa el control de los servos
     MPU6050_init();     // Inicializa el MPU6050

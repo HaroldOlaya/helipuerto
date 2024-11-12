@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  1/345  Ram=1
+   ÃÄMAIN  1/341  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/62  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1

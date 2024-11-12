@@ -38,6 +38,10 @@ float integral_x = 0, integral_y = 0;       // Integrales del error
 float output_x, output_y;                    // Salidas del PID
 
 void main() {
+    // Configuración de los puertos
+    set_tris_d(0x00);  // Configura el puerto D completo como salida para la LCD
+    set_tris_a(0xFC);  // Configura A0 y A1 como salidas para los servos (los demás como entradas)
+    
     // Inicialización de los módulos
     lcd_init();         // Inicializa la pantalla LCD
     servo_init();       // Inicializa el control de los servos
