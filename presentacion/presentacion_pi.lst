@@ -1,10 +1,10 @@
-CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 22:10
+CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 22:20
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
-               ROM used:   2629 words (32%)
+               ROM used:   2638 words (32%)
                            Largest free fragment is 2048
-               RAM used:   57 (15%) at main() level
+               RAM used:   58 (16%) at main() level
                            87 (24%) worst case
                Stack used: 6 locations (5 in main + 1 for interrupts)
                Stack size: 8
@@ -5662,13 +5662,22 @@ CCS PCM C Compiler, Version 5.015, 5967               11-nov.-24 22:10
 0A99:  MOVLW  02
 0A9A:  MOVWF  58
 0A9B:  CALL   000
-0A9C:  GOTO   1DC
 ....................  
-....................          
+....................         delay_ms(1000); 
+0A9C:  MOVLW  04
+0A9D:  MOVWF  54
+0A9E:  MOVLW  FA
+0A9F:  MOVWF  62
+0AA0:  BCF    0A.3
+0AA1:  CALL   09C
+0AA2:  BSF    0A.3
+0AA3:  DECFSZ 54,F
+0AA4:  GOTO   29E
+0AA5:  GOTO   1DC
 ....................  
 ....................     }} 
 ....................  
-0A9D:  SLEEP
+0AA6:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F3A   HS NOWDT NOPUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

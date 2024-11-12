@@ -42,6 +42,7 @@
 054-055 mpu6050_get_gz.gzv
 054-055 mpu6050_get_gx.gxv
 054-055 mpu6050_get_az.azv
+054     MAIN.@SCRATCH1
 054     @PSTRINGC7_794.@SCRATCH1
 055     mpu6050_write.data
 055-058 lcd_init.LCD_INIT_STRING
@@ -258,7 +259,7 @@ Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [11-nov.-24 22:09  CRC=70C37E84]
+    presentacion_pi.c                                       [11-nov.-24 22:20  CRC=70C37E84]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
