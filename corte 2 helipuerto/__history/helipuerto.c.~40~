@@ -111,15 +111,12 @@ void main() {
              angle_y = 180;  // Si angle_y es mayor que 180, establecerlo a 180
          }
          
-        servo_1_write(0);   // Mueve el servo 1 a angle_x
-        delay_ms(200);           // Espera para que el servo complete el movimiento
-        servo_2_write(0);   // Mueve el servo 2 a angle_y
-        delay_ms(200);  
+
         // Enviar los ángulos a los servos
         servo_1_write(90);   // Mueve el servo 1 a angle_x
-        delay_ms(5000);           // Espera para que el servo complete el movimiento
+        delay_ms(200);           // Espera para que el servo complete el movimiento
         servo_2_write(90);   // Mueve el servo 2 a angle_y
-        delay_ms(5000);           // Espera para que el servo complete el movimiento
+        delay_ms(200);           // Espera para que el servo complete el movimiento
     }
 }
 

@@ -1,9 +1,9 @@
 
-ROM used:   3800/8192 (46%)
-            3808/8192 (46%) including unused fragments
+ROM used:   3826/8192 (47%)
+            3834/8192 (47%) including unused fragments
 
             1.0 Average locations per line
-            8.8 Average locations per statement
+            8.7 Average locations per statement
 
 RAM used:   119/368 (32%) at main() level
             153/368 (42%) worst case
@@ -13,14 +13,14 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  123    48  11  helipuerto.c
+  126    52  12  helipuerto.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
  2229   257  59  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
   456    84  19  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
-  110    24   6  MPU6050.c
+  110    24   5  MPU6050.c
   146    21   5  servo_st.c
 ----- -----
- 3735   434 Total
+ 3738   438 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -54,9 +54,9 @@ Page ROM  %  RAM   Vol Diff  Functions:
 1    129   3   14   156  5.1  map_int
  Inline         5             @MUL1616
  Inline         5             @DIV1616
-1     22   1    1    85  2.3  servo_1_write
-1     22   1    1    83  2.5  servo_2_write
-1    941  25    4  1719  6.4  MAIN
+1     20   1    1    85  2.3  servo_1_write
+1     20   1    1    83  2.5  servo_2_write
+1    971  25    4  1854  6.4  MAIN
 0      6   0    0             @const880
 0    118   3    4             @PSTRINGC7_794
 0      9   0    0             @const882
@@ -69,22 +69,22 @@ Page ROM  %  RAM   Vol Diff  Functions:
 
 Program metrics:
     Functions               28
-    Statements              434
-    Comments                565
-    Volume (V)              14524
+    Statements              438
+    Comments                568
+    Volume (V)              14701
     Difficulty (D)          108.1
-    Effort to implement (E) 1570220
-    Time to implement (T)   24 hours, 14 minutes
+    Effort to implement (E) 1589164
+    Time to implement (T)   24 hours, 31 minutes
     Est Delivered Bugs (B)  5
     Cyclomatic Complexity   16
-    Maintainability (MI)    125
+    Maintainability (MI)    126
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-0004E    75  0  
 0004F-007FF  1961  8  
-00800-00FFF  1760  288  
+00800-00FFF  1786  262  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 
