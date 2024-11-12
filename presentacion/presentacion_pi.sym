@@ -35,38 +35,32 @@
 054     lcd_init.i
 054-055 mpu6050_get_ax.axv
 054     mpu6050_write.add
-054     servo_2_write.angle2
-054-057 atan2.y
-054     servo_1_write.angle1
-054-057 @PRINTF_L32D_794FPFPF.P1
 054-055 mpu6050_get_gy.gyv
+054-057 atan2.y
+054-055 mpu6050_get_ay.ayv
+054-057 @PRINTF_L32D_794FPFPF.P1
+054-055 mpu6050_get_gz.gzv
 054-055 mpu6050_get_gx.gxv
 054-055 mpu6050_get_az.azv
-054-055 mpu6050_get_gz.gzv
-054-055 mpu6050_get_ay.ayv
-054     MAIN.@SCRATCH1
 054     @PSTRINGC7_794.@SCRATCH1
 055     mpu6050_write.data
 055-058 lcd_init.LCD_INIT_STRING
-055-056 map_int.x
 055     @PSTRINGC7_794.@SCRATCH2
 055     @PSTRINGCN7_794.@SCRATCH1
 056-059 mpu6050_get_temp.tmp_mpu
-056-059 mpu6050_get_ay.acy
 056-059 mpu6050_get_gx.grx
-056-059 mpu6050_get_az.acz
-056-059 mpu6050_get_gz.grz
-056-059 mpu6050_get_ax.acx
+056-059 mpu6050_get_ay.acy
 056-059 mpu6050_get_gy.gry
+056-059 mpu6050_get_ax.acx
+056-059 mpu6050_get_gz.grz
+056-059 mpu6050_get_az.acz
 056     @PSTRINGC7_794.@SCRATCH3
 056     @PSTRINGCN7_794.@SCRATCH2
-057-058 map_int.eMin
 057     @PSTRINGC7_794.@SCRATCH4
 057     @PSTRINGCN7_794.@SCRATCH3
 058-05B atan2.x
 058     @PRINTF_L32D_794FPFPF.P1
 058     @PSTRINGCN7_794.@SCRATCH4
-059-05A map_int.eMax
 059     lcd_init.@SCRATCH1
 059     @PRINTF_L32D_794FPFPF.@SCRATCH1
 05A     mpu6050_get_ax.@SCRATCH1
@@ -77,7 +71,6 @@
 05A     mpu6050_get_gz.@SCRATCH1
 05A     mpu6050_get_temp.@SCRATCH1
 05A     @PRINTF_L32D_794FPFPF.@SCRATCH2
-05B-05C map_int.sMin
 05B     mpu6050_read.add
 05B     mpu6050_get_ax.@SCRATCH2
 05B     mpu6050_get_ay.@SCRATCH2
@@ -87,9 +80,9 @@
 05B     mpu6050_get_gz.@SCRATCH2
 05B     mpu6050_get_temp.@SCRATCH2
 05B     @PRINTF_L32D_794FPFPF.@SCRATCH3
+05C-05D @SITOF.P1
 05C-05F atan2.z
 05C     mpu6050_read.retval
-05C-05D @SITOF.P1
 05C     mpu6050_get_ax.@SCRATCH3
 05C     mpu6050_get_ay.@SCRATCH3
 05C     mpu6050_get_az.@SCRATCH3
@@ -98,9 +91,8 @@
 05C     mpu6050_get_gz.@SCRATCH3
 05C     mpu6050_get_temp.@SCRATCH3
 05C     @PRINTF_L32D_794FPFPF.@SCRATCH4
-05D     @I2C_READ_1.P1
-05D     @I2C_WRITE_1.P2
-05D-05E map_int.sMax
+05D     @I2C_WRITE_1.P1
+05D     @I2C_READ_1.P2
 05D     mpu6050_get_ax.@SCRATCH4
 05D     mpu6050_get_ay.@SCRATCH4
 05D     mpu6050_get_az.@SCRATCH4
@@ -126,45 +118,35 @@
 05F     mpu6050_get_gy.@SCRATCH6
 05F     mpu6050_get_gz.@SCRATCH6
 05F     mpu6050_get_temp.@SCRATCH6
-05F     map_int.@SCRATCH1
 05F     @PRINTF_L32D_794FPFPF.@SCRATCH7
-060.0   atan2.sign
 060-063 @DIVFF.P1
+060.0   atan2.sign
 060     mpu6050_get_temp.@SCRATCH7
-060     map_int.@SCRATCH2
 060     @PRINTF_L32D_794FPFPF.@SCRATCH8
-061-064 @DIV3232.P1
+061-064 @FTOSD.P1
 061     atan2.quad
 061-064 @MULFF.P1
-061-064 @FTOSD.P2
+061-064 @DIV3232.P2
 061     lcd_putc.c
 061     mpu6050_get_temp.@SCRATCH8
-061     map_int.@SCRATCH3
 062     @delay_ms1.P1
 062-065 @ADDFF.P2
 062     lcd_gotoxy.x
-062     map_int.@SCRATCH4
-063-064 @MUL1616.P1
 063     lcd_gotoxy.y
-063-064 @DIV1616.P1
 064-067 @DIVFF.P1
 064     lcd_gotoxy.address
-065-066 @DIV1616.P1
+065-068 @MULFF.P1
 065-068 @DIV3232.P2
-065-066 @MUL1616.P3
-065-068 @MULFF.P4
 065     lcd_gotoxy.@SCRATCH1
 065     @FTOSD.@SCRATCH1
 066-069 @ADDFF.P1
 066     lcd_send_byte.address
 067     lcd_send_byte.n
-067     @MUL1616.@SCRATCH1
-067     @DIV1616.@SCRATCH1
 068     lcd_read_byte.low
 068     @DIVFF.@SCRATCH1
 068     lcd_send_byte.@SCRATCH1
-069     lcd_send_nibble.n
 069     lcd_read_byte.high
+069     lcd_send_nibble.n
 069     @MULFF.@SCRATCH1
 069     @DIVFF.@SCRATCH2
 069     @DIV3232.@SCRATCH1
@@ -199,8 +181,8 @@
 09C.6   C1OUT
 09C.7   C2OUT
 0FF     @INTERRUPT_AREA
-10D-10E @WRITE_PROGRAM_MEMORY8.P1
-10D-10E @READ_PROGRAM_MEMORY8.P2
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
 17F     @INTERRUPT_AREA
 1FF     @INTERRUPT_AREA
 27F     @INTERRUPT_AREA
@@ -264,30 +246,26 @@ ROM Allocation:
 000600  @ADDFF
 000758  @DIV3232
 0007A7  servo_1_write
-0007BB  servo_2_write
 000800  @PRINTF_L32D_794FPFPF
 000814  @MULFF
 00089A  @FTOSD
 00095F  @PSTRINGCN7_794
-0009BA  map_int
-0009D8  @MUL1616
-000A05  @DIV1616
-000A39  MAIN
-000A39  @cinit1
-000A47  @cinit2
+0009BA  MAIN
+0009BA  @cinit1
+0009C8  @cinit2
 
 Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [11-nov.-24 21:58  CRC=42F2604C]
+    presentacion_pi.c                                       [11-nov.-24 22:09  CRC=70C37E84]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=A1C3FE58
+Source signature=CF951C90
 
 Units:
     presentacion_pi (main)
