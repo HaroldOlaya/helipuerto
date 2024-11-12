@@ -20,10 +20,9 @@
 float Ax, Ay, Az, Gx, Gy, Gz, t;
 
 void main() {
-    lcd_init();
-    MPU6050_init();// Inicializa la pantalla LCD
+    lcd_init();         // Inicializa la pantalla LCD
     servo_init();       // Inicializa el control de los servos
-         // Inicializa el MPU6050
+    MPU6050_init();     // Inicializa el MPU6050
 
     printf(lcd_putc, " BIENVENIDO");
 

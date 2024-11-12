@@ -20,10 +20,9 @@
 float Ax, Ay, Az, Gx, Gy, Gz, t;
 
 void main() {
-    lcd_init();
-    MPU6050_init();// Inicializa la pantalla LCD
+    lcd_init();         // Inicializa la pantalla LCD
     servo_init();       // Inicializa el control de los servos
-         // Inicializa el MPU6050
+    MPU6050_init();     // Inicializa el MPU6050
 
     printf(lcd_putc, " BIENVENIDO");
 
@@ -45,17 +44,17 @@ void main() {
         lcd_gotoxy(1, 2);
         printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);
         servo_1_write(70);
-        delay_ms(500);
+        delay_ms(1000);
         servo_1_write(120);
-        delay_ms(500);
-        servo_1_write(90);
-        delay_ms(500);
+        delay_ms(1000);
+        servo_1_write(0);
+        delay_ms(1000);
         servo_2_write(70);
-        delay_ms(500);
+        delay_ms(1000);
         servo_2_write(120);
-        delay_ms(500);
-        servo_2_write(90);
-        delay_ms(500);
+        delay_ms(1000);
+        servo_2_write(0);
+        delay_ms(1000);
         
 
     }}
