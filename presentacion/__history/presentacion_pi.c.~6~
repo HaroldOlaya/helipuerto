@@ -25,7 +25,25 @@ void main() {
     MPU6050_init();     // Inicializa el MPU6050
 
     printf(lcd_putc, " BIENVENIDO");
-
+    delay_ms(1000);
+    printf(lcd_putc, "\fvoy a cero");
+    delay_ms(1000);
+    servo_1_write(0);
+    // Esperar 5 segundos con los servos en 90 grados
+    delay_ms(1000);
+    servo_2_write(0);
+    delay_ms(1000);
+    // Configurar los servos inicialmente en 90 grados
+    int angle_x = 90;
+    int angle_y = 90;
+    
+    printf(lcd_putc, "\fvoy a 90");
+    delay_ms(1000);
+    servo_1_write(angle_x);
+    // Esperar 5 segundos con los servos en 90 grados
+    delay_ms(1000);
+    servo_2_write(angle_y);
+    delay_ms(1000);
     // Bucle principal
     while (true) {
         // Obtener datos del MPU6050
@@ -43,19 +61,7 @@ void main() {
         
         lcd_gotoxy(1, 2);
         printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);
-        servo_1_write(70);
-        delay_ms(1000);
-        servo_1_write(120);
-        delay_ms(1000);
-        servo_1_write(0);
-        delay_ms(1000);
-        servo_2_write(70);
-        delay_ms(1000);
-        servo_2_write(120);
-        delay_ms(1000);
-        servo_2_write(0);
-        delay_ms(1000);
-        
 
+        delay_ms(1000);
     }}
 

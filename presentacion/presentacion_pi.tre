@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  1/341  Ram=1
+   ÃÄMAIN  1/310  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/62  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -23,7 +23,7 @@
    ³  ³  ÃÄmpu6050_write  0/72  Ram=2
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄ@PSTRINGC7_794  0/86  Ram=4
+   ³  ÃÄ@PSTRINGC7_794  0/88  Ram=4
    ³  ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³  ³  ³  ³  ÀÄlcd_send_byte  0/66  Ram=3
@@ -39,28 +39,6 @@
    ³  ³  ³     ÀÄ*
    ³  ³  ÀÄlcd_putc  0/44  Ram=1
    ³  ³     ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄ@PSTRINGC7_794  0/86  Ram=4
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_1_write  0/18  Ram=1
-   ³  ³  ÀÄmap_int  0/127  Ram=14
-   ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
-   ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  0/18  Ram=1
-   ³  ³  ÀÄmap_int  0/127  Ram=14
-   ³  ³     ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄ@PSTRINGC7_794  0/86  Ram=4
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_1_write  0/18  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  0/18  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ÃÄmpu6050_get_ax  0/60  Ram=12
    ³  ³  ÃÄmpu6050_read  0/196  Ram=2
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
@@ -106,7 +84,7 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@SITOF  0/37  Ram=2
    ³  ³  ÀÄ@DIVFF  0/202  Ram=14
-   ³  ÃÄmpu6050_get_temp  1/417  Ram=14
+   ³  ÃÄmpu6050_get_temp  0/409  Ram=14
    ³  ³  ÃÄmpu6050_read  0/196  Ram=2
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄmpu6050_read  0/196  Ram=2
@@ -135,7 +113,7 @@
    ³  ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@DIV3232  0/79  Ram=13
-   ³  ÃÄ@PSTRINGCN7_794  0/87  Ram=5
+   ³  ÃÄ@PSTRINGCN7_794  1/91  Ram=5
    ³  ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄlcd_putc  0/44  Ram=1
@@ -152,9 +130,29 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PRINTF_L32D_794FPFPF  1/351  Ram=13
    ³  ³  ÀÄ*
-   ³  ÃÄ@PSTRINGCN7_794  0/87  Ram=5
+   ³  ÃÄ@PSTRINGCN7_794  1/91  Ram=5
    ³  ³  ÀÄ*
    ³  ÃÄ@PRINTF_L32D_794FPFPF  1/351  Ram=13
+   ³  ³  ÀÄ*
+   ³  ÃÄservo_1_write  0/20  Ram=1
+   ³  ³  ÀÄmap_int  1/127  Ram=14
+   ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
+   ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/20  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/20  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/20  Ram=1
+   ³  ³  ÀÄmap_int  1/127  Ram=14
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/20  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/20  Ram=1
    ³  ³  ÀÄ*
    ³  ÀÄ@delay_ms1  0/20  Ram=1
    ÀÄtimer_0  0/53  Ram=0
