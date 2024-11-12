@@ -31,10 +31,10 @@ void main() {
     delay_ms(1000);
     printf(lcd_putc, "\fvoy a cero");
     delay_ms(1000);
-    servo_1_write(0);
+    servo_1_write(angle_x);
     // Esperar 5 segundos con los servos en 90 grados
     delay_ms(1000);
-    servo_2_write(0);
+    servo_2_write(angle_y);
     delay_ms(1000);
     // Configurar los servos inicialmente en 90 grados
     int angle_x = 90;
@@ -66,5 +66,5 @@ void main() {
         printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);
 
         delay_ms(1000);
-    }}
+}
 

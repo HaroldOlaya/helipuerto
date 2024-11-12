@@ -11,6 +11,19 @@ Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers
 Type=4
 [mru-list]
 1=presentacion_pi.c
+[Opened Files]
+1=..\..\..\..\..\Downloads\MPU6050_Read.X\lcd.c
+2=..\corte 2 helipuerto\helipuerto.c
+3=..\..\micros_avanzados\programa lcd\programalcd.c
+4=..\..\..\..\..\Music\Control Servomotor\Servomotor\Servomotor.c
+5=..\..\..\..\..\Music\Libreria Servo\servo_st.c
+6=..\corte 2 helipuerto\servo_st.c
+7=..\..\micros-final\servos16\servos16.c
+8=..\..\micros-final\PID\pid.c
+9=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+10=..\programa_final\helipuerto_final.c
+11=presentacion_pi.c
+12=
 [Units]
 Count=1
 1=presentacion_pi (main)

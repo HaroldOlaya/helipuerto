@@ -66,5 +66,5 @@ void main() {
         printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);
 
         delay_ms(1000);
-    }}
+}
 
