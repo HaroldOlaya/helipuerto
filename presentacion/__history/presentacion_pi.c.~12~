@@ -46,34 +46,6 @@ void main() {
         printf(lcd_putc, "Gx:%0.2f Gy:%0.2f", Gx, Gy);
 
         delay_ms(1000);
-        
-        servo_1_write(90);   // Mueve el servo 1 a angle_x
-        delay_ms(500);           // Espera para que el servo complete el movimiento
-        servo_2_write(90);   // Mueve el servo 2 a angle_y
-        delay_ms(500);  
- 
- 
-        servo_1_write(120);   // Mueve el servo 1 a angle_x
-        delay_ms(500);           // Espera para que el servo complete el movimiento
-        servo_1_write(90);   // Mueve el servo 2 a angle_y
-        delay_ms(500); 
-        
-        servo_2_write(120);   // Mueve el servo 1 a angle_x
-        delay_ms(500);           // Espera para que el servo complete el movimiento
-        servo_2_write(90);   // Mueve el servo 2 a angle_y
-        delay_ms(500);
-        
-        
-        servo_1_write(70);   // Mueve el servo 1 a angle_x
-        delay_ms(500);           // Espera para que el servo complete el movimiento
-        servo_1_write(90);   // Mueve el servo 2 a angle_y
-        delay_ms(500); 
-        
-        servo_2_write(70);   // Mueve el servo 1 a angle_x
-        delay_ms(500);           // Espera para que el servo complete el movimiento
-        servo_2_write(90);   // Mueve el servo 2 a angle_y
-        delay_ms(500);
 
     }}
-
 
