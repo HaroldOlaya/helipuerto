@@ -21,9 +21,9 @@ Type=4
 7=..\..\..\..\..\Music\Libreria Servo\servo_st.c
 8=..\corte 2 helipuerto\servo_st.c
 9=..\..\micros-final\servos16\servos16.c
-10=..\..\micros-final\PID\pid.c
-11=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
-12=presentacion_pi.c
+10=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+11=presentacion_pi.c
+12=
 13=
 [Units]
 Count=1

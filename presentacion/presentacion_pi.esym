@@ -1,8 +1,7 @@
-C L "MAIN" 0 11 1 "FUNCTION"
-D G "__PCM__" 0 157 ""5.015""
-D G "__DEVICE__" 0 157 "877"
-D G "__DATE__" 0 157 ""12-nov.-24""
-D G "__TIME__" 0 157 ""19:39:21"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 188 ""5.015""
+D G "__DEVICE__" 0 188 "877"
+D G "__DATE__" 0 188 ""12-nov.-24""
+D G "__TIME__" 0 188 ""20:43:19"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -783,14 +782,14 @@ D G "SQRT2" 2 38 "1.4142135623730950"
 C L "jump_to_irs" 2 2 3 "FUNCTION"
 V L "x" 2 45 "float" `618 
 V L "n" 2 45 "int8" `619 
-F G "CEIL_FLOOR" 2 46 "float(float x,int8 n,int8 )" `617 
+F G "CEIL_FLOOR" 2 46 "float(float x,int8 n)" `617 
 V L "y" 2 47 "float" `620 
 V L "res" 2 47 "float" `621 
 V L "l" 2 48 "int16" `622 
 V L "s" 2 49 "int1" `623 
 C L "floor" 2 2 5 "FUNCTION"
 V L "x" 2 207 "float" `638 
-F G "floor" 2 208 "float(float x,int8 n)" `637 
+F G "floor" 2 208 "float(float x)" `637 
 C L "ceil" 2 2 5 "FUNCTION"
 V L "x" 2 233 "float" `640 
 F G "ceil" 2 234 "float(float x)" `639 
@@ -798,7 +797,7 @@ D G "fabs" 2 259 "abs"
 C L "fmod" 2 2 6 "FUNCTION"
 V L "x" 2 271 "float" `642 
 V L "y" 2 271 "float" `643 
-F G "fmod" 2 272 "float(float x,float y,int8 x,int8 y)" `641 
+F G "fmod" 2 272 "float(float x,float y)" `641 
 V L "i" 2 273 "float" `644 
 D G "LN2" 2 334 "0.6931471805599453"
 D G "LN2_INV" 2 335 "1.4426950408889634073"
@@ -815,7 +814,7 @@ V G "pl" 2 525 "[4]" `660
 V G "ql" 2 526 "[4]" `663 
 C L "log" 2 2 3 "FUNCTION"
 V L "x" 2 534 "float" `667 
-F G "log" 2 535 "float(float x,float ,float )" `666 
+F G "log" 2 535 "float(float x)" `666 
 V L "y" 2 536 "float" `668 
 V L "res" 2 536 "float" `669 
 V L "r" 2 536 "float" `670 
@@ -835,7 +834,7 @@ F G "modf" 2 809 "float(float value,*float iptr)" `676
 C L "pwr" 2 2 6 "FUNCTION"
 V L "x" 2 836 "float" `680 
 V L "y" 2 836 "float" `681 
-F G "pwr" 2 837 "float(float x,float y,float ,float )" `679 
+F G "pwr" 2 837 "float(float x,float y)" `679 
 C L "pow" 2 2 7 "FUNCTION"
 V L "x" 2 899 "float" `683 
 V L "y" 2 899 "float" `684 
@@ -879,7 +878,7 @@ V G "pas" 2 1378 "[3]" `705
 V G "qas" 2 1379 "[3]" `708 
 V L "x" 2 1381 "float" `712 
 V L "n" 2 1381 "int8" `713 
-F G "ASIN_COS" 2 1382 "float(float x,int8 n,int16 )" `711 
+F G "ASIN_COS" 2 1382 "float(float x,int8 n)" `711 
 V L "y" 2 1383 "float" `714 
 V L "res" 2 1383 "float" `715 
 V L "r" 2 1383 "float" `716 
@@ -1059,30 +1058,51 @@ V L "angle1" 5 78 "int8" `851
 F G "servo_1_write" 5 79 "void(int8 angle1)" `850 
 V L "angle2" 5 85 "int8" `853 
 F G "servo_2_write" 5 86 "void(int8 angle2)" `852 
-V G "Ax" 0 20 "float" `854 
-V G "Ay" 0 20 "float" `855 
-V G "Az" 0 20 "float" `856 
-V G "Gx" 0 20 "float" `857 
-V G "Gy" 0 20 "float" `858 
-V G "Gz" 0 20 "float" `859 
-V G "t" 0 20 "float" `860 
-F G "MAIN" 0 22 "void()" `861 
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 2 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 1 "FUNCTION"
+D G "BUTTON_UP" 0 19 "PIN_B1" "Botón para incrementar valor"
+D G "BUTTON_DOWN" 0 20 "PIN_B2" "Botón para decrementar valor"
+D G "BUTTON_SELECT" 0 21 "PIN_B3" "Botón para confirmar selección"
+D G "BUTTON_MENU" 0 22 "PIN_B0" "Botón para acceder al menú PID"
+V G "kp_x" 0 25 "float" `854 
+V G "ki_x" 0 25 "float" `855 
+V G "kd_x" 0 25 "float" `856 
+V G "kp_y" 0 26 "float" `857 
+V G "ki_y" 0 26 "float" `858 
+V G "kd_y" 0 26 "float" `859 
+V G "setpoint_x" 0 27 "float" `860 
+V G "setpoint_y" 0 27 "float" `861 
+V G "last_error_x" 0 28 "float" `862 
+V G "integral_x" 0 28 "float" `863 
+V G "last_error_y" 0 29 "float" `864 
+V G "integral_y" 0 29 "float" `865 
+V G "tolerance" 0 32 "float" `866 
+C L "abs_float" 0 24 2 "FUNCTION"
+V L "value" 0 35 "float" `868 
+F G "abs_float" 0 35 "float(float value)" `867 
+C L "pid_control_x" 0 24 1 "FUNCTION"
+V L "input" 0 40 "float" `870 
+F G "pid_control_x" 0 40 "float(float input)" `869 
+V L "error" 0 41 "float" `871 
+C L "pid_control_x" 0 24 1 "FUNCTION"
+V L "derivative" 0 48 "float" `872 
+V L "output" 0 49 "float" `873 
+C L "pid_control_x" 0 24 1 "FUNCTION"
+V L "input" 0 58 "float" `875 
+F G "pid_control_y" 0 58 "float(float input)" `874 
+V L "error" 0 59 "float" `876 
+V L "derivative" 0 66 "float" `877 
+V L "output" 0 67 "float" `878 
+C L "pid_menu" 0 24 1 "FUNCTION"
+F G "pid_menu" 0 76 "void()" `879 
+V L "option" 0 77 "int8" `880 
+V L "done" 0 78 "int8" `881 
+C L "pid_menu" 0 24 1 "FUNCTION"
+C L "interrupt_rb0" 0 24 1 "FUNCTION"
+F G "interrupt_rb0" 0 152 "void()" `905 
+F G "MAIN" 0 156 "void()" `906 
+V L "Ax" 0 162 "float" `909 
+V L "Ay" 0 162 "float" `910 
+V L "servo_x_output" 0 162 "float" `911 
+V L "servo_y_output" 0 162 "float" `912 
 C L "MAIN" 0 24 1 "FUNCTION"
 C L "MAIN" 0 24 1 "FUNCTION"
 C L "MAIN" 0 24 1 "FUNCTION"
