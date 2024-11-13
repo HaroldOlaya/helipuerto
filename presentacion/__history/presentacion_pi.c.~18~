@@ -158,12 +158,10 @@ void interrupt_rb0() {
 
 void main() {
     lcd_init();
-    MPU6050_init();// Inicializa la pantalla LCD
-    servo_init(); 
     enable_interrupts(INT_EXT);
     enable_interrupts(GLOBAL);
     ext_int_edge(H_TO_L);
-    printf(lcd_putc, " BIENVENIDO");
+
     float Ax, Ay, servo_x_output, servo_y_output;
 
     while (true) {

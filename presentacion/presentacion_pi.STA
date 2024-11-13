@@ -1,9 +1,9 @@
 
-ROM used:   5532/8192 (68%)
-            5679/8192 (69%) including unused fragments
+ROM used:   5766/8192 (70%)
+            5854/8192 (71%) including unused fragments
 
             1.5 Average locations per line
-            11.0 Average locations per statement
+            11.4 Average locations per statement
 
 RAM used:   86/368 (23%) at main() level
             166/368 (45%) worst case
@@ -13,14 +13,14 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  190   119  24  presentacion_pi.c
+  192   122  24  presentacion_pi.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
  2229   257  51  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
   456    84  17  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
   110    24   5  MPU6050.c
   146    21   4  servo_st.c
 ----- -----
- 3802   505 Total
+ 3804   508 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -28,7 +28,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     33   1    4   596  5.9  @SFTOI
 0    119   2   13   179  3.3  @MULFF
 0    326   6   16   460  4.7  @ADDFF
-0    204   4   14   238  4.0  @DIVFF
+1    204   4   14   238  4.0  @DIVFF
  Inline         2    56  3.0  @SITOF
 0     20   0    1             @delay_ms1
  Inline         3             @I2C_READ_1
@@ -40,21 +40,24 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    134   2    6   814  7.2  lcd_init
 0     20   0    4   208  6.3  lcd_gotoxy
 0     58   1    1   354  4.7  lcd_putc
-0    204   4    2   174  2.4  mpu6050_read
-1    109   2   12   140  3.5  mpu6050_get_ax
-1    109   2   12   140  3.5  mpu6050_get_ay
+ Inline         2   102  1.8  mpu6050_write
+1    210   4    2   174  2.4  mpu6050_read
+0    186   3    0    88  1.7  mpu6050_init
+0    109   2   12   140  3.5  mpu6050_get_ax
+1    103   2   12   140  3.5  mpu6050_get_ay
 0     53   1    0   277  4.2  timer_0
+0     14   0    0    78  1.6  servo_init
  Inline        14   156  5.1  map_int
  Inline         5             @MUL1616
  Inline         5             @DIV1616
-1    147   3    1    85  2.3  servo_1_write
+2    147   3    1    85  2.3  servo_1_write
 1    147   3    1    83  2.5  servo_2_write
-0     42   1    4    56  3.0  abs_float
-2    468   8   12   413  6.0  pid_control_x
-2    468   8   12   413  6.0  pid_control_y
-1   1134  20    3  2538  8.3  pid_menu
+1     40   1    4    56  3.0  abs_float
+2    470   8   12   413  6.0  pid_control_x
+2    470   8   12   413  6.0  pid_control_y
+1   1020  18    3  2538  8.3  pid_menu
 0      1   0    0             @const882
- Inline         4             @PSTRINGC7_794
+0    116   2    4             @PSTRINGC7_794
 0      6   0    0             @const884
 0    122   2    5             @PSTRINGCN7_794
  Inline         5             @FTOSD
@@ -71,31 +74,32 @@ Page ROM  %  RAM   Vol Diff  Functions:
 1     12   0    0             @goto11394
 1     12   0    0             @goto11418
 0      7   0    0    12  0.8  interrupt_rb0
-2    647  12    4   778  5.3  MAIN
-0      7   0    0             @const913
+2    671  12    4   866  5.3  MAIN
+0      6   0    0             @const909
+0      7   0    0             @const914
  Inline         3             @DIV88
 1    174   3    6             @PRINTF_D_794
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               25
-    Statements              505
-    Comments                513
-    Volume (V)              16346
-    Difficulty (D)          107.7
-    Effort to implement (E) 1760558
-    Time to implement (T)   27 hours, 10 minutes
+    Functions               28
+    Statements              508
+    Comments                514
+    Volume (V)              17265
+    Difficulty (D)          112.8
+    Effort to implement (E) 1948195
+    Time to implement (T)   30 hours, 4 minutes
     Est Delivered Bugs (B)  5
     Cyclomatic Complexity   47
-    Maintainability (MI)    122
+    Maintainability (MI)    108
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00055    82  0  
-00056-007FF  1942  20  
-00800-00FFF  1921  127  
-01000-017FF  1583  465  
+00056-007FF  1923  39  
+00800-00FFF  1999  49  
+01000-017FF  1758  290  
 01800-01FFF     0  2048  
 
 
