@@ -165,19 +165,19 @@ void main() {
         Ax = MPU6050_get_Ax();  // Obtener valor en el eje X
         Ay = MPU6050_get_Ay();  // Obtener valor en el eje Y
 
-               // Mostrar datos en la pantalla LCD como enteros en grados
+        lcd_putc("\f");  // Limpiar LCD
         lcd_gotoxy(1, 1);
-        printf(lcd_putc, "Ax:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100));
-         delay_ms(500);
+        printf(lcd_putc, "Ax: %.2f", Ax);
+        lcd_gotoxy(1, 2);
+        printf(lcd_putc, "Ay: %.2f", Ay);
+
         // Corrección priorizando el eje más inclinado
         if (abs_float(Ay) > abs_float(Ax) && abs_float(Ay) > tolerance) {
             servo_y_output = pid_control_y(Ay);
             servo_2_write(servo_y_output);
-            delay_ms(500);
         } else if (abs_float(Ax) > tolerance) {
             servo_x_output = pid_control_x(Ax);
             servo_1_write(servo_x_output);
-            delay_ms(500);
         }
 
         delay_ms(1000);
