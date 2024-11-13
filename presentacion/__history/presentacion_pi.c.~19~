@@ -21,7 +21,7 @@
 
 #include <lcd.c>         // Librería para el manejo de la LCD
 #include <MPU6050.c>     // Librería para el manejo del MPU6050
-#include <servo_st.c>    // Librería para servos
+#include <servo_st.c> 
 
 
 // Variables para PID y Setpoint para X y Y
@@ -33,9 +33,6 @@ float last_error_y = 0.0, integral_y = 0.0;
 
 // Rango permitido cercano al cero
 float tolerance = 2.0;  // Rango de ±2 grados
-
-// Variables para control de tiempo
-unsigned long last_time = 0;  // Almacenará el último tiempo en milisegundos
 
 // Función para obtener el valor absoluto de un número de punto flotante
 float abs_float(float value) {
@@ -161,37 +158,34 @@ void interrupt_rb0() {
 
 void main() {
     lcd_init();
-    MPU6050_init();  // Inicializa el MPU6050
-    servo_init();    // Inicializa los servos
+    MPU6050_init();// Inicializa la pantalla LCD
+    servo_init(); 
     enable_interrupts(INT_EXT);
     enable_interrupts(GLOBAL);
     ext_int_edge(H_TO_L);
-
-    printf(lcd_putc, "BIENVENIDO");
-
+    printf(lcd_putc, " BIENVENIDO");
     float Ax, Ay, servo_x_output, servo_y_output;
 
     while (true) {
+        Ax = MPU6050_get_Ax();  // Obtener valor en el eje X
+        Ay = MPU6050_get_Ay();  // Obtener valor en el eje Y
 
-            // Obtener los valores de los ángulos
-            Ax = MPU6050_get_Ax();  // Obtener valor en el eje X
-            Ay = MPU6050_get_Ay();  // Obtener valor en el eje Y
-
-            // Mostrar los valores de los ángulos en la pantalla LCD
-            lcd_gotoxy(1, 1);
-            printf(lcd_putc, "\fAx: %.2f Ay: %.2f", Ax, Ay);  // Mostrar como valores flotantes para precisión
-
-            // Movimiento del servo 1 (X)
-            servo_x_output = pid_control_x(Ax);
-            servo_1_write(servo_x_output);  // Mueve el servo en el eje X
-            delay_ms(1000);  // Espera 1 segundo entre movimientos
-
-            // Movimiento del servo 2 (Y)
+               // Mostrar datos en la pantalla LCD como enteros en grados
+        lcd_gotoxy(1, 1);
+        printf(lcd_putc, "\fAx:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100));
+         delay_ms(500);
+        // Corrección priorizando el eje más inclinado
+        if (abs_float(Ay) > abs_float(Ax) && abs_float(Ay) > tolerance) {
             servo_y_output = pid_control_y(Ay);
-            servo_2_write(servo_y_output);  // Mueve el servo en el eje Y
-            delay_ms(1000);  // Espera 1 segundo entre movimientos
-
+            servo_2_write(servo_y_output);
+            delay_ms(500);
+        } else if (abs_float(Ax) > tolerance) {
+            servo_x_output = pid_control_x(Ax);
+            servo_1_write(servo_x_output);
+            delay_ms(500);
         }
-    }
 
+        delay_ms(1000);
+    }
+}
 

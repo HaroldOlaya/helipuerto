@@ -1,11 +1,12 @@
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_putc)
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (@ADDFF)
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MULFF)
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC7_794)
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_gotoxy)
->>> Warning 216 "presentacion_pi.c" Line 190(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN7_794)
-      Memory usage:   ROM=70%      RAM=23% - 45%
-      0 Errors,  8 Warnings.
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (@ADDFF)
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (@MULFF)
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC7_794)
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (lcd_gotoxy)
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN7_794)
+>>> Warning 216 "presentacion_pi.c" Line 195(5,6): Interrupts disabled during call to prevent re-entrancy:  (@PRINTF_L32D_794FPFPF)
+>>> Warning 202 "presentacion_pi.c" Line 38(15,24): Variable never used:   last_time
+      Memory usage:   ROM=65%      RAM=23% - 45%
+      0 Errors,  9 Warnings.
 Build Successful.

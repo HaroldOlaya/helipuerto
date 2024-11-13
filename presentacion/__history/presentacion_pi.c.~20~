@@ -172,6 +172,11 @@ void main() {
     float Ax, Ay, servo_x_output, servo_y_output;
 
     while (true) {
+        unsigned long current_time = millis();  // Obtener el tiempo actual
+
+        // Verificar si ha pasado 1000 ms (1 segundo)
+        if (current_time - last_time >= 1000) {
+            last_time = current_time;  // Actualizar el último tiempo
 
             // Obtener los valores de los ángulos
             Ax = MPU6050_get_Ax();  // Obtener valor en el eje X
@@ -181,17 +186,20 @@ void main() {
             lcd_gotoxy(1, 1);
             printf(lcd_putc, "\fAx: %.2f Ay: %.2f", Ax, Ay);  // Mostrar como valores flotantes para precisión
 
-            // Movimiento del servo 1 (X)
-            servo_x_output = pid_control_x(Ax);
-            servo_1_write(servo_x_output);  // Mueve el servo en el eje X
-            delay_ms(1000);  // Espera 1 segundo entre movimientos
+            // Corrección priorizando el eje más inclinado
+            if (abs_float(Ay) > abs_float(Ax) && abs_float(Ay) > tolerance) {
+                // Corrige el eje Y
+                servo_y_output = pid_control_y(Ay);
+                servo_2_write(servo_y_output);  // Mueve el servo en el eje Y
+            } 
+            else if (abs_float(Ax) > tolerance) {
+                // Corrige el eje X
+                servo_x_output = pid_control_x(Ax);
+                servo_1_write(servo_x_output);  // Mueve el servo en el eje X
+            }
 
-            // Movimiento del servo 2 (Y)
-            servo_y_output = pid_control_y(Ay);
-            servo_2_write(servo_y_output);  // Mueve el servo en el eje Y
-            delay_ms(1000);  // Espera 1 segundo entre movimientos
-
+            delay_ms(100);  // Espera corta para evitar saturar el sistema
         }
     }
-
+}
 

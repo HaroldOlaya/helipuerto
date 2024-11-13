@@ -1,7 +1,8 @@
-D G "__PCM__" 0 191 ""5.015""
-D G "__DEVICE__" 0 191 "877"
-D G "__DATE__" 0 191 ""12-nov.-24""
-D G "__TIME__" 0 191 ""21:07:39"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+D G "__PCM__" 3 137 ""5.015""
+D G "__DEVICE__" 3 137 "877"
+D G "__DATE__" 3 137 ""12-nov.-24""
+D G "__TIME__" 3 137 ""21:26:39"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -1075,35 +1076,41 @@ V G "integral_x" 0 31 "float" `863
 V G "last_error_y" 0 32 "float" `864 
 V G "integral_y" 0 32 "float" `865 
 V G "tolerance" 0 35 "float" `866 
+V G "last_time" 0 38 "int16" `867 
 C L "abs_float" 0 27 2 "FUNCTION"
-V L "value" 0 38 "float" `868 
-F G "abs_float" 0 38 "float(float value)" `867 
+V L "value" 0 41 "float" `869 
+F G "abs_float" 0 41 "float(float value)" `868 
 C L "pid_control_x" 0 27 1 "FUNCTION"
-V L "input" 0 43 "float" `870 
-F G "pid_control_x" 0 43 "float(float input)" `869 
-V L "error" 0 44 "float" `871 
+V L "input" 0 46 "float" `871 
+F G "pid_control_x" 0 46 "float(float input)" `870 
+V L "error" 0 47 "float" `872 
 C L "pid_control_x" 0 27 1 "FUNCTION"
-V L "derivative" 0 51 "float" `872 
-V L "output" 0 52 "float" `873 
+V L "derivative" 0 54 "float" `873 
+V L "output" 0 55 "float" `874 
 C L "pid_control_x" 0 27 1 "FUNCTION"
-V L "input" 0 61 "float" `875 
-F G "pid_control_y" 0 61 "float(float input)" `874 
-V L "error" 0 62 "float" `876 
-V L "derivative" 0 69 "float" `877 
-V L "output" 0 70 "float" `878 
+V L "input" 0 64 "float" `876 
+F G "pid_control_y" 0 64 "float(float input)" `875 
+V L "error" 0 65 "float" `877 
+V L "derivative" 0 72 "float" `878 
+V L "output" 0 73 "float" `879 
 C L "pid_menu" 0 27 1 "FUNCTION"
-F G "pid_menu" 0 79 "void()" `879 
-V L "option" 0 80 "int8" `880 
-V L "done" 0 81 "int8" `881 
+F G "pid_menu" 0 82 "void()" `880 
+V L "option" 0 83 "int8" `881 
+V L "done" 0 84 "int8" `882 
 C L "pid_menu" 0 27 1 "FUNCTION"
 C L "interrupt_rb0" 0 27 1 "FUNCTION"
-F G "interrupt_rb0" 0 155 "void()" `905 
-F G "MAIN" 0 159 "void()" `906 
+F G "interrupt_rb0" 0 158 "void()" `906 
+F G "MAIN" 0 162 "void()" `907 
 C L "MAIN" 0 27 1 "FUNCTION"
-V L "Ax" 0 167 "float" `910 
-V L "Ay" 0 167 "float" `911 
-V L "servo_x_output" 0 167 "float" `912 
-V L "servo_y_output" 0 167 "float" `913 
+C L "MAIN" 0 27 1 "FUNCTION"
+V L "Ax" 0 172 "float" `911 
+V L "Ay" 0 172 "float" `912 
+V L "servo_x_output" 0 172 "float" `913 
+V L "servo_y_output" 0 172 "float" `914 
+C L "MAIN" 0 27 1 "FUNCTION"
+C L "MAIN" 0 27 1 "FUNCTION"
+C L "MAIN" 0 27 2 "FUNCTION"
+C L "MAIN" 0 27 2 "FUNCTION"
 C L "MAIN" 0 27 1 "FUNCTION"
 C L "MAIN" 0 27 2 "FUNCTION"
 C L "MAIN" 0 27 1 "FUNCTION"
