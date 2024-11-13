@@ -1,10 +1,10 @@
->>> Warning 216 "presentacion_pi.c" Line 185(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
->>> Warning 216 "presentacion_pi.c" Line 185(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
->>> Warning 216 "presentacion_pi.c" Line 185(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_putc)
->>> Warning 216 "presentacion_pi.c" Line 185(1,2): Interrupts disabled during call to prevent re-entrancy:  (@ADDFF)
->>> Warning 216 "presentacion_pi.c" Line 185(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MULFF)
->>> Warning 216 "presentacion_pi.c" Line 185(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_gotoxy)
->>> Warning 216 "presentacion_pi.c" Line 185(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN7_794)
+>>> Warning 216 "presentacion_pi.c" Line 188(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "presentacion_pi.c" Line 188(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
+>>> Warning 216 "presentacion_pi.c" Line 188(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_putc)
+>>> Warning 216 "presentacion_pi.c" Line 188(1,2): Interrupts disabled during call to prevent re-entrancy:  (@ADDFF)
+>>> Warning 216 "presentacion_pi.c" Line 188(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MULFF)
+>>> Warning 216 "presentacion_pi.c" Line 188(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_gotoxy)
+>>> Warning 216 "presentacion_pi.c" Line 188(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGCN7_794)
       Memory usage:   ROM=68%      RAM=23% - 45%
       0 Errors,  7 Warnings.
 Build Successful.

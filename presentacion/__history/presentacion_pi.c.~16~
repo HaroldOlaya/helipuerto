@@ -13,16 +13,13 @@
 #define servo_1 PIN_A0
 #define servo_2 PIN_A1
 
-// Librería adicional para el manejo de servos
+#include <lcd.c>         // Librería para el manejo de la LCD
+#include <MPU6050.c>     // Librería para el manejo del MPU6050
+#include <servo_st.c>    // Librería adicional para el manejo de servos
 #define BUTTON_UP PIN_B1      // Botón para incrementar valor
 #define BUTTON_DOWN PIN_B2    // Botón para decrementar valor
 #define BUTTON_SELECT PIN_B3  // Botón para confirmar selección
-#define BUTTON_MENU PIN_B0  
-
-#include <lcd.c>         // Librería para el manejo de la LCD
-#include <MPU6050.c>     // Librería para el manejo del MPU6050
-#include <servo_st.c> 
-
+#define BUTTON_MENU PIN_B0    // Botón para acceder al menú PID
 
 // Variables para PID y Setpoint para X y Y
 float kp_x = 0.2, ki_x = 0.05, kd_x = 0.01;
@@ -164,13 +161,13 @@ void main() {
 
     float Ax, Ay, servo_x_output, servo_y_output;
 
-    while (true) {
+    while (TRUE) {
         Ax = MPU6050_get_Ax();  // Obtener valor en el eje X
         Ay = MPU6050_get_Ay();  // Obtener valor en el eje Y
 
                // Mostrar datos en la pantalla LCD como enteros en grados
         lcd_gotoxy(1, 1);
-        printf(lcd_putc, "\fAx:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100));
+        printf(lcd_putc, "Ax:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100));
          delay_ms(500);
         // Corrección priorizando el eje más inclinado
         if (abs_float(Ay) > abs_float(Ax) && abs_float(Ay) > tolerance) {
