@@ -172,37 +172,26 @@ void main() {
     float Ax, Ay, servo_x_output, servo_y_output;
 
     while (true) {
-        // Obtener los valores de los ángulos
-        Ax = MPU6050_get_Ax();  // Obtener valor en el eje X
-        Ay = MPU6050_get_Ay();  // Obtener valor en el eje Y
 
-        // Mostrar los valores de los ángulos en la pantalla LCD
-        lcd_gotoxy(1, 1);
-        printf(lcd_putc, "Ax:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100));// Mostrar como valores flotantes para precisión
+            // Obtener los valores de los ángulos
+            Ax = MPU6050_get_Ax();  // Obtener valor en el eje X
+            Ay = MPU6050_get_Ay();  // Obtener valor en el eje Y
 
-        // Movimiento del servo 1 (X)
-        servo_x_output = pid_control_x(Ax);
-        // Ajuste del servo X: si Ax es positivo, sumamos a 90; si es negativo, restamos
-        if (Ax > 0) {
-            servo_x_output = 90 + servo_x_output;  // Mueve el servo en el eje X hacia la derecha
-        } else {
-            servo_x_output = 90 - servo_x_output;  // Mueve el servo en el eje X hacia la izquierda
+            // Mostrar los valores de los ángulos en la pantalla LCD
+            lcd_gotoxy(1, 1);
+            printf(lcd_putc, "\fAx: %.2f Ay: %.2f", Ax, Ay);  // Mostrar como valores flotantes para precisión
+
+            // Movimiento del servo 1 (X)
+            servo_x_output = pid_control_x(Ax);
+            servo_1_write(servo_x_output);  // Mueve el servo en el eje X
+            delay_ms(1000);  // Espera 1 segundo entre movimientos
+
+            // Movimiento del servo 2 (Y)
+            servo_y_output = pid_control_y(Ay);
+            servo_2_write(servo_y_output);  // Mueve el servo en el eje Y
+            delay_ms(1000);  // Espera 1 segundo entre movimientos
+
         }
-        servo_1_write(servo_x_output);  // Mueve el servo en el eje X
-        delay_ms(1000);  // Espera 1 segundo entre movimientos
-
-        // Movimiento del servo 2 (Y)
-        servo_y_output = pid_control_y(Ay);
-        // Ajuste del servo Y: si Ay es positivo, sumamos a 90; si es negativo, restamos
-        if (Ay > 0) {
-            servo_y_output = 90 + servo_y_output;  // Mueve el servo en el eje Y hacia arriba
-        } else {
-            servo_y_output = 90 - servo_y_output;  // Mueve el servo en el eje Y hacia abajo
-        }
-        servo_2_write(servo_y_output);  // Mueve el servo en el eje Y
-        delay_ms(1000);  // Espera 1 segundo entre movimientos
-
-        // Ya está funcionando con la corrección de los ángulos
     }
-}
+
 
