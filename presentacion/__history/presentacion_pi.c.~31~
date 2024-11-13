@@ -202,7 +202,7 @@ void main() {
         servo_2_write(servo_y_output);  // Mueve el servo en el eje Y
         delay_ms(1000);  // Espera 1 segundo entre movimientos
 
-        // Ya casi
+        // Ya está funcionando con la corrección de los ángulos
     }
 }
 

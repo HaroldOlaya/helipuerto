@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               12-nov.-24 22:22
+CCS PCM C Compiler, Version 5.015, 5967               12-nov.-24 22:33
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
@@ -8999,7 +8999,7 @@ CCS PCM C Compiler, Version 5.015, 5967               12-nov.-24 22:22
 16EB:  BCF    03.5
 16EC:  GOTO   500
 ....................  
-....................         // Ya está funcionando con la corrección de los ángulos 
+....................         // Ya casi 
 ....................     } 
 .................... } 
 ....................  
