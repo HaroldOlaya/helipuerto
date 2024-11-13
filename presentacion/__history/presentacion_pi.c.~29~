@@ -178,15 +178,15 @@ void main() {
 
         // Mostrar los valores de los ángulos en la pantalla LCD
         lcd_gotoxy(1, 1);
-        printf(lcd_putc, "\fAx:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100));// Mostrar como valores flotantes para precisión
+        printf(lcd_putc, "Ax:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100));// Mostrar como valores flotantes para precisión
 
         // Movimiento del servo 1 (X)
         servo_x_output = pid_control_x(Ax);
         // Ajuste del servo X: si Ax es positivo, sumamos a 90; si es negativo, restamos
         if (Ax > 0) {
-            servo_x_output = 90 - servo_x_output;  // Mueve el servo en el eje X hacia la derecha
+            servo_x_output = 90 + servo_x_output;  // Mueve el servo en el eje X hacia la derecha
         } else {
-            servo_x_output = 90 + servo_x_output;  // Mueve el servo en el eje X hacia la izquierda
+            servo_x_output = 90 - servo_x_output;  // Mueve el servo en el eje X hacia la izquierda
         }
         servo_1_write(servo_x_output);  // Mueve el servo en el eje X
         delay_ms(1000);  // Espera 1 segundo entre movimientos
