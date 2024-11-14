@@ -13,14 +13,14 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   71    32   8  presentacion_pi.c
+   72    32   8  presentacion_pi.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
  2229   257  61  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
   456    84  20  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
   110    24   6  MPU6050.c
   146    21   5  servo_st.c
 ----- -----
- 3683   418 Total
+ 3684   418 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -62,7 +62,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 Program metrics:
     Functions               18
     Statements              418
-    Comments                510
+    Comments                511
     Volume (V)              8611
     Difficulty (D)          68.9
     Effort to implement (E) 593076

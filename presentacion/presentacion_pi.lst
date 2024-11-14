@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               14-nov.-24 15:36
+CCS PCM C Compiler, Version 5.015, 5967               14-nov.-24 16:29
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
@@ -4955,6 +4955,7 @@ CCS PCM C Compiler, Version 5.015, 5967               14-nov.-24 15:36
 0767:  DECFSZ 44,F
 0768:  GOTO   764
 0769:  GOTO   6D9
+....................         // esta funcionando  
 ....................     } 
 .................... } 
 ....................  

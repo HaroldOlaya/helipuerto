@@ -65,7 +65,6 @@ void main() {
         delay_ms(500);
         servo_2_write(angle_y);
         delay_ms(500);
-        // esta funcionando 
     }
 }
 
