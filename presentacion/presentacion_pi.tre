@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  0/172  Ram=1
+   ÃÄMAIN  0/196  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/62  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -82,13 +82,19 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PRINTF_D_794  0/87  Ram=6
    ³  ³  ÀÄ*
-   ³  ÃÄservo_1_write  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/18  Ram=1
    ³  ³  ÀÄmap_int  0/127  Ram=14
    ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
    ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/18  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/18  Ram=1
    ³  ³  ÀÄmap_int  0/127  Ram=14
    ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/18  Ram=1
+   ³  ³  ÀÄ*
    ³  ÀÄ@delay_ms1  0/20  Ram=1
    ÀÄtimer_0  0/53  Ram=0

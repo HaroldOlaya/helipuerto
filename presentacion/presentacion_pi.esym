@@ -1,8 +1,8 @@
-C L "MAIN" 0 22 1 "FUNCTION"
-D G "__PCM__" 0 75 ""5.015""
-D G "__DEVICE__" 0 75 "877"
-D G "__DATE__" 0 75 ""14-nov.-24""
-D G "__TIME__" 0 75 ""15:10:11"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+D G "__PCM__" 3 137 ""5.015""
+D G "__DEVICE__" 3 137 "877"
+D G "__DATE__" 3 137 ""14-nov.-24""
+D G "__TIME__" 3 137 ""15:31:46"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -1079,7 +1079,7 @@ C L "MAIN" 0 22 1 "FUNCTION"
 C L "MAIN" 0 22 1 "FUNCTION"
 C L "MAIN" 0 22 1 "FUNCTION"
 C L "MAIN" 0 22 1 "FUNCTION"
-C L "MAIN" 0 22 4 "FUNCTION"
+C L "MAIN" 0 22 3 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

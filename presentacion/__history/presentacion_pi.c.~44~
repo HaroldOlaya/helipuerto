@@ -62,14 +62,12 @@ void main() {
         //angle_x = (angle_x < 0) ? 0 : (angle_x > 180) ? 180 : angle_x;
         //angle_y = (angle_y < 0) ? 0 : (angle_y > 180) ? 180 : angle_y;
 
-        servo_1_write(angle_x/2);
-        delay_ms(500);
+        // Enviar los ángulos a los servos
         servo_1_write(angle_x);
-        delay_ms(500);
-        servo_2_write(angle_y/2);
         delay_ms(500);
         servo_2_write(angle_y);
         delay_ms(500);
+          // Pequeño retraso para suavizar el movimiento
     }
 }
 
