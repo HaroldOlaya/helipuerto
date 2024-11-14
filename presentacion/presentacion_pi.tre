@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  2/619  Ram=2
+   ÃÄMAIN  2/741  Ram=2
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/134  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -126,6 +126,28 @@
    ³  ÃÄservo_2_write  2/147  Ram=1
    ³  ³  ÀÄmap_int  (Inline)  Ram=14
    ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄlcd_gotoxy  0/20  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13
+   ³  ³  ÃÄ@MULFF  0/119  Ram=13
+   ³  ³  ÃÄ@FTOSD  (Inline)  Ram=5
+   ³  ³  ÃÄ@DIV3232  0/81  Ram=13
+   ³  ³  ÃÄlcd_putc  0/58  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_putc  0/58  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_putc  0/58  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_putc  0/58  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄ@DIV3232  0/81  Ram=13
+   ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13
+   ³  ³  ÀÄ*
    ³  ÀÄ@delay_ms1  0/20  Ram=1
    ÃÄtimer_0  0/53  Ram=0
    ÀÄinterrupt_rb0  0/7  Ram=0
@@ -138,18 +160,7 @@
          ÃÄ@PSTRINGCN7_794  0/122  Ram=5
          ³  ÀÄ*
          ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13
-         ³  ÃÄ@MULFF  0/119  Ram=13
-         ³  ÃÄ@FTOSD  (Inline)  Ram=5
-         ³  ÃÄ@DIV3232  0/81  Ram=13
-         ³  ÃÄlcd_putc  0/58  Ram=1
-         ³  ³  ÀÄ*
-         ³  ÃÄlcd_putc  0/58  Ram=1
-         ³  ³  ÀÄ*
-         ³  ÃÄlcd_putc  0/58  Ram=1
-         ³  ³  ÀÄ*
-         ³  ÃÄlcd_putc  0/58  Ram=1
-         ³  ³  ÀÄ*
-         ³  ÀÄ@DIV3232  0/81  Ram=13
+         ³  ÀÄ*
          ÃÄ@PSTRINGCN7_794  0/122  Ram=5
          ³  ÀÄ*
          ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13

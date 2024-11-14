@@ -203,7 +203,7 @@ void main() {
         delay_ms(1000);
         lcd_gotoxy(1, 2);
         printf(lcd_putc, "\fCx:%f Cy:%f", servo_y_output, servo_x_output);// Espera 1 segundo entre movimientos
-         delay_ms(500);
+
         // Ya casi
     }
 }

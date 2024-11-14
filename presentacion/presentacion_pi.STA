@@ -1,9 +1,9 @@
 
-ROM used:   5742/8192 (70%)
-            5870/8192 (72%) including unused fragments
+ROM used:   5871/8192 (72%)
+            5992/8192 (73%) including unused fragments
 
             1.5 Average locations per line
-            11.2 Average locations per statement
+            11.4 Average locations per statement
 
 RAM used:   86/368 (23%) at main() level
             164/368 (45%) worst case
@@ -13,23 +13,23 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  209   126  25  presentacion_pi.c
+  211   129  25  presentacion_pi.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
  2229   257  50  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
   456    84  16  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
   110    24   5  MPU6050.c
   146    21   4  servo_st.c
 ----- -----
- 3821   512 Total
+ 3823   515 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 1     65   1   10             @FLT
-0     33   1    4   596  5.9  @SFTOI
-0    119   2   13   179  3.3  @MULFF
-0    326   6   16   460  4.7  @ADDFF
-1    204   4   14   238  4.0  @DIVFF
- Inline         2    56  3.0  @SITOF
+0     33   1    4             @SFTOI
+0    119   2   13             @MULFF
+0    326   6   16             @ADDFF
+1    204   3   14             @DIVFF
+ Inline         2             @SITOF
 0     20   0    1             @delay_ms1
  Inline         3             @I2C_READ_1
 0     92   2    1             @I2C_WRITE_1
@@ -55,7 +55,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
  Inline         4    56  3.0  abs_float
 2    504   9   12   413  6.0  pid_control_x
 2    504   9   12   413  6.0  pid_control_y
-1   1020  18    3  2538  8.3  pid_menu
+1   1020  17    3  2538  8.3  pid_menu
 0      1   0    0             @const883
 0    116   2    4             @PSTRINGC7_794
 0      6   0    0             @const885
@@ -74,32 +74,33 @@ Page ROM  %  RAM   Vol Diff  Functions:
 1     12   0    0             @goto11394
 1     12   0    0             @goto11418
 0      7   0    0    12  0.8  interrupt_rb0
-2    619  11    2   918  5.8  MAIN
+2    741  13    2  1072  5.8  MAIN
 0      6   0    0             @const910
 0      7   0    0             @const915
  Inline         3             @DIV88
 1    174   3    6             @PRINTF_D_794
+0      7   0    0             @const922
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               28
-    Statements              512
+    Functions               23
+    Statements              515
     Comments                531
-    Volume (V)              17342
-    Difficulty (D)          113.3
-    Effort to implement (E) 1965523
-    Time to implement (T)   30 hours, 20 minutes
-    Est Delivered Bugs (B)  5
+    Volume (V)              14320
+    Difficulty (D)          90.7
+    Effort to implement (E) 1298930
+    Time to implement (T)   20 hours, 3 minutes
+    Est Delivered Bugs (B)  4
     Cyclomatic Complexity   47
-    Maintainability (MI)    112
+    Maintainability (MI)    133
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00055    82  0  
-00056-007FF  1923  39  
+00056-007FF  1930  32  
 00800-00FFF  1959  89  
-01000-017FF  1774  274  
+01000-017FF  1896  152  
 01800-01FFF     0  2048  
 
 
