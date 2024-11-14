@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  0/212  Ram=2
+   ÃÄMAIN  0/158  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/62  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -56,12 +56,10 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@SITOF  0/37  Ram=2
    ³  ³  ÀÄ@DIVFF  0/202  Ram=14
+   ³  ÃÄ@SFTOI  0/31  Ram=4
+   ³  ÃÄ@SFTOI  0/31  Ram=4
    ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³  ³  ÀÄ*
-   ³  ÃÄ@MULFF  0/117  Ram=13
-   ³  ÃÄ@SFTOI  0/31  Ram=4
-   ³  ÃÄ@MULFF  0/117  Ram=13
-   ³  ÃÄ@SFTOI  0/31  Ram=4
    ³  ÃÄ@PSTRINGCN7_794  0/87  Ram=5
    ³  ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ³  ÀÄ*
@@ -82,31 +80,13 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PRINTF_D_794  0/87  Ram=6
    ³  ³  ÀÄ*
-   ³  ÃÄservo_1_write  0/18  Ram=1
+   ³  ÃÄservo_1_write  0/20  Ram=1
    ³  ³  ÀÄmap_int  0/127  Ram=14
    ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
    ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_1_write  0/18  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_1_write  0/18  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_1_write  0/18  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  0/18  Ram=1
+   ³  ÃÄservo_2_write  0/20  Ram=1
    ³  ³  ÀÄmap_int  0/127  Ram=14
    ³  ³     ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  0/18  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  0/18  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  0/18  Ram=1
-   ³  ³  ÀÄ*
    ³  ÀÄ@delay_ms1  0/20  Ram=1
    ÀÄtimer_0  0/53  Ram=0

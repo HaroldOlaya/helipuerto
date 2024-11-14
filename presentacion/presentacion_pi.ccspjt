@@ -12,17 +12,17 @@ Type=4
 [mru-list]
 1=presentacion_pi.c
 [Opened Files]
-1=presentacion_pi.c
-2=..\..\..\..\..\Downloads\MPU6050_Read.X\lcd.c
-3=..\corte 2 helipuerto\helipuerto.c
-4=..\..\micros_avanzados\programa lcd\programalcd.c
-5=..\corte 2 helipuerto\mpu6050.h
-6=..\..\..\..\..\Music\MPU6050\MPU6050 Lectura\MPU6050 Lectura.c
-7=..\..\..\..\..\Music\Control Servomotor\Servomotor\Servomotor.c
-8=..\..\..\..\..\Music\Libreria Servo\servo_st.c
-9=..\corte 2 helipuerto\servo_st.c
-10=..\..\micros-final\servos16\servos16.c
-11=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+1=..\..\..\..\..\Downloads\MPU6050_Read.X\lcd.c
+2=..\corte 2 helipuerto\helipuerto.c
+3=..\..\micros_avanzados\programa lcd\programalcd.c
+4=..\corte 2 helipuerto\mpu6050.h
+5=..\..\..\..\..\Music\MPU6050\MPU6050 Lectura\MPU6050 Lectura.c
+6=..\..\..\..\..\Music\Control Servomotor\Servomotor\Servomotor.c
+7=..\..\..\..\..\Music\Libreria Servo\servo_st.c
+8=..\corte 2 helipuerto\servo_st.c
+9=..\..\micros-final\servos16\servos16.c
+10=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+11=presentacion_pi.c
 12=
 13=
 [Units]

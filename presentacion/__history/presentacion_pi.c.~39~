@@ -7,9 +7,7 @@
 
 #use standard_io(D)
 #use standard_io(A)
-#define use_servo_1 
-#define use_servo_2
-// Definiciones de pines para los servos
+
 #define servo_1 PIN_A0
 #define servo_2 PIN_A1
 
@@ -64,10 +62,9 @@ void main() {
 
         // Enviar los ángulos a los servos
         servo_1_write(angle_x);
-        delay_ms(500);
         servo_2_write(angle_y);
-        delay_ms(500);
-          // Pequeño retraso para suavizar el movimiento
+
+        delay_ms(100);  // Pequeño retraso para suavizar el movimiento
     }
 }
 
