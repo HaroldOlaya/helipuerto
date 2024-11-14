@@ -33,8 +33,8 @@ void main() {
         Ay = MPU6050_get_Ay();
 
         // Convertir a valores enteros
-        int x_angle = (int)(Ax * 100);
-        int y_angle = (int)(Ay * 100);
+        int x_angle = (int)Ax;
+        int y_angle = (int)Ay;
 
         // Mostrar los valores en la pantalla LCD
         lcd_gotoxy(1, 1);
@@ -42,7 +42,7 @@ void main() {
 
         // Calcular el ángulo para servo 1 basado en X
         if (x_angle < -2) {
-            angle_x = 90 - x_angle;  // Si X es negativo, restar de 90
+            angle_x = 90 - abs(x_angle);  // Si X es negativo, restar de 90
         } else if (x_angle > 2) {
             angle_x = 90 + x_angle;       // Si X es positivo, sumar a 90
         } else {
@@ -51,7 +51,7 @@ void main() {
 
         // Calcular el ángulo para servo 2 basado en Y
         if (y_angle < -2) {
-            angle_y = 90 - y_angle;  // Si Y es negativo, restar de 90
+            angle_y = 90 - abs(y_angle);  // Si Y es negativo, restar de 90
         } else if (y_angle > 2) {
             angle_y = 90 + y_angle;       // Si Y es positivo, sumar a 90
         } else {

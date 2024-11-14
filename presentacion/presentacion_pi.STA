@@ -1,9 +1,9 @@
 
-ROM used:   1768/8192 (22%)
-            1768/8192 (22%) including unused fragments
+ROM used:   1899/8192 (23%)
+            1899/8192 (23%) including unused fragments
 
             0.5 Average locations per line
-            4.2 Average locations per statement
+            4.5 Average locations per statement
 
 RAM used:   30/368 (8%) at main() level
             67/368 (18%) worst case
@@ -13,18 +13,19 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   74    34   8  presentacion_pi.c
+   74    32   8  presentacion_pi.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
  2229   257  61  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
   456    84  20  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
   110    24   6  MPU6050.c
   146    21   5  servo_st.c
 ----- -----
- 3686   420 Total
+ 3686   418 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     31   2    4             @SFTOI
+0    117   6   13             @MULFF
 0    202  11   14             @DIVFF
 0     37   2    2             @SITOF
 0     20   1    1             @delay_ms1
@@ -33,12 +34,12 @@ Page ROM  %  RAM   Vol Diff  Functions:
  Inline         3   596  5.9  lcd_read_byte
 0      6   0    0    59  4.2  lcd_read_nibble
 0     17   1    1   179  3.3  lcd_send_nibble
-0     66   4    3   460  4.7  lcd_send_byte
-0     62   4    6   814  7.2  lcd_init
+0     66   3    3   460  4.7  lcd_send_byte
+0     62   3    6   814  7.2  lcd_init
 0     18   1    4   208  6.3  lcd_gotoxy
 0     44   2    1   354  4.7  lcd_putc
 0     72   4    2   102  1.8  mpu6050_write
-0    196  11    2   174  2.4  mpu6050_read
+0    196  10    2   174  2.4  mpu6050_read
 0     18   1    0    88  1.7  mpu6050_init
 0     60   3   12   140  3.5  mpu6050_get_ax
 0     60   3   12   140  3.5  mpu6050_get_ay
@@ -49,7 +50,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
  Inline         5             @DIV1616
 0     20   1    1    85  2.3  servo_1_write
 0     20   1    1    83  2.5  servo_2_write
-0    158   9    1  1258  7.1  MAIN
+0    172   9    1   990  6.6  MAIN
 0      6   0    0             @const857
 0     88   5    4             @PSTRINGC7_794
 0      7   0    0             @const865
@@ -60,12 +61,12 @@ Page ROM  %  RAM   Vol Diff  Functions:
 
 Program metrics:
     Functions               18
-    Statements              420
-    Comments                510
-    Volume (V)              8961
-    Difficulty (D)          69.5
-    Effort to implement (E) 623192
-    Time to implement (T)   9 hours, 37 minutes
+    Statements              418
+    Comments                512
+    Volume (V)              8611
+    Difficulty (D)          68.9
+    Effort to implement (E) 593076
+    Time to implement (T)   9 hours, 9 minutes
     Est Delivered Bugs (B)  2
     Cyclomatic Complexity   15
     Maintainability (MI)    134
@@ -74,7 +75,7 @@ Program metrics:
 -----------  ----  ----
 00000-00003     4  0  
 00004-0004E    75  0  
-0004F-007FF  1689  280  
+0004F-007FF  1820  149  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

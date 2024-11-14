@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  0/158  Ram=1
+   ÃÄMAIN  0/172  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/62  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -56,7 +56,9 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@SITOF  0/37  Ram=2
    ³  ³  ÀÄ@DIVFF  0/202  Ram=14
+   ³  ÃÄ@MULFF  0/117  Ram=13
    ³  ÃÄ@SFTOI  0/31  Ram=4
+   ³  ÃÄ@MULFF  0/117  Ram=13
    ³  ÃÄ@SFTOI  0/31  Ram=4
    ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³  ³  ÀÄ*

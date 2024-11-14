@@ -38,7 +38,7 @@ void main() {
 
         // Mostrar los valores en la pantalla LCD
         lcd_gotoxy(1, 1);
-        printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
+        printf(lcd_putc, "\fAx:%d Ay:%d", x_angle), y_angle);
 
         // Calcular el ángulo para servo 1 basado en X
         if (x_angle < -2) {
