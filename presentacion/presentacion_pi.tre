@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  1/192  Ram=2
+   ÃÄMAIN  0/212  Ram=2
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/62  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -39,7 +39,7 @@
    ³  ³  ³     ÀÄ*
    ³  ³  ÀÄlcd_putc  0/44  Ram=1
    ³  ³     ÀÄ*
-   ³  ÃÄmpu6050_get_ax  0/58  Ram=12
+   ³  ÃÄmpu6050_get_ax  0/60  Ram=12
    ³  ³  ÃÄmpu6050_read  0/196  Ram=2
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
@@ -49,7 +49,7 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@SITOF  0/37  Ram=2
    ³  ³  ÀÄ@DIVFF  0/202  Ram=14
-   ³  ÃÄmpu6050_get_ay  0/58  Ram=12
+   ³  ÃÄmpu6050_get_ay  0/60  Ram=12
    ³  ³  ÃÄmpu6050_read  0/196  Ram=2
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄmpu6050_read  0/196  Ram=2
@@ -82,34 +82,31 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PRINTF_D_794  0/87  Ram=6
    ³  ³  ÀÄ*
-   ³  ÃÄaplicar_correccion_x  0/157  Ram=9
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄservo_1_write  0/18  Ram=1
-   ³  ³  ³  ÀÄmap_int  0/127  Ram=14
-   ³  ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
-   ³  ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄmpu6050_get_ax  0/58  Ram=12
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄservo_1_write  0/18  Ram=1
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄaplicar_correccion_y  1/175  Ram=9
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄservo_2_write  0/18  Ram=1
-   ³  ³  ³  ÀÄmap_int  0/127  Ram=14
-   ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄmpu6050_get_ay  0/58  Ram=12
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄ@FLT  0/63  Ram=10
-   ³  ³  ÃÄservo_2_write  0/18  Ram=1
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/18  Ram=1
+   ³  ³  ÀÄmap_int  0/127  Ram=14
+   ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
+   ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/18  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/18  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_1_write  0/18  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/18  Ram=1
+   ³  ³  ÀÄmap_int  0/127  Ram=14
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/18  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/18  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  0/18  Ram=1
+   ³  ³  ÀÄ*
    ³  ÀÄ@delay_ms1  0/20  Ram=1
    ÀÄtimer_0  0/53  Ram=0

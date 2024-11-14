@@ -1,8 +1,8 @@
-C L "MAIN" 0 24 1 "FUNCTION"
-D G "__PCM__" 0 140 ""5.015""
-D G "__DEVICE__" 0 140 "877"
-D G "__DATE__" 0 140 ""13-nov.-24""
-D G "__TIME__" 0 140 ""23:13:55"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+D G "__PCM__" 1 38 ""5.015""
+D G "__DEVICE__" 1 38 "877"
+D G "__DATE__" 1 38 ""13-nov.-24""
+D G "__TIME__" 1 38 ""23:27:58"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -1063,40 +1063,28 @@ V L "angle1" 5 78 "int8" `851
 F G "servo_1_write" 5 79 "void(int8 angle1)" `850 
 V L "angle2" 5 85 "int8" `853 
 F G "servo_2_write" 5 86 "void(int8 angle2)" `852 
-V G "tolerance" 0 28 "float" `854 
-C L "aplicar_correccion_x" 0 27 1 "FUNCTION"
-V L "Ax" 0 31 "float" `856 
-F G "aplicar_correccion_x" 0 31 "void(float Ax)" `855 
-V L "servo_x_output" 0 32 "int8" `857 
-C L "aplicar_correccion_x" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_x" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_x" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_x" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_x" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_x" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_x" 0 27 2 "FUNCTION"
-C L "aplicar_correccion_x" 0 27 2 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 1 "FUNCTION"
-V L "Ay" 0 65 "float" `859 
-F G "aplicar_correccion_y" 0 65 "void(float Ay)" `858 
-V L "servo_y_output" 0 66 "int8" `860 
-C L "aplicar_correccion_y" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 1 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 2 "FUNCTION"
-C L "aplicar_correccion_y" 0 27 2 "FUNCTION"
-F G "MAIN" 0 98 "void()" `861 
-C L "MAIN" 0 27 1 "FUNCTION"
-C L "MAIN" 0 27 1 "FUNCTION"
-V L "Ax" 0 105 "float" `866 
-V L "Ay" 0 105 "float" `867 
-C L "MAIN" 0 27 1 "FUNCTION"
-C L "MAIN" 0 27 1 "FUNCTION"
-C L "MAIN" 0 27 2 "FUNCTION"
-C L "MAIN" 0 27 2 "FUNCTION"
+F G "MAIN" 0 28 "void()" `854 
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+V L "Ax" 0 35 "float" `859 
+V L "Ay" 0 35 "float" `860 
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 2 "FUNCTION"
+C L "MAIN" 0 30 2 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
+C L "MAIN" 0 30 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

@@ -24,76 +24,6 @@
 #include <servo_st.c>    // Librería para servos
 
 
-// Rango de tolerancia de ±2 grados
-float tolerance = 2.0;
-
-// Función para aplicar corrección manual en el eje X
-void aplicar_correccion_x(float Ax) {
-    int servo_x_output = 90;  // Posición inicial del servo en el centro (90 grados)
-
-    while (abs(Ax) > tolerance) {
-        if (Ax > 0) {
-            servo_x_output = 90 - 5;  // Corrige hacia la derecha
-            if (servo_x_output < 0) servo_x_output = 0;  // Limitar a 0
-        } else {
-            servo_x_output = 90 + 5;  // Corrige hacia la izquierda
-            if (servo_x_output > 180) servo_x_output = 180;  // Limitar a 180
-        }
-
-        servo_1_write(servo_x_output);  // Mueve el servo en el eje X
-        delay_ms(1000);  // Espera entre movimientos
-
-        // Actualizar el valor de Ax
-        Ax = MPU6050_get_Ax();  // Lee el valor actual en el eje X desde el giroscopio
-
-        // Ajustes finos de 1 grado una vez cerca del setpoint
-        if (abs(Ax) <= tolerance) {
-            if (Ax > 0) {
-                servo_x_output = 90 - 1;
-                if (servo_x_output < 0) servo_x_output = 0;
-            } else {
-                servo_x_output = 90 + 1;
-                if (servo_x_output > 180) servo_x_output = 180;
-            }
-            servo_1_write(servo_x_output);
-            delay_ms(50);
-        }
-    }
-}
-
-// Función para aplicar corrección manual en el eje Y
-void aplicar_correccion_y(float Ay) {
-    int servo_y_output = 90;  // Posición inicial del servo en el centro (90 grados)
-
-    while (abs(Ay) > tolerance) {
-        if (Ay > 0) {
-            servo_y_output = 90 + 5;  // Mueve el servo hacia arriba
-            if (servo_y_output > 180) servo_y_output = 180;  // Limitar a 180
-        } else {
-            servo_y_output = 90 - 5;  // Mueve el servo hacia abajo
-            if (servo_y_output < 0) servo_y_output = 0;  // Limitar a 0
-        }
-
-        servo_2_write(servo_y_output);  // Mueve el servo en el eje Y
-        delay_ms(1000);  // Espera entre movimientos
-
-        // Actualizar el valor de Ay
-        Ay = MPU6050_get_Ay();  // Lee el valor actual en el eje Y desde el giroscopio
-
-        // Ajustes finos de 1 grado una vez cerca del setpoint
-        if (abs(Ay) <= tolerance) {
-            if (Ay > 0) {
-                servo_y_output = 90 + 1;
-                if (servo_y_output > 180) servo_y_output = 180;
-            } else {
-                servo_y_output = 90 - 1;
-                if (servo_y_output < 0) servo_y_output = 0;
-            }
-            servo_2_write(servo_y_output);
-            delay_ms(50);
-        }
-    }
-}
 
 void main() {
     lcd_init();
@@ -113,11 +43,27 @@ void main() {
         lcd_gotoxy(1, 1);
         printf(lcd_putc, "\fAx:%d Ay:%d", (int)(Ax * 100), (int)(Ay * 100)); // Mostrar como valores enteros
 
-        // Aplicar corrección para los ejes X e Y
-        aplicar_correccion_x(Ax);
-        aplicar_correccion_y(Ay);
+  
+        // Enviar los ángulos a los servos
+        servo_1_write(60);   // Mueve el servo 1 a angle_x
+        delay_ms(500);           // Espera para que el servo complete el movimiento
+        servo_1_write(90);   // Mueve el servo 2 a angle_y
+        delay_ms(500);  
 
-        delay_ms(200);  // Espera breve entre lecturas
+        servo_1_write(120);   // Mueve el servo 1 a angle_x
+        delay_ms(500);           // Espera para que el servo complete el movimiento
+        servo_1_write(90);   // Mueve el servo 2 a angle_y
+        delay_ms(500);
+        // Enviar los ángulos a los servos
+        servo_2_write(60);   // Mueve el servo 1 a angle_x
+        delay_ms(500);           // Espera para que el servo complete el movimiento
+        servo_2_write(90);   // Mueve el servo 2 a angle_y
+        delay_ms(500);  
+
+        servo_2_write(120);   // Mueve el servo 1 a angle_x
+        delay_ms(500);           // Espera para que el servo complete el movimiento
+        servo_2_write(90);   // Mueve el servo 2 a angle_y
+        delay_ms(500);  
     }
 }
 
