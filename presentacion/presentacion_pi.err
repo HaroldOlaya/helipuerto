@@ -1,4 +1,11 @@
->>> Warning 202 "presentacion_pi.c" Line 35(15,24): Variable never used:   last_time
-      Memory usage:   ROM=46%      RAM=23% - 39%
-      0 Errors,  1 Warnings.
+>>> Warning 205 "presentacion_pi.c" Line 37(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "presentacion_pi.c" Line 37(1,1): Condition always FALSE
+>>> Warning 205 "presentacion_pi.c" Line 53(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "presentacion_pi.c" Line 53(1,1): Condition always FALSE
+>>> Warning 205 "presentacion_pi.c" Line 74(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "presentacion_pi.c" Line 74(1,1): Condition always FALSE
+>>> Warning 205 "presentacion_pi.c" Line 90(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "presentacion_pi.c" Line 90(1,1): Condition always FALSE
+      Memory usage:   ROM=28%      RAM=10% - 20%
+      0 Errors,  8 Warnings.
 Build Successful.
