@@ -67,9 +67,9 @@ void main() {
         // Ajuste fino para Servo 1 (X)
         while (x_angle < -2 || x_angle > 2) {
             if (x_angle < -2) {
-                angle_x--;  // Incrementar el ángulo si está por debajo del rango
+                angle_x++;  // Incrementar el ángulo si está por debajo del rango
             } else if (x_angle > 2) {
-                angle_x++;  // Decrementar el ángulo si está por encima del rango
+                angle_x--;  // Decrementar el ángulo si está por encima del rango
             }
 
             servo_1_write(angle_x);
@@ -81,15 +81,14 @@ void main() {
 
             lcd_gotoxy(1, 1);
             printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
-            delay_ms(200);
         }
 
         // Ajuste fino para Servo 2 (Y)
         while (y_angle < -2 || y_angle > 2) {
             if (y_angle < -2) {
-                angle_y--;  // Incrementar el ángulo si está por debajo del rango
+                angle_y++;  // Incrementar el ángulo si está por debajo del rango
             } else if (y_angle > 2) {
-                angle_y++;  // Decrementar el ángulo si está por encima del rango
+                angle_y--;  // Decrementar el ángulo si está por encima del rango
             }
 
             servo_2_write(angle_y);
@@ -101,7 +100,6 @@ void main() {
 
             lcd_gotoxy(1, 1);
             printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
-            delay_ms(200);
         }
     }
 }

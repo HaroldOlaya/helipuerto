@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 14:34
+CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 14:39
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
-               ROM used:   2151 words (26%)
+               ROM used:   2161 words (26%)
                            Largest free fragment is 2048
                RAM used:   30 (8%) at main() level
                            67 (18%) worst case
@@ -5003,15 +5003,15 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 14:34
 08D0:  MOVF   42,W
 08D1:  SUBLW  02
 08D2:  BTFSC  03.0
-08D3:  GOTO   138
+08D3:  GOTO   13D
 ....................             if (x_angle < -2) { 
-....................                 angle_x++;  // Incrementar el ángulo si está por debajo del rango 
+....................                 angle_x--;  // Incrementar el ángulo si está por debajo del rango 
 ....................             } else if (x_angle > 2) { 
 08D4:  MOVF   42,W
 08D5:  SUBLW  02
 08D6:  BTFSS  03.0
-....................                 angle_x--;  // Decrementar el ángulo si está por encima del rango 
-08D7:  DECF   40,F
+....................                 angle_x++;  // Decrementar el ángulo si está por encima del rango 
+08D7:  INCF   40,F
 ....................             } 
 ....................  
 ....................             servo_1_write(angle_x); 
@@ -5118,136 +5118,148 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 14:34
 0934:  BCF    0A.3
 0935:  CALL   5CB
 0936:  BSF    0A.3
-0937:  GOTO   0D0
+....................             delay_ms(200); 
+0937:  MOVLW  C8
+0938:  MOVWF  4B
+0939:  BCF    0A.3
+093A:  CALL   09F
+093B:  BSF    0A.3
+093C:  GOTO   0D0
 ....................         } 
 ....................  
 ....................         // Ajuste fino para Servo 2 (Y) 
 ....................         while (y_angle < -2 || y_angle > 2) { 
-0938:  MOVF   43,W
-0939:  SUBLW  02
-093A:  BTFSC  03.0
-093B:  GOTO   1A0
+093D:  MOVF   43,W
+093E:  SUBLW  02
+093F:  BTFSC  03.0
+0940:  GOTO   1AA
 ....................             if (y_angle < -2) { 
-....................                 angle_y++;  // Incrementar el ángulo si está por debajo del rango 
+....................                 angle_y--;  // Incrementar el ángulo si está por debajo del rango 
 ....................             } else if (y_angle > 2) { 
-093C:  MOVF   43,W
-093D:  SUBLW  02
-093E:  BTFSS  03.0
-....................                 angle_y--;  // Decrementar el ángulo si está por encima del rango 
-093F:  DECF   41,F
+0941:  MOVF   43,W
+0942:  SUBLW  02
+0943:  BTFSS  03.0
+....................                 angle_y++;  // Decrementar el ángulo si está por encima del rango 
+0944:  INCF   41,F
 ....................             } 
 ....................  
 ....................             servo_2_write(angle_y); 
-0940:  MOVF   41,W
-0941:  MOVWF  44
-0942:  BCF    0A.3
-0943:  CALL   6B3
-0944:  BSF    0A.3
-....................             delay_ms(50); 
-0945:  MOVLW  32
-0946:  MOVWF  4B
+0945:  MOVF   41,W
+0946:  MOVWF  44
 0947:  BCF    0A.3
-0948:  CALL   09F
+0948:  CALL   6B3
 0949:  BSF    0A.3
+....................             delay_ms(50); 
+094A:  MOVLW  32
+094B:  MOVWF  4B
+094C:  BCF    0A.3
+094D:  CALL   09F
+094E:  BSF    0A.3
 ....................  
 ....................             // Actualizar los valores del giroscopio y mostrarlos en la LCD 
 ....................             Ay = MPU6050_get_Ay(); 
-094A:  BCF    0A.3
-094B:  CALL   491
-094C:  BSF    0A.3
-094D:  MOVF   7A,W
-094E:  MOVWF  3F
-094F:  MOVF   79,W
-0950:  MOVWF  3E
-0951:  MOVF   78,W
-0952:  MOVWF  3D
-0953:  MOVF   77,W
-0954:  MOVWF  3C
+094F:  BCF    0A.3
+0950:  CALL   491
+0951:  BSF    0A.3
+0952:  MOVF   7A,W
+0953:  MOVWF  3F
+0954:  MOVF   79,W
+0955:  MOVWF  3E
+0956:  MOVF   78,W
+0957:  MOVWF  3D
+0958:  MOVF   77,W
+0959:  MOVWF  3C
 ....................             y_angle = (int)(Ay * 100); 
-0955:  MOVF   3F,W
-0956:  MOVWF  47
-0957:  MOVF   3E,W
-0958:  MOVWF  46
-0959:  MOVF   3D,W
-095A:  MOVWF  45
-095B:  MOVF   3C,W
-095C:  MOVWF  44
-095D:  CLRF   4B
-095E:  CLRF   4A
-095F:  MOVLW  48
-0960:  MOVWF  49
-0961:  MOVLW  85
-0962:  MOVWF  48
-0963:  BCF    0A.3
-0964:  CALL   4CB
-0965:  BSF    0A.3
-0966:  MOVF   7A,W
-0967:  MOVWF  47
-0968:  MOVF   79,W
-0969:  MOVWF  46
-096A:  MOVF   78,W
-096B:  MOVWF  45
-096C:  MOVF   77,W
-096D:  MOVWF  44
-096E:  BCF    0A.3
-096F:  CALL   540
-0970:  BSF    0A.3
-0971:  MOVF   78,W
-0972:  MOVWF  43
+095A:  MOVF   3F,W
+095B:  MOVWF  47
+095C:  MOVF   3E,W
+095D:  MOVWF  46
+095E:  MOVF   3D,W
+095F:  MOVWF  45
+0960:  MOVF   3C,W
+0961:  MOVWF  44
+0962:  CLRF   4B
+0963:  CLRF   4A
+0964:  MOVLW  48
+0965:  MOVWF  49
+0966:  MOVLW  85
+0967:  MOVWF  48
+0968:  BCF    0A.3
+0969:  CALL   4CB
+096A:  BSF    0A.3
+096B:  MOVF   7A,W
+096C:  MOVWF  47
+096D:  MOVF   79,W
+096E:  MOVWF  46
+096F:  MOVF   78,W
+0970:  MOVWF  45
+0971:  MOVF   77,W
+0972:  MOVWF  44
+0973:  BCF    0A.3
+0974:  CALL   540
+0975:  BSF    0A.3
+0976:  MOVF   78,W
+0977:  MOVWF  43
 ....................  
 ....................             lcd_gotoxy(1, 1); 
-0973:  MOVLW  01
-0974:  MOVWF  4B
-0975:  MOVWF  4C
-0976:  BCF    0A.3
-0977:  CALL   20E
-0978:  BSF    0A.3
+0978:  MOVLW  01
+0979:  MOVWF  4B
+097A:  MOVWF  4C
+097B:  BCF    0A.3
+097C:  CALL   20E
+097D:  BSF    0A.3
 ....................             printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle); 
-0979:  MOVLW  98
-097A:  BSF    03.6
-097B:  MOVWF  0D
-097C:  MOVLW  00
-097D:  MOVWF  0F
-097E:  BCF    03.0
-097F:  MOVLW  04
-0980:  BCF    03.6
-0981:  MOVWF  44
-0982:  BCF    0A.3
-0983:  CALL   55F
-0984:  BSF    0A.3
-0985:  MOVF   42,W
+097E:  MOVLW  98
+097F:  BSF    03.6
+0980:  MOVWF  0D
+0981:  MOVLW  00
+0982:  MOVWF  0F
+0983:  BCF    03.0
+0984:  MOVLW  04
+0985:  BCF    03.6
 0986:  MOVWF  44
-0987:  MOVLW  18
-0988:  MOVWF  45
-0989:  BCF    0A.3
-098A:  CALL   5CB
-098B:  BSF    0A.3
-098C:  MOVLW  9B
-098D:  BSF    03.6
-098E:  MOVWF  0D
-098F:  MOVLW  00
-0990:  MOVWF  0F
-0991:  BCF    03.0
-0992:  MOVLW  04
-0993:  BCF    03.6
-0994:  MOVWF  44
-0995:  BCF    0A.3
-0996:  CALL   55F
-0997:  BSF    0A.3
-0998:  MOVF   43,W
+0987:  BCF    0A.3
+0988:  CALL   55F
+0989:  BSF    0A.3
+098A:  MOVF   42,W
+098B:  MOVWF  44
+098C:  MOVLW  18
+098D:  MOVWF  45
+098E:  BCF    0A.3
+098F:  CALL   5CB
+0990:  BSF    0A.3
+0991:  MOVLW  9B
+0992:  BSF    03.6
+0993:  MOVWF  0D
+0994:  MOVLW  00
+0995:  MOVWF  0F
+0996:  BCF    03.0
+0997:  MOVLW  04
+0998:  BCF    03.6
 0999:  MOVWF  44
-099A:  MOVLW  18
-099B:  MOVWF  45
-099C:  BCF    0A.3
-099D:  CALL   5CB
-099E:  BSF    0A.3
-099F:  GOTO   138
+099A:  BCF    0A.3
+099B:  CALL   55F
+099C:  BSF    0A.3
+099D:  MOVF   43,W
+099E:  MOVWF  44
+099F:  MOVLW  18
+09A0:  MOVWF  45
+09A1:  BCF    0A.3
+09A2:  CALL   5CB
+09A3:  BSF    0A.3
+....................             delay_ms(200); 
+09A4:  MOVLW  C8
+09A5:  MOVWF  4B
+09A6:  BCF    0A.3
+09A7:  CALL   09F
+09A8:  BSF    0A.3
+09A9:  GOTO   13D
 ....................         } 
-09A0:  GOTO   022
+09AA:  GOTO   022
 ....................     } 
 .................... } 
 ....................  
-09A1:  SLEEP
+09AB:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F3A   HS NOWDT NOPUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

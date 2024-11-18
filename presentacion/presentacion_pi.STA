@@ -1,6 +1,6 @@
 
-ROM used:   2151/8192 (26%)
-            2466/8192 (30%) including unused fragments
+ROM used:   2161/8192 (26%)
+            2476/8192 (30%) including unused fragments
 
             0.6 Average locations per line
             4.8 Average locations per statement
@@ -13,14 +13,14 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  107    60  13  presentacion_pi.c
+  109    62  14  presentacion_pi.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
- 2229   257  58  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
+ 2229   257  57  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
   456    84  19  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
   110    24   5  MPU6050.c
   146    21   5  servo_st.c
 ----- -----
- 3719   446 Total
+ 3721   448 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -50,7 +50,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
  Inline         5             @DIV1616
 0     18   1    1    85  2.3  servo_1_write
 0     18   1    1    83  2.5  servo_2_write
-1    418  19    1  2125  8.2  MAIN
+1    428  20    1  2195  8.2  MAIN
 0      6   0    0             @const857
 0     88   4    4             @PSTRINGC7_794
 0      7   0    0             @const865
@@ -63,12 +63,12 @@ Page ROM  %  RAM   Vol Diff  Functions:
 
 Program metrics:
     Functions               18
-    Statements              446
+    Statements              448
     Comments                516
-    Volume (V)              10070
+    Volume (V)              10155
     Difficulty (D)          70.4
-    Effort to implement (E) 709318
-    Time to implement (T)   10 hours, 57 minutes
+    Effort to implement (E) 715305
+    Time to implement (T)   11 hours, 2 minutes
     Est Delivered Bugs (B)  3
     Cyclomatic Complexity   19
     Maintainability (MI)    131
@@ -78,7 +78,7 @@ Program metrics:
 00000-00003     4  0  
 00004-0004E    75  0  
 0004F-007FF  1654  315  
-00800-00FFF   418  1630  
+00800-00FFF   428  1620  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

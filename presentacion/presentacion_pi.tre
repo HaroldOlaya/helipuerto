@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  1/418  Ram=1
+   ÃÄMAIN  1/428  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/62  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -108,6 +108,7 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PRINTF_D_794  0/87  Ram=6
    ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ÃÄservo_2_write  0/18  Ram=1
    ³  ³  ÀÄ*
    ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -123,6 +124,7 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PSTRINGCN7_794  0/87  Ram=5
    ³  ³  ÀÄ*
-   ³  ÀÄ@PRINTF_D_794  0/87  Ram=6
-   ³     ÀÄ*
+   ³  ÃÄ@PRINTF_D_794  0/87  Ram=6
+   ³  ³  ÀÄ*
+   ³  ÀÄ@delay_ms1  0/20  Ram=1
    ÀÄtimer_0  0/53  Ram=0
