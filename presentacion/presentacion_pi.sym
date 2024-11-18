@@ -302,15 +302,15 @@ ROM Allocation:
 000DE6  servo_2_write
 000DFA  @FLT
 001000  ultimo_ajuste
-00124E  @cinit1
-00124E  MAIN
-00128D  @cinit2
+001240  @cinit1
+001240  MAIN
+00127F  @cinit2
 
 Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [18-nov.-24 17:53  CRC=BE2B8DFE]
+    presentacion_pi.c                                       [18-nov.-24 18:03  CRC=54FC65DE]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdbool.h [21-may.-12 10:29  CRC=815AEDE8]
@@ -318,7 +318,7 @@ Project Files:
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=9E5819F2
+Source signature=3528F1D2
 
 Units:
     presentacion_pi (main)
