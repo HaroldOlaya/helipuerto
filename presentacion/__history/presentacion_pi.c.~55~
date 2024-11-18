@@ -1,0 +1,124 @@
+#include <16f877a.h>
+#include <math.h>  // Para usar atan
+#include <stdbool.h>
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
+#use delay(clock=20000000)
+#use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
+
+#use standard_io(D)
+#use standard_io(A)
+#define use_servo_1 
+#define use_servo_2
+// Definiciones de pines para los servos
+#define servo_1 PIN_A0
+#define servo_2 PIN_A1
+
+#include <lcd.c>         // Librería para el manejo de la LCD
+#include <MPU6050.c>     // Librería para el manejo del MPU6050
+#include <servo_st.c>    // Librería para servos
+
+void main() {
+    lcd_init();
+    MPU6050_init();  // Inicializa el MPU6050
+    servo_init();    // Inicializa los servos
+
+    printf(lcd_putc, "BIENVENIDO");
+
+    float Ax, Ay;
+    int angle_x, angle_y;
+    bool servo_1_active = true;  // Estado del servo 1 (activo mientras fuera de rango)
+    bool servo_2_active = true;  // Estado del servo 2 (activo mientras fuera de rango)
+
+    while (true) {
+        // Obtener los valores iniciales del giroscopio
+        Ax = MPU6050_get_Ax();
+        Ay = MPU6050_get_Ay();
+
+        // Convertir a valores enteros
+        int x_angle = (int)(Ax * 100);
+        int y_angle = (int)(Ay * 100);
+
+        // Mostrar los valores en la pantalla LCD
+        lcd_gotoxy(1, 1);
+        printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
+
+        // Calcular el ángulo para servo 1 basado en X
+        if (x_angle < -2) {
+            angle_x = 90 - abs(x_angle);  // Si X es negativo, restar de 90
+        } else if (x_angle > 2) {
+            angle_x = 90 + x_angle;       // Si X es positivo, sumar a 90
+        } else {
+            angle_x = 90;                 // Mantener en el centro si está dentro de ±2
+        }
+
+        // Calcular el ángulo para servo 2 basado en Y
+        if (y_angle < -2) {
+            angle_y = 90 - abs(y_angle);  // Si Y es negativo, restar de 90
+        } else if (y_angle > 2) {
+            angle_y = 90 + y_angle;       // Si Y es positivo, sumar a 90
+        } else {
+            angle_y = 90;                 // Mantener en el centro si está dentro de ±2
+        }
+
+        // Enviar el primer movimiento a los servos
+        servo_1_write(angle_x);
+        delay_ms(500);
+        servo_2_write(angle_y);
+        delay_ms(500);
+
+        // Ajuste fino para Servo 1 (X) mientras esté fuera de rango
+        while (servo_1_active && (x_angle < -2 || x_angle > 2)) {
+            if (x_angle < -2) {
+                angle_x--;  // Incrementar el ángulo si está por debajo del rango
+            } else if (x_angle > 2) {
+                angle_x++;  // Decrementar el ángulo si está por encima del rango
+            }
+
+            servo_1_write(angle_x);
+            delay_ms(50);
+
+            // Actualizar los valores del giroscopio y mostrarlos en la LCD
+            Ax = MPU6050_get_Ax();
+            x_angle = (int)(Ax * 100);
+
+            lcd_gotoxy(1, 1);
+            printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
+
+            // Verificar si el valor de x_angle está dentro del rango
+            if (x_angle >= -2 && x_angle <= 2) {
+                servo_1_active = false;  // Detener corrección cuando esté dentro del rango
+            }
+        }
+
+        // Ajuste fino para Servo 2 (Y) mientras esté fuera de rango
+        while (servo_2_active && (y_angle < -2 || y_angle > 2)) {
+            if (y_angle < -2) {
+                angle_y--;  // Incrementar el ángulo si está por debajo del rango
+            } else if (y_angle > 2) {
+                angle_y++;  // Decrementar el ángulo si está por encima del rango
+            }
+
+            servo_2_write(angle_y);
+            delay_ms(50);
+
+            // Actualizar los valores del giroscopio y mostrarlos en la LCD
+            Ay = MPU6050_get_Ay();
+            y_angle = (int)(Ay * 100);
+
+            lcd_gotoxy(1, 1);
+            printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
+
+            // Verificar si el valor de y_angle está dentro del rango
+            if (y_angle >= -2 && y_angle <= 2) {
+                servo_2_active = false;  // Detener corrección cuando esté dentro del rango
+            }
+        }
+
+        // Si ambos servos están dentro de rango, no corregir más.
+        if (!servo_1_active && !servo_2_active) {
+            lcd_gotoxy(1, 2);
+            printf(lcd_putc, "Corrigiendo...");
+        }
+    }
+}
+

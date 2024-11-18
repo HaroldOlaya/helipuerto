@@ -1,6 +1,6 @@
 #include <16f877a.h>
 #include <math.h>  // Para usar atan
-#include <stdbool.h>
+
 #fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
 #use delay(clock=20000000)
 #use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
@@ -17,6 +17,81 @@
 #include <MPU6050.c>     // Librería para el manejo del MPU6050
 #include <servo_st.c>    // Librería para servos
 
+// Parámetros PID y tiempo entre muestras
+float Kp = 1.0;  // Ganancia proporcional
+float Ki = 0.0;  // Ganancia integral
+float Kd = 0.0;  // Ganancia derivativa
+float setpoint = 0;  // Valor deseado para el ángulo
+int sample_time = 50;  // Tiempo entre muestras (en milisegundos)
+
+float integral_x = 0, integral_y = 0;
+float previous_error_x = 0, previous_error_y = 0;
+
+float pid_control(float error, float* integral, float* previous_error, float Kp, float Ki, float Kd) {
+    // Calcular la parte proporcional
+    float P = Kp * error;
+
+    // Calcular la parte integral
+    *integral += error;
+    float I = Ki * (*integral);
+
+    // Calcular la parte derivativa
+    float D = Kd * (error - *previous_error);
+
+    // Actualizar el error previo para la próxima iteración
+    *previous_error = error;
+
+    // Salida del PID
+    return P + I + D;
+}
+
+void menu_configuracion() {
+    // Menu interactivo para cambiar PID y setpoint
+    int option = 0;  // 0 -> Kp, 1 -> Ki, 2 -> Kd, 3 -> Setpoint, 4 -> Sample Time
+    while (true) {
+        // Mostrar el menú y las opciones
+        lcd_gotoxy(1, 1);
+        if (option == 0) printf(lcd_putc, "Kp: %.2f  (RB1/RB2)", Kp);
+        if (option == 1) printf(lcd_putc, "Ki: %.2f  (RB1/RB2)", Ki);
+        if (option == 2) printf(lcd_putc, "Kd: %.2f  (RB1/RB2)", Kd);
+        if (option == 3) printf(lcd_putc, "Setpoint: %.2f (RB1/RB2)", setpoint);
+        if (option == 4) printf(lcd_putc, "Sample Time: %d (RB1/RB2)", sample_time);
+
+        lcd_gotoxy(1, 2);
+        printf(lcd_putc, "OK(RB3)  Back(RB0)");
+
+        // Comprobamos si se presionaron los botones
+        if (input(PIN_B0) == 0) {
+            return;  // Salir del menú si se presiona RB0
+        }
+
+        if (input(PIN_B3) == 0) {
+            option = (option + 1) % 5;  // Cambiar opción (RB3)
+            delay_ms(200);  // Para evitar rebotes
+        }
+
+        if (input(PIN_B1) == 0) {
+            // Incrementar el valor
+            if (option == 0) Kp += 0.1;
+            if (option == 1) Ki += 0.1;
+            if (option == 2) Kd += 0.1;
+            if (option == 3) setpoint += 0.1;
+            if (option == 4) sample_time += 10;
+            delay_ms(200);  // Para evitar rebotes
+        }
+
+        if (input(PIN_B2) == 0) {
+            // Disminuir el valor
+            if (option == 0) Kp -= 0.1;
+            if (option == 1) Ki -= 0.1;
+            if (option == 2) Kd -= 0.1;
+            if (option == 3) setpoint -= 0.1;
+            if (option == 4) sample_time -= 10;
+            delay_ms(200);  // Para evitar rebotes
+        }
+    }
+}
+
 void main() {
     lcd_init();
     MPU6050_init();  // Inicializa el MPU6050
@@ -26,11 +101,15 @@ void main() {
 
     float Ax, Ay;
     int angle_x, angle_y;
-    bool servo_1_active = true;  // Estado del servo 1 (activo mientras fuera de rango)
-    bool servo_2_active = true;  // Estado del servo 2 (activo mientras fuera de rango)
 
     while (true) {
-        // Obtener los valores iniciales del giroscopio
+        // Si se presiona RB0, entra al menú de configuración
+        if (input(PIN_B0) == 0) {
+            menu_configuracion();
+            delay_ms(200);  // Para evitar rebotes
+        }
+
+        // Obtener los valores del giroscopio
         Ax = MPU6050_get_Ax();
         Ay = MPU6050_get_Ay();
 
@@ -42,83 +121,27 @@ void main() {
         lcd_gotoxy(1, 1);
         printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
 
-        // Calcular el ángulo para servo 1 basado en X
-        if (x_angle < -2) {
-            angle_x = 90 - abs(x_angle);  // Si X es negativo, restar de 90
-        } else if (x_angle > 2) {
-            angle_x = 90 + x_angle;       // Si X es positivo, sumar a 90
-        } else {
-            angle_x = 90;                 // Mantener en el centro si está dentro de ±2
-        }
+        // Calcular el error para el control PID (el valor deseado es el setpoint)
+        float error_x = setpoint - x_angle;
+        float error_y = setpoint - y_angle;
 
-        // Calcular el ángulo para servo 2 basado en Y
-        if (y_angle < -2) {
-            angle_y = 90 - abs(y_angle);  // Si Y es negativo, restar de 90
-        } else if (y_angle > 2) {
-            angle_y = 90 + y_angle;       // Si Y es positivo, sumar a 90
-        } else {
-            angle_y = 90;                 // Mantener en el centro si está dentro de ±2
-        }
+        // Calcular las correcciones PID para ambos ejes
+        float correction_x = pid_control(error_x, &integral_x, &previous_error_x, Kp, Ki, Kd);
+        float correction_y = pid_control(error_y, &integral_y, &previous_error_y, Kp, Ki, Kd);
 
-        // Enviar el primer movimiento a los servos
+        // Calcular el ángulo de los servos basado en el punto neutro de 90 grados
+        angle_x = 90 + (int)correction_x;
+        angle_y = 90 + (int)correction_y;
+
+        // Enviar los movimientos a los servos
         servo_1_write(angle_x);
-        delay_ms(500);
+        delay_ms(sample_time);
         servo_2_write(angle_y);
-        delay_ms(500);
+        delay_ms(sample_time);
 
-        // Ajuste fino para Servo 1 (X) mientras esté fuera de rango
-        while (servo_1_active && (x_angle < -2 || x_angle > 2)) {
-            if (x_angle < -2) {
-                angle_x--;  // Incrementar el ángulo si está por debajo del rango
-            } else if (x_angle > 2) {
-                angle_x++;  // Decrementar el ángulo si está por encima del rango
-            }
-
-            servo_1_write(angle_x);
-            delay_ms(50);
-
-            // Actualizar los valores del giroscopio y mostrarlos en la LCD
-            Ax = MPU6050_get_Ax();
-            x_angle = (int)(Ax * 100);
-
-            lcd_gotoxy(1, 1);
-            printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
-
-            // Verificar si el valor de x_angle está dentro del rango
-            if (x_angle >= -2 && x_angle <= 2) {
-                servo_1_active = false;  // Detener corrección cuando esté dentro del rango
-            }
-        }
-
-        // Ajuste fino para Servo 2 (Y) mientras esté fuera de rango
-        while (servo_2_active && (y_angle < -2 || y_angle > 2)) {
-            if (y_angle < -2) {
-                angle_y--;  // Incrementar el ángulo si está por debajo del rango
-            } else if (y_angle > 2) {
-                angle_y++;  // Decrementar el ángulo si está por encima del rango
-            }
-
-            servo_2_write(angle_y);
-            delay_ms(50);
-
-            // Actualizar los valores del giroscopio y mostrarlos en la LCD
-            Ay = MPU6050_get_Ay();
-            y_angle = (int)(Ay * 100);
-
-            lcd_gotoxy(1, 1);
-            printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
-
-            // Verificar si el valor de y_angle está dentro del rango
-            if (y_angle >= -2 && y_angle <= 2) {
-                servo_2_active = false;  // Detener corrección cuando esté dentro del rango
-            }
-        }
-
-        // Si ambos servos están dentro de rango, no corregir más.
-        if (!servo_1_active && !servo_2_active) {
-            lcd_gotoxy(1, 2);
-            printf(lcd_putc, "Corrigiendo...");
-        }
+        // Mostrar los ángulos en la LCD
+        lcd_gotoxy(1, 2);
+        printf(lcd_putc, "Servo1: %d  Servo2: %d", angle_x, angle_y);
     }
 }
 
