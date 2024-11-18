@@ -22,7 +22,7 @@ float Kp = 1.0;  // Ganancia proporcional
 float Ki = 0.0;  // Ganancia integral
 float Kd = 0.0;  // Ganancia derivativa
 float setpoint = 0;  // Valor deseado para el ángulo
-int sample_time = 500;  // Tiempo entre muestras (en milisegundos)
+int sample_time = 50;  // Tiempo entre muestras (en milisegundos)
 
 float integral_x = 0, integral_y = 0;
 float previous_error_x = 0, previous_error_y = 0;
@@ -51,53 +51,43 @@ void menu_configuracion() {
     while (true) {
         // Mostrar el menú y las opciones
         lcd_gotoxy(1, 1);
-        if (option == 0) printf(lcd_putc, "Kp: %.2f", Kp);
-        if (option == 1) printf(lcd_putc, "Ki: %.2f", Ki);
-        if (option == 2) printf(lcd_putc, "Kd: %.2f", Kd);
-        if (option == 3) printf(lcd_putc, "Setpoint: %.2f", setpoint);
-        if (option == 4) printf(lcd_putc, "Sample Time: %d", sample_time);
+        if (option == 0) printf(lcd_putc, "Kp: %.2f  (RB1/RB2)", Kp);
+        if (option == 1) printf(lcd_putc, "Ki: %.2f  (RB1/RB2)", Ki);
+        if (option == 2) printf(lcd_putc, "Kd: %.2f  (RB1/RB2)", Kd);
+        if (option == 3) printf(lcd_putc, "Setpoint: %.2f (RB1/RB2)", setpoint);
+        if (option == 4) printf(lcd_putc, "Sample Time: %d (RB1/RB2)", sample_time);
 
         lcd_gotoxy(1, 2);
         printf(lcd_putc, "OK(RB3)  Back(RB0)");
 
         // Comprobamos si se presionaron los botones
         if (input(PIN_B0) == 0) {
-            delay_ms(50);  // Retardo para evitar rebote
-            if (input(PIN_B0) == 0) return;  // Salir del menú si se presiona RB0
+            return;  // Salir del menú si se presiona RB0
         }
 
         if (input(PIN_B3) == 0) {
-            delay_ms(50);  // Retardo para evitar rebote
-            if (input(PIN_B3) == 0) {
-                option = (option + 1) % 5;  // Cambiar opción (RB3)
-                delay_ms(200);  // Para evitar rebotes
-            }
+            option = (option + 1) % 5;  // Cambiar opción (RB3)
+            delay_ms(200);  // Para evitar rebotes
         }
 
         if (input(PIN_B1) == 0) {
-            delay_ms(50);  // Retardo para evitar rebote
-            if (input(PIN_B1) == 0) {
-                // Incrementar el valor
-                if (option == 0) Kp += 0.1;
-                if (option == 1) Ki += 0.1;
-                if (option == 2) Kd += 0.1;
-                if (option == 3) setpoint += 0.1;
-                if (option == 4) sample_time += 10;
-                delay_ms(200);  // Para evitar rebotes
-            }
+            // Incrementar el valor
+            if (option == 0) Kp += 0.1;
+            if (option == 1) Ki += 0.1;
+            if (option == 2) Kd += 0.1;
+            if (option == 3) setpoint += 0.1;
+            if (option == 4) sample_time += 10;
+            delay_ms(200);  // Para evitar rebotes
         }
 
         if (input(PIN_B2) == 0) {
-            delay_ms(50);  // Retardo para evitar rebote
-            if (input(PIN_B2) == 0) {
-                // Disminuir el valor
-                if (option == 0) Kp -= 0.1;
-                if (option == 1) Ki -= 0.1;
-                if (option == 2) Kd -= 0.1;
-                if (option == 3) setpoint -= 0.1;
-                if (option == 4) sample_time -= 10;
-                delay_ms(200);  // Para evitar rebotes
-            }
+            // Disminuir el valor
+            if (option == 0) Kp -= 0.1;
+            if (option == 1) Ki -= 0.1;
+            if (option == 2) Kd -= 0.1;
+            if (option == 3) setpoint -= 0.1;
+            if (option == 4) sample_time -= 10;
+            delay_ms(200);  // Para evitar rebotes
         }
     }
 }

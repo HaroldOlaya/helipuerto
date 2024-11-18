@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  1/537  Ram=1
+   ÃÄMAIN  1/539  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/72  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -39,7 +39,7 @@
    ³  ³  ³     ÀÄ*
    ³  ³  ÀÄlcd_putc  0/58  Ram=1
    ³  ³     ÀÄ*
-   ³  ÃÄmenu_configuracion  1/623  Ram=3
+   ³  ÃÄmenu_configuracion  1/611  Ram=3
    ³  ³  ÃÄlcd_gotoxy  0/20  Ram=4
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
@@ -62,23 +62,15 @@
    ³  ³  ³  ÀÄ@DIV3232  0/81  Ram=13
    ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
    ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13
+   ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
-   ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PRINTF_L32D_794FPFPF  0/244  Ram=13
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
    ³  ³  ³  ÀÄ*
@@ -93,18 +85,20 @@
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÀÄlcd_putc  0/58  Ram=1
    ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
-   ³  ³  ³  ÀÄ*
    ³  ³  ÃÄlcd_gotoxy  0/20  Ram=4
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGC7_794  0/84  Ram=4
    ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@DIV88  0/23  Ram=3
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@ADDFF  0/326  Ram=16
    ³  ³  ÃÄ@ADDFF  0/326  Ram=16
    ³  ³  ÃÄ@ADDFF  0/326  Ram=16
    ³  ³  ÃÄ@ADDFF  0/326  Ram=16
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@ADDFF  0/326  Ram=16
    ³  ³  ÃÄ@ADDFF  0/326  Ram=16
@@ -159,7 +153,7 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@SFTOI  1/31  Ram=4
    ³  ÃÄ@SFTOI  1/31  Ram=4
-   ³  ÃÄservo_1_write  1/22  Ram=1
+   ³  ÃÄservo_1_write  0/24  Ram=1
    ³  ³  ÀÄmap_int  1/129  Ram=14
    ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
    ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
