@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  2/737  Ram=1
+   ÃÄMAIN  2/888  Ram=4
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/76  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -103,7 +103,7 @@
    ³  ³  ÃÄ@ADDFF  0/326  Ram=16
    ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄmpu6050_get_ax  1/74  Ram=12
+   ³  ÃÄmpu6050_get_ax  1/76  Ram=12
    ³  ³  ÃÄmpu6050_read  0/204  Ram=2
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
@@ -111,19 +111,19 @@
    ³  ³  ³  ÀÄ@I2C_READ_1  (Inline)  Ram=3
    ³  ³  ÃÄmpu6050_read  0/204  Ram=2
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@SITOF  1/39  Ram=2
+   ³  ³  ÃÄ@SITOF  0/39  Ram=2
    ³  ³  ÀÄ@DIVFF  1/204  Ram=14
-   ³  ÃÄmpu6050_get_ay  1/74  Ram=12
+   ³  ÃÄmpu6050_get_ay  1/76  Ram=12
    ³  ³  ÃÄmpu6050_read  0/204  Ram=2
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄmpu6050_read  0/204  Ram=2
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@SITOF  1/39  Ram=2
+   ³  ³  ÃÄ@SITOF  0/39  Ram=2
    ³  ³  ÀÄ@DIVFF  1/204  Ram=14
    ³  ÃÄ@MULFF  0/119  Ram=13
-   ³  ÃÄ@SFTOI  0/33  Ram=4
+   ³  ÃÄ@SFTOI  1/33  Ram=4
    ³  ÃÄ@MULFF  0/119  Ram=13
-   ³  ÃÄ@SFTOI  0/33  Ram=4
+   ³  ÃÄ@SFTOI  1/33  Ram=4
    ³  ÃÄlcd_gotoxy  0/20  Ram=4
    ³  ³  ÀÄ*
    ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
@@ -148,30 +148,34 @@
    ³  ³  ÀÄ@ADDFF  0/326  Ram=16
    ³  ÃÄpid_control  1/275  Ram=32
    ³  ³  ÀÄ*
-   ³  ÃÄfine_tune_adjustment  1/138  Ram=16
-   ³  ³  ÃÄ@FLT  (Inline)  Ram=10
-   ³  ³  ÀÄ@MULFF  0/119  Ram=13
-   ³  ÃÄfine_tune_adjustment  1/138  Ram=16
-   ³  ³  ÀÄ*
-   ³  ÃÄ@SFTOI  0/33  Ram=4
-   ³  ÃÄ@SFTOI  0/33  Ram=4
-   ³  ÃÄservo_1_write  1/22  Ram=1
+   ³  ÃÄ@SFTOI  1/33  Ram=4
+   ³  ÃÄ@SFTOI  1/33  Ram=4
+   ³  ÃÄservo_1_write  1/20  Ram=1
    ³  ³  ÀÄmap_int  1/129  Ram=14
    ³  ³     ÃÄ@MUL1616  (Inline)  Ram=5
    ³  ³     ÀÄ@DIV1616  (Inline)  Ram=5
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄservo_2_write  1/22  Ram=1
+   ³  ÃÄservo_2_write  1/20  Ram=1
    ³  ³  ÀÄmap_int  1/129  Ram=14
    ³  ³     ÀÄ*
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄlcd_gotoxy  0/20  Ram=4
+   ³  ÃÄ@FLT  1/65  Ram=10
+   ³  ÃÄ@FLT  1/65  Ram=10
+   ³  ÃÄfine_tune_adjustment  1/171  Ram=18
+   ³  ³  ÃÄ@FLT  1/65  Ram=10
+   ³  ³  ÃÄ@FLT  1/65  Ram=10
+   ³  ³  ÃÄ@ADDFF  0/326  Ram=16
+   ³  ³  ÀÄ@ADDFF  0/326  Ram=16
+   ³  ÃÄfine_tune_adjustment  1/171  Ram=18
    ³  ³  ÀÄ*
-   ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
+   ³  ÃÄservo_1_write  1/20  Ram=1
    ³  ³  ÀÄ*
-   ³  ÃÄ@PRINTF_D_794  0/99  Ram=6
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄservo_2_write  1/20  Ram=1
    ³  ³  ÀÄ*
-   ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
-   ³  ³  ÀÄ*
-   ³  ÀÄ@PRINTF_D_794  0/99  Ram=6
-   ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄ@ITOF  1/31  Ram=2
+   ³  ÃÄ@ADDFF  0/326  Ram=16
+   ³  ÃÄ@ITOF  1/31  Ram=2
+   ³  ÀÄ@ADDFF  0/326  Ram=16
    ÀÄtimer_0  0/53  Ram=0
