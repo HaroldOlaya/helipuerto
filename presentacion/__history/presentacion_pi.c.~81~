@@ -202,11 +202,11 @@ void main() {
         // Calcular el ángulo de los servos basado en el punto neutro de 90 grados
         angle_x = 90 - (int)correction_x;
         angle_y = 90 - (int)correction_y;
-        if (correction_y > 0 && correction_y <36){
-         angle_y = angle_y+10;
+        if (correction_y > 0){
+         angle_y = angle_y+7;
         }
-        else if (correction_y < 0 && correction_y >-35){
-         angle_y = angle_y-10;
+        else if (correction_y < 0){
+         angle_y = angle_y-7;
         }
         // Enviar los movimientos a los servos
         servo_1_write(angle_x);

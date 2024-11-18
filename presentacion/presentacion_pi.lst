@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:42
+CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:46
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
-               ROM used:   4855 words (59%)
+               ROM used:   4901 words (60%)
                            Largest free fragment is 2048
                RAM used:   71 (19%) at main() level
                            156 (42%) worst case
@@ -6378,7 +6378,7 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:42
 123B:  BCF    03.5
 123C:  BCF    0A.3
 123D:  BSF    0A.4
-123E:  GOTO   4BB (RETURN)
+123E:  GOTO   4E9 (RETURN)
 ....................      
 .................... } 
 ....................  
@@ -7999,7 +7999,7 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:42
 1460:  MOVF   78,W
 1461:  SUBLW  5A
 1462:  MOVWF  6A
-....................         if (correction_y > 0){ 
+....................         if (correction_y > 0 && correction_y <36){ 
 1463:  BSF    03.5
 1464:  CLRF   3A
 1465:  CLRF   39
@@ -8020,92 +8020,138 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:42
 1474:  BSF    0A.4
 1475:  BCF    0A.3
 1476:  BTFSS  03.0
-1477:  GOTO   47B
-....................          angle_y = angle_y+7; 
-1478:  MOVLW  07
-1479:  ADDWF  6A,F
+1477:  GOTO   492
+1478:  BSF    03.5
+1479:  MOVF   23,W
+147A:  MOVWF  3A
+147B:  MOVF   22,W
+147C:  MOVWF  39
+147D:  MOVF   21,W
+147E:  MOVWF  38
+147F:  MOVF   20,W
+1480:  MOVWF  37
+1481:  CLRF   3E
+1482:  CLRF   3D
+1483:  MOVLW  10
+1484:  MOVWF  3C
+1485:  MOVLW  84
+1486:  MOVWF  3B
+1487:  BCF    0A.4
+1488:  BSF    0A.3
+1489:  BCF    03.5
+148A:  CALL   551
+148B:  BSF    0A.4
+148C:  BCF    0A.3
+148D:  BTFSS  03.0
+148E:  GOTO   492
+....................          angle_y = angle_y+10; 
+148F:  MOVLW  0A
+1490:  ADDWF  6A,F
 ....................         } 
-147A:  GOTO   492
-....................         else if (correction_y < 0){ 
-147B:  BSF    03.5
-147C:  MOVF   23,W
-147D:  MOVWF  3A
-147E:  MOVF   22,W
-147F:  MOVWF  39
-1480:  MOVF   21,W
-1481:  MOVWF  38
-1482:  MOVF   20,W
-1483:  MOVWF  37
-1484:  CLRF   3E
-1485:  CLRF   3D
-1486:  CLRF   3C
-1487:  CLRF   3B
-1488:  BCF    0A.4
-1489:  BSF    0A.3
-148A:  BCF    03.5
-148B:  CALL   551
-148C:  BSF    0A.4
-148D:  BCF    0A.3
-148E:  BTFSS  03.0
-148F:  GOTO   492
-....................          angle_y = angle_y-7; 
-1490:  MOVLW  07
-1491:  SUBWF  6A,F
+1491:  GOTO   4C0
+....................         else if (correction_y < 0 && correction_y >-35){ 
+1492:  BSF    03.5
+1493:  MOVF   23,W
+1494:  MOVWF  3A
+1495:  MOVF   22,W
+1496:  MOVWF  39
+1497:  MOVF   21,W
+1498:  MOVWF  38
+1499:  MOVF   20,W
+149A:  MOVWF  37
+149B:  CLRF   3E
+149C:  CLRF   3D
+149D:  CLRF   3C
+149E:  CLRF   3B
+149F:  BCF    0A.4
+14A0:  BSF    0A.3
+14A1:  BCF    03.5
+14A2:  CALL   551
+14A3:  BSF    0A.4
+14A4:  BCF    0A.3
+14A5:  BTFSS  03.0
+14A6:  GOTO   4C0
+14A7:  BSF    03.5
+14A8:  CLRF   3A
+14A9:  CLRF   39
+14AA:  MOVLW  8C
+14AB:  MOVWF  38
+14AC:  MOVLW  84
+14AD:  MOVWF  37
+14AE:  MOVF   23,W
+14AF:  MOVWF  3E
+14B0:  MOVF   22,W
+14B1:  MOVWF  3D
+14B2:  MOVF   21,W
+14B3:  MOVWF  3C
+14B4:  MOVF   20,W
+14B5:  MOVWF  3B
+14B6:  BCF    0A.4
+14B7:  BSF    0A.3
+14B8:  BCF    03.5
+14B9:  CALL   551
+14BA:  BSF    0A.4
+14BB:  BCF    0A.3
+14BC:  BTFSS  03.0
+14BD:  GOTO   4C0
+....................          angle_y = angle_y-10; 
+14BE:  MOVLW  0A
+14BF:  SUBWF  6A,F
 ....................         } 
 ....................         // Enviar los movimientos a los servos 
 ....................         servo_1_write(angle_x); 
-1492:  MOVF   69,W
-1493:  BSF    03.5
-1494:  MOVWF  33
-1495:  BCF    0A.4
-1496:  BSF    0A.3
-1497:  BCF    03.5
-1498:  CALL   613
-1499:  BSF    0A.4
-149A:  BCF    0A.3
+14C0:  MOVF   69,W
+14C1:  BSF    03.5
+14C2:  MOVWF  33
+14C3:  BCF    0A.4
+14C4:  BSF    0A.3
+14C5:  BCF    03.5
+14C6:  CALL   613
+14C7:  BSF    0A.4
+14C8:  BCF    0A.3
 ....................         delay_ms(sample_time); 
-149B:  MOVF   48,W
-149C:  BSF    03.5
-149D:  MOVWF  3A
-149E:  BCF    0A.4
-149F:  BCF    03.5
-14A0:  CALL   0BD
-14A1:  BSF    0A.4
+14C9:  MOVF   48,W
+14CA:  BSF    03.5
+14CB:  MOVWF  3A
+14CC:  BCF    0A.4
+14CD:  BCF    03.5
+14CE:  CALL   0BD
+14CF:  BSF    0A.4
 ....................         servo_2_write(angle_y); 
-14A2:  MOVF   6A,W
-14A3:  BSF    03.5
-14A4:  MOVWF  33
-14A5:  BCF    0A.4
-14A6:  BSF    0A.3
-14A7:  BCF    03.5
-14A8:  CALL   627
-14A9:  BSF    0A.4
-14AA:  BCF    0A.3
+14D0:  MOVF   6A,W
+14D1:  BSF    03.5
+14D2:  MOVWF  33
+14D3:  BCF    0A.4
+14D4:  BSF    0A.3
+14D5:  BCF    03.5
+14D6:  CALL   627
+14D7:  BSF    0A.4
+14D8:  BCF    0A.3
 ....................         delay_ms(sample_time); 
-14AB:  MOVF   48,W
-14AC:  BSF    03.5
-14AD:  MOVWF  3A
-14AE:  BCF    0A.4
-14AF:  BCF    03.5
-14B0:  CALL   0BD
-14B1:  BSF    0A.4
+14D9:  MOVF   48,W
+14DA:  BSF    03.5
+14DB:  MOVWF  3A
+14DC:  BCF    0A.4
+14DD:  BCF    03.5
+14DE:  CALL   0BD
+14DF:  BSF    0A.4
 ....................  
 ....................         ultimo_ajuste(angle_x,angle_y); 
-14B2:  MOVF   69,W
-14B3:  BSF    03.5
-14B4:  MOVWF  24
-14B5:  BCF    03.5
-14B6:  MOVF   6A,W
-14B7:  BSF    03.5
-14B8:  MOVWF  25
-14B9:  BCF    03.5
-14BA:  GOTO   000
-14BB:  GOTO   292
+14E0:  MOVF   69,W
+14E1:  BSF    03.5
+14E2:  MOVWF  24
+14E3:  BCF    03.5
+14E4:  MOVF   6A,W
+14E5:  BSF    03.5
+14E6:  MOVWF  25
+14E7:  BCF    03.5
+14E8:  GOTO   000
+14E9:  GOTO   292
 ....................          
 ....................     } 
 .................... } 
 ....................  
-14BC:  SLEEP
+14EA:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F3A   HS NOWDT NOPUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

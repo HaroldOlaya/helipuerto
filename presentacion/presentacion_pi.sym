@@ -310,7 +310,7 @@ Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [18-nov.-24 18:42  CRC=8CCC7F40]
+    presentacion_pi.c                                       [18-nov.-24 18:46  CRC=22A1F787]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdbool.h [21-may.-12 10:29  CRC=815AEDE8]
@@ -318,7 +318,7 @@ Project Files:
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=6CF90B34
+Source signature=02CE837B
 
 Units:
     presentacion_pi (main)

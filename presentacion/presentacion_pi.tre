@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  2/638  Ram=1
+   ÃÄMAIN  2/684  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/76  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -150,6 +150,8 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@SFTOI  0/33  Ram=4
    ³  ÃÄ@SFTOI  0/33  Ram=4
+   ³  ÃÄ@FLT  1/65  Ram=10
+   ³  ÃÄ@FLT  1/65  Ram=10
    ³  ÃÄ@FLT  1/65  Ram=10
    ³  ÃÄ@FLT  1/65  Ram=10
    ³  ÃÄservo_1_write  1/20  Ram=1
