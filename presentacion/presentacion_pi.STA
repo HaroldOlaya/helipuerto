@@ -1,8 +1,8 @@
 
-ROM used:   4808/8192 (59%)
-            5262/8192 (64%) including unused fragments
+ROM used:   4855/8192 (59%)
+            5309/8192 (65%) including unused fragments
 
-            1.2 Average locations per line
+            1.3 Average locations per line
             9.4 Average locations per statement
 
 RAM used:   71/368 (19%) at main() level
@@ -13,7 +13,7 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  217   126  25  presentacion_pi.c
+  222   132  25  presentacion_pi.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
  2229   257  50  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
    34     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdbool.h
@@ -21,7 +21,7 @@ Lines Stmts  %   Files
   110    24   5  MPU6050.c
   146    21   4  servo_st.c
 ----- -----
- 3863   512 Total
+ 3868   518 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -70,7 +70,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0      5   0    0  1456  5.9  @const913
 0      8   0    0  1261  6.0  @const914
 0      5   0    0             @const915
-2    591  12    1  1182  6.0  MAIN
+2    638  13    1  1387  8.1  MAIN
 0      6   0    0             @const919
 0    118   2    4             @PSTRINGC7_795
 0      7   0    0             @const927
@@ -78,14 +78,14 @@ Page ROM  %  RAM   Vol Diff  Functions:
 
 Program metrics:
     Functions               26
-    Statements              512
+    Statements              518
     Comments                561
-    Volume (V)              24991
-    Difficulty (D)          116.9
-    Effort to implement (E) 2920943
-    Time to implement (T)   45 hours, 5 minutes
+    Volume (V)              25287
+    Difficulty (D)          118.9
+    Effort to implement (E) 3006527
+    Time to implement (T)   46 hours, 24 minutes
     Est Delivered Bugs (B)  7
-    Cyclomatic Complexity   66
+    Cyclomatic Complexity   68
     Maintainability (MI)    126
 
  Segment     Used  Free
@@ -94,7 +94,7 @@ Program metrics:
 00004-0004E    75  0  
 0004F-007FF  1968  1  
 00800-00FFF  1595  453  
-01000-017FF  1166  882  
+01000-017FF  1213  835  
 01800-01FFF     0  2048  
 
 

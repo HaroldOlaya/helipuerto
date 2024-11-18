@@ -295,12 +295,12 @@ ROM Allocation:
 000BD7  mpu6050_get_ay
 000C1F  @ITOF
 000C3E  pid_control
-000D51  map_int
-000D70  @MUL1616
-000D9D  @DIV1616
-000DD2  servo_1_write
-000DE6  servo_2_write
-000DFA  @FLT
+000D51  @FLT
+000D92  map_int
+000DB1  @MUL1616
+000DDE  @DIV1616
+000E13  servo_1_write
+000E27  servo_2_write
 001000  ultimo_ajuste
 00123F  @cinit1
 00123F  MAIN
@@ -310,7 +310,7 @@ Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [18-nov.-24 18:28  CRC=AC44167F]
+    presentacion_pi.c                                       [18-nov.-24 18:42  CRC=8CCC7F40]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdbool.h [21-may.-12 10:29  CRC=815AEDE8]
@@ -318,7 +318,7 @@ Project Files:
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=8C70A273
+Source signature=6CF90B34
 
 Units:
     presentacion_pi (main)
