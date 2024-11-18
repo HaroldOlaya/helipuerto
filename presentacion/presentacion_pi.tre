@@ -40,9 +40,9 @@
    ³  ³  ÀÄlcd_putc  0/58  Ram=1
    ³  ³     ÀÄ*
    ³  ÃÄmenu_configuracion  1/600  Ram=3
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄlcd_gotoxy  0/20  Ram=4
    ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@PSTRINGCN7_794  0/122  Ram=5
    ³  ³  ³  ÃÄlcd_putc  0/58  Ram=1
    ³  ³  ³  ³  ÀÄ*

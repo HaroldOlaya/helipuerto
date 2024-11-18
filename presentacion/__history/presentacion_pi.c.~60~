@@ -50,13 +50,13 @@ void menu_configuracion() {
     int option = 0;  // 0 -> Kp, 1 -> Ki, 2 -> Kd, 3 -> Setpoint, 4 -> Sample Time
     while (true) {
         // Mostrar el menú y las opciones
-        lcd_gotoxy(1, 1);
         delay_ms(200);
+        lcd_gotoxy(1, 1);
         if (option == 0) printf(lcd_putc, "\fKp: %.2f", Kp);
         if (option == 1) printf(lcd_putc, "\fKi: %.2f", Ki);
         if (option == 2) printf(lcd_putc, "\fKd: %.2f", Kd);
         if (option == 3) printf(lcd_putc, "\fSetpoint: %.2f", setpoint);
-        if (option == 4) printf(lcd_putc, "\fTime: %d", sample_time);
+        if (option == 4) printf(lcd_putc, "\fSample Time: %d", sample_time);
 
         // Comprobamos si se presionaron los botones
         if (input(PIN_B0) == 0) {

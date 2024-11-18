@@ -51,7 +51,6 @@ void menu_configuracion() {
     while (true) {
         // Mostrar el menú y las opciones
         lcd_gotoxy(1, 1);
-        delay_ms(200);
         if (option == 0) printf(lcd_putc, "\fKp: %.2f", Kp);
         if (option == 1) printf(lcd_putc, "\fKi: %.2f", Ki);
         if (option == 2) printf(lcd_putc, "\fKd: %.2f", Kd);

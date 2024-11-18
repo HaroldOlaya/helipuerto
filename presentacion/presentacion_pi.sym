@@ -240,34 +240,34 @@ ROM Allocation:
 00008E  @const887.call
 000093  @const888.call
 00009B  @const889.call
-0000A4  @const899.call
-0000AA  @const907.call
-0000B1  @const912.call
-0000BD  @delay_ms1
-0000D1  lcd_send_nibble
-0000E4  lcd_read_nibble
-0000EA  lcd_send_byte
-0000F0  lcd_read_byte
-00013C  lcd_init
-000184  @I2C_WRITE_1
-0001E0  mpu6050_write
-00022C  mpu6050_init
-000242  servo_init
-000250  lcd_gotoxy
-000264  lcd_putc
-00029E  @PSTRINGC7_794
-0002F4  @PSTRINGCN7_794
-00036E  @MULFF
-0003E5  @DIV3232
-000436  @PRINTF_L32D_794FPFPF
-000460  @FTOSD
-00052A  @DIV88
-000541  @PRINTF_D_794
-0005A4  @ADDFF
-0006EA  mpu6050_read
-00073C  @I2C_READ_1
-0007B6  @SITOF
-0007DD  @SFTOI
+0000A0  @const899.call
+0000A6  @const907.call
+0000AD  @const912.call
+0000B9  @delay_ms1
+0000CD  lcd_send_nibble
+0000E0  lcd_read_nibble
+0000E6  lcd_send_byte
+0000EC  lcd_read_byte
+000138  lcd_init
+000180  @I2C_WRITE_1
+0001DC  mpu6050_write
+000228  mpu6050_init
+00023E  servo_init
+00024C  lcd_gotoxy
+000260  lcd_putc
+00029A  @PSTRINGC7_794
+0002F0  @PSTRINGCN7_794
+00036A  @MULFF
+0003E1  @DIV3232
+000432  @PRINTF_L32D_794FPFPF
+00045C  @FTOSD
+000526  @DIV88
+00053D  @PRINTF_D_794
+0005A0  @ADDFF
+0006E6  mpu6050_read
+000738  @I2C_READ_1
+0007B2  @SITOF
+0007D9  @SFTOI
 000800  menu_configuracion
 000A58  @DIVFF
 000B24  mpu6050_get_ax
@@ -287,14 +287,14 @@ Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [18-nov.-24 16:09  CRC=9F577809]
+    presentacion_pi.c                                       [18-nov.-24 16:21  CRC=AE8C7120]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=FE291615
+Source signature=0D5E0F2C
 
 Units:
     presentacion_pi (main)
