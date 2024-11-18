@@ -27,6 +27,7 @@ int sample_time = 500;  // Tiempo entre muestras (en milisegundos)
 // Parámetros de ajuste fino
 float fine_adjustment_threshold = 5.0;  // Umbral de error para entrar en el ajuste fino
 float fine_adjustment_factor = 0.2;  // Factor de ajuste fino
+int angle_x_previous = 90, angle_y_previous = 90; // Ángulos previos
 
 float integral_x = 0, integral_y = 0;
 float previous_error_x = 0, previous_error_y = 0;
@@ -50,12 +51,15 @@ float pid_control(float error, float* integral, float* previous_error, float Kp,
 }
 
 // Función para el ajuste fino
-float fine_tune_adjustment(float error, float current_correction, float fine_adjustment_factor) {
+void fine_tune_adjustment(float* angle, float error, float fine_adjustment_factor) {
     if (fabs(error) < fine_adjustment_threshold) {
-        // Si el error es pequeño, aplicar un ajuste fino
-        return current_correction * fine_adjustment_factor;
+        // Si el error es pequeño, hacer ajustes finos sumando o restando 1 grado
+        if (error > 0) {
+            *angle += 1;  // Aumentar el ángulo
+        } else {
+            *angle -= 1;  // Disminuir el ángulo
+        }
     }
-    return current_correction;
 }
 
 void menu_configuracion() {
@@ -122,6 +126,8 @@ void main() {
 
     float Ax, Ay;
     int angle_x, angle_y;
+    float error_x, error_y;
+    float correction_x, correction_y;
 
     while (true) {
         // Si se presiona RB0, entra al menú de configuración
@@ -143,16 +149,12 @@ void main() {
         printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
 
         // Calcular el error para el control PID (el valor deseado es el setpoint)
-        float error_x = setpoint - x_angle;
-        float error_y = setpoint - y_angle;
+        error_x = setpoint - x_angle;
+        error_y = setpoint - y_angle;
 
         // Calcular las correcciones PID para ambos ejes
-        float correction_x = pid_control(error_x, &integral_x, &previous_error_x, Kp, Ki, Kd);
-        float correction_y = pid_control(error_y, &integral_y, &previous_error_y, Kp, Ki, Kd);
-
-        // Aplicar el ajuste fino
-        correction_x = fine_tune_adjustment(error_x, correction_x, fine_adjustment_factor);
-        correction_y = fine_tune_adjustment(error_y, correction_y, fine_adjustment_factor);
+        correction_x = pid_control(error_x, &integral_x, &previous_error_x, Kp, Ki, Kd);
+        correction_y = pid_control(error_y, &integral_y, &previous_error_y, Kp, Ki, Kd);
 
         // Calcular el ángulo de los servos basado en el punto neutro de 90 grados
         angle_x = 90 - (int)correction_x;
@@ -164,10 +166,22 @@ void main() {
         servo_2_write(angle_y);
         delay_ms(sample_time);
 
-        // Mostrar los ángulos en la LCD
-        lcd_gotoxy(1, 2);
-        printf(lcd_putc, "\fServo1: %d  Servo2: %d", angle_x, angle_y);
-        delay_ms(500);
+        // Aplicar el ajuste fino
+        while (fabs(error_x) > fine_adjustment_threshold || fabs(error_y) > fine_adjustment_threshold) {
+            // Aplicar el ajuste fino
+            fine_tune_adjustment(&angle_x, error_x, fine_adjustment_factor);
+            fine_tune_adjustment(&angle_y, error_y, fine_adjustment_factor);
+
+            // Enviar el ajuste a los servos
+            servo_1_write(angle_x);
+            delay_ms(sample_time);
+            servo_2_write(angle_y);
+            delay_ms(sample_time);
+
+            // Recalcular errores
+            error_x = setpoint - x_angle;
+            error_y = setpoint - y_angle;
+        }
     }
 }
 

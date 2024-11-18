@@ -1,5 +1,3 @@
->>> Warning 202 "presentacion_pi.c" Line 30(5,21): Variable never used:   angle_x_previous
->>> Warning 202 "presentacion_pi.c" Line 30(28,44): Variable never used:   angle_y_previous
-      Memory usage:   ROM=57%      RAM=21% - 43%
-      0 Errors,  2 Warnings.
+      Memory usage:   ROM=55%      RAM=19% - 42%
+      0 Errors,  0 Warnings.
 Build Successful.

@@ -167,7 +167,6 @@ void main() {
         // Mostrar los ángulos en la LCD
         lcd_gotoxy(1, 2);
         printf(lcd_putc, "\fServo1: %d  Servo2: %d", angle_x, angle_y);
-        delay_ms(500);
     }
 }
 
