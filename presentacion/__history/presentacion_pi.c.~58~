@@ -51,11 +51,14 @@ void menu_configuracion() {
     while (true) {
         // Mostrar el menú y las opciones
         lcd_gotoxy(1, 1);
-        if (option == 0) printf(lcd_putc, "\fKp: %.2f", Kp);
-        if (option == 1) printf(lcd_putc, "\fKi: %.2f", Ki);
-        if (option == 2) printf(lcd_putc, "\fKd: %.2f", Kd);
-        if (option == 3) printf(lcd_putc, "\fSetpoint: %.2f", setpoint);
-        if (option == 4) printf(lcd_putc, "\fSample Time: %d", sample_time);
+        if (option == 0) printf(lcd_putc, "Kp: %.2f", Kp);
+        if (option == 1) printf(lcd_putc, "Ki: %.2f", Ki);
+        if (option == 2) printf(lcd_putc, "Kd: %.2f", Kd);
+        if (option == 3) printf(lcd_putc, "Setpoint: %.2f", setpoint);
+        if (option == 4) printf(lcd_putc, "Sample Time: %d", sample_time);
+
+        lcd_gotoxy(1, 2);
+        printf(lcd_putc, "OK(RB3)  Back(RB0)");
 
         // Comprobamos si se presionaron los botones
         if (input(PIN_B0) == 0) {
@@ -148,7 +151,7 @@ void main() {
 
         // Mostrar los ángulos en la LCD
         lcd_gotoxy(1, 2);
-        printf(lcd_putc, "\fServo1: %d  Servo2: %d", angle_x, angle_y);
+        printf(lcd_putc, "Servo1: %d  Servo2: %d", angle_x, angle_y);
     }
 }
 

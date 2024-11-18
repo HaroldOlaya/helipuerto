@@ -1,8 +1,7 @@
-D G "v_max" 5 10 "48"
-D G "__PCM__" 0 146 ""5.015""
-D G "__DEVICE__" 0 146 "877"
-D G "__DATE__" 0 146 ""18-nov.-24""
-D G "__TIME__" 0 146 ""16:00:17"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 159 ""5.015""
+D G "__DEVICE__" 0 159 "877"
+D G "__DATE__" 0 159 ""18-nov.-24""
+D G "__TIME__" 0 159 ""16:05:16"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -960,7 +959,7 @@ V L "low" 3 194 "int8" `780
 V L "high" 3 194 "int8" `781 
 F G "lcd_read_nibble" 3 240 "int8()" `778 
 V L "n" 3 256 "int8" `783 
-F G "lcd_send_nibble" 3 257 "void(int8 n,int8 n)" `782 
+F G "lcd_send_nibble" 3 257 "void(int8 n)" `782 
 V L "address" 3 274 "int8" `785 
 V L "n" 3 274 "int8" `786 
 F G "lcd_send_byte" 3 275 "void(int8 address,int8 n)" `784 
@@ -970,23 +969,23 @@ V L "LCD_INIT_STRING" 3 302 "int8[4]" `789
 C L "lcd_init" 3 2 2 "FUNCTION"
 V L "x" 3 345 "int8" `791 
 V L "y" 3 345 "int8" `792 
-F G "lcd_gotoxy" 3 346 "void(int8 x,int8 y,int8 c)" `790 
+F G "lcd_gotoxy" 3 346 "void(int8 x,int8 y)" `790 
 V L "address" 3 347 "int8" `793 
 V L "c" 3 363 "int8" `795 
-F G "lcd_putc" 3 364 "void(int8 c,int8 y)" `794 
+F G "lcd_putc" 3 364 "void(int8 c)" `794 
 V L "x" 3 406 "int8" `797 
 V L "y" 3 406 "int8" `798 
-F G "lcd_getc" 3 407 "int8(int8 x,int8 y,int8 which,*int8 ptr)" `796 
+F G "lcd_getc" 3 407 "int8(int8 x,int8 y)" `796 
 V L "value" 3 408 "int8" `799 
 C L "lcd_getc" 3 2 1 "FUNCTION"
 C L "lcd_set_cgram_char" 3 2 5 "FUNCTION"
 V L "which" 3 424 "int8" `801 
 V L "ptr" 3 424 "*int8" `802 
-F G "lcd_set_cgram_char" 3 425 "void(int8 which,*int8 ptr,int8 on)" `800 
+F G "lcd_set_cgram_char" 3 425 "void(int8 which,*int8 ptr)" `800 
 V L "i" 3 426 "int8" `803 
 C L "lcd_set_cgram_char" 3 2 1 "FUNCTION"
 V L "on" 3 443 "int8" `805 
-F G "lcd_cursor_on" 3 444 "void(int8 on,int8 data)" `804 
+F G "lcd_cursor_on" 3 444 "void(int8 on)" `804 
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
 C G "" 4 1 1 "*"
@@ -1047,14 +1046,14 @@ D G "v_min" 5 9 "11"
 D G "v_max" 5 10 "48"
 V G "cont_st" 5 12 "int16" `834 
 V G "pwm_st" 5 13 "int8[10]" `835 
-F G "timer_0" 5 17 "void(int16 x,int16 eMin,int16 eMax,int16 sMin,int16 sMax)" `836 
-F G "servo_init" 5 65 "void(int16 eMin,int16 eMax,int16 sMin,int16 sMax)" `837 
+F G "timer_0" 5 17 "void()" `836 
+F G "servo_init" 5 65 "void()" `837 
 V L "x" 5 72 "int16" `839 
 V L "eMin" 5 72 "int16" `840 
 V L "eMax" 5 72 "int16" `841 
 V L "sMin" 5 72 "int16" `842 
 V L "sMax" 5 72 "int16" `843 
-F G "map_int" 5 73 "int16(int16 x,int16 eMin,int16 eMax,int16 sMin,int16 sMax,int16 )" `838 
+F G "map_int" 5 73 "int16(int16 x,int16 eMin,int16 eMax,int16 sMin,int16 sMax)" `838 
 V L "angle1" 5 78 "int8" `851 
 F G "servo_1_write" 5 79 "void(int8 angle1)" `850 
 V L "angle2" 5 85 "int8" `853 
@@ -1098,26 +1097,26 @@ C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
-F G "MAIN" 0 105 "void()" `898 
+F G "MAIN" 0 102 "void()" `896 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "Ax" 0 112 "float" `902 
-V L "Ay" 0 112 "float" `903 
-V L "angle_x" 0 113 "int8" `904 
-V L "angle_y" 0 113 "int8" `905 
+V L "Ax" 0 109 "float" `901 
+V L "Ay" 0 109 "float" `902 
+V L "angle_x" 0 110 "int8" `903 
+V L "angle_y" 0 110 "int8" `904 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "x_angle" 0 127 "int8" `906 
-V L "y_angle" 0 128 "int8" `907 
+V L "x_angle" 0 124 "int8" `905 
+V L "y_angle" 0 125 "int8" `906 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "error_x" 0 135 "float" `909 
-V L "error_y" 0 136 "float" `910 
+V L "error_x" 0 132 "float" `908 
+V L "error_y" 0 133 "float" `909 
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "correction_x" 0 139 "float" `911 
-V L "correction_y" 0 140 "float" `912 
+V L "correction_x" 0 136 "float" `910 
+V L "correction_y" 0 137 "float" `911 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
