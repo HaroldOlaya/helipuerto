@@ -1,6 +1,6 @@
 
-ROM used:   1899/8192 (23%)
-            1899/8192 (23%) including unused fragments
+ROM used:   2007/8192 (24%)
+            2007/8192 (24%) including unused fragments
 
             0.5 Average locations per line
             4.5 Average locations per statement
@@ -13,20 +13,20 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   72    32   8  presentacion_pi.c
+   98    58  13  presentacion_pi.c
   671     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
- 2229   257  61  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
-  456    84  20  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
-  110    24   6  MPU6050.c
+ 2229   257  58  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
+  456    84  19  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  110    24   5  MPU6050.c
   146    21   5  servo_st.c
 ----- -----
- 3684   418 Total
+ 3710   444 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     31   2    4             @SFTOI
 0    117   6   13             @MULFF
-0    202  11   14             @DIVFF
+0    202  10   14             @DIVFF
 0     37   2    2             @SITOF
 0     20   1    1             @delay_ms1
  Inline         3             @I2C_READ_1
@@ -41,41 +41,41 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     72   4    2   102  1.8  mpu6050_write
 0    196  10    2   174  2.4  mpu6050_read
 0     18   1    0    88  1.7  mpu6050_init
-0     60   3   12   140  3.5  mpu6050_get_ax
-0     60   3   12   140  3.5  mpu6050_get_ay
+0     58   3   12   140  3.5  mpu6050_get_ax
+0     58   3   12   140  3.5  mpu6050_get_ay
 0     53   3    0   277  4.2  timer_0
 0     14   1    0    78  1.6  servo_init
-0    127   7   14   156  5.1  map_int
+0    127   6   14   156  5.1  map_int
  Inline         5             @MUL1616
  Inline         5             @DIV1616
-0     20   1    1    85  2.3  servo_1_write
-0     20   1    1    83  2.5  servo_2_write
-0    172   9    1   990  6.6  MAIN
+0     18   1    1    85  2.3  servo_1_write
+0     18   1    1    83  2.5  servo_2_write
+0    288  14    1  2125  9.2  MAIN
 0      6   0    0             @const857
-0     88   5    4             @PSTRINGC7_794
+0     88   4    4             @PSTRINGC7_794
 0      7   0    0             @const865
-0     87   5    5             @PSTRINGCN7_794
+0     87   4    5             @PSTRINGCN7_794
 0     21   1    3             @DIV88
-0     87   5    6             @PRINTF_D_794
+0     87   4    6             @PRINTF_D_794
  Inline         0             @cinit1
 
 Program metrics:
     Functions               18
-    Statements              418
-    Comments                511
-    Volume (V)              8611
-    Difficulty (D)          68.9
-    Effort to implement (E) 593076
-    Time to implement (T)   9 hours, 9 minutes
-    Est Delivered Bugs (B)  2
-    Cyclomatic Complexity   15
-    Maintainability (MI)    134
+    Statements              444
+    Comments                518
+    Volume (V)              10066
+    Difficulty (D)          71.7
+    Effort to implement (E) 721821
+    Time to implement (T)   11 hours, 8 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   19
+    Maintainability (MI)    131
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-0004E    75  0  
-0004F-007FF  1820  149  
+0004F-007FF  1928  41  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

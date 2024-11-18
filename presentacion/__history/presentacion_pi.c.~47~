@@ -59,39 +59,13 @@ void main() {
         }
 
         // Limitar los ángulos para asegurar que estén en el rango del servo
-        angle_x = (angle_x < 0) ? 0 : (angle_x > 180) ? 180 : angle_x;
-        angle_y = (angle_y < 0) ? 0 : (angle_y > 180) ? 180 : angle_y;
-
-        // Enviar el primer movimiento a los servos
+        //angle_x = (angle_x < 0) ? 0 : (angle_x > 180) ? 180 : angle_x;
+        //angle_y = (angle_y < 0) ? 0 : (angle_y > 180) ? 180 : angle_y;;
         servo_1_write(angle_x);
         delay_ms(500);
         servo_2_write(angle_y);
         delay_ms(500);
-
-        // Ajuste fino para llegar al rango deseado
-        while (x_angle < -2 || x_angle > 2) {
-            if (x_angle < -2) {
-                angle_x++;  // Incrementar el ángulo gradualmente
-            } else if (x_angle > 2) {
-                angle_x--;  // Decrementar el ángulo gradualmente
-            }
-            servo_1_write(angle_x);
-            delay_ms(50);  // Pequeña pausa para ajustar suavemente
-            Ax = MPU6050_get_Ax();  // Actualizar valor del giroscopio
-            x_angle = (int)(Ax * 100);
-        }
-
-        while (y_angle < -2 || y_angle > 2) {
-            if (y_angle < -2) {
-                angle_y++;  // Incrementar el ángulo gradualmente
-            } else if (y_angle > 2) {
-                angle_y--;  // Decrementar el ángulo gradualmente
-            }
-            servo_2_write(angle_y);
-            delay_ms(50);  // Pequeña pausa para ajustar suavemente
-            Ay = MPU6050_get_Ay();  // Actualizar valor del giroscopio
-            y_angle = (int)(Ay * 100);
-        }
+        // esta funcionando 
     }
 }
 
