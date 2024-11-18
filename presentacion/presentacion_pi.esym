@@ -1,7 +1,8 @@
-D G "__PCM__" 0 159 ""5.015""
-D G "__DEVICE__" 0 159 "877"
-D G "__DATE__" 0 159 ""18-nov.-24""
-D G "__TIME__" 0 159 ""16:05:16"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+D G "__PCM__" 3 137 ""5.015""
+D G "__DEVICE__" 3 137 "877"
+D G "__DATE__" 3 137 ""18-nov.-24""
+D G "__TIME__" 3 137 ""16:09:42"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -1097,26 +1098,26 @@ C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
-F G "MAIN" 0 102 "void()" `896 
+F G "MAIN" 0 103 "void()" `896 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "Ax" 0 109 "float" `901 
-V L "Ay" 0 109 "float" `902 
-V L "angle_x" 0 110 "int8" `903 
-V L "angle_y" 0 110 "int8" `904 
+V L "Ax" 0 110 "float" `901 
+V L "Ay" 0 110 "float" `902 
+V L "angle_x" 0 111 "int8" `903 
+V L "angle_y" 0 111 "int8" `904 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "x_angle" 0 124 "int8" `905 
-V L "y_angle" 0 125 "int8" `906 
+V L "x_angle" 0 125 "int8" `905 
+V L "y_angle" 0 126 "int8" `906 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "error_x" 0 132 "float" `908 
-V L "error_y" 0 133 "float" `909 
+V L "error_x" 0 133 "float" `908 
+V L "error_y" 0 134 "float" `909 
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "correction_x" 0 136 "float" `910 
-V L "correction_y" 0 137 "float" `911 
+V L "correction_x" 0 137 "float" `910 
+V L "correction_y" 0 138 "float" `911 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"

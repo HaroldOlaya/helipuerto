@@ -50,7 +50,6 @@ void menu_configuracion() {
     int option = 0;  // 0 -> Kp, 1 -> Ki, 2 -> Kd, 3 -> Setpoint, 4 -> Sample Time
     while (true) {
         // Mostrar el menú y las opciones
-        delay_ms(200);
         lcd_gotoxy(1, 1);
         if (option == 0) printf(lcd_putc, "\fKp: %.2f", Kp);
         if (option == 1) printf(lcd_putc, "\fKi: %.2f", Ki);

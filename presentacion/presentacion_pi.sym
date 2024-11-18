@@ -269,32 +269,32 @@ ROM Allocation:
 0007B6  @SITOF
 0007DD  @SFTOI
 000800  menu_configuracion
-000A51  @DIVFF
-000B1D  mpu6050_get_ax
-000B67  mpu6050_get_ay
-000BB1  @ITOF
-000BCE  pid_control
-000CE1  map_int
-000D00  @MUL1616
-000D2D  @DIV1616
-000D62  servo_1_write
-000D78  servo_2_write
-000D8E  MAIN
-000D8E  @cinit1
-000DBF  @cinit2
+000A58  @DIVFF
+000B24  mpu6050_get_ax
+000B6E  mpu6050_get_ay
+000BB8  @ITOF
+000BD5  pid_control
+000CE8  map_int
+000D07  @MUL1616
+000D34  @DIV1616
+000D69  servo_1_write
+000D7F  servo_2_write
+000D95  MAIN
+000D95  @cinit1
+000DC6  @cinit2
 
 Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [18-nov.-24 16:05  CRC=98A7E324]
+    presentacion_pi.c                                       [18-nov.-24 16:09  CRC=9F577809]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=F7798130
+Source signature=FE291615
 
 Units:
     presentacion_pi (main)
