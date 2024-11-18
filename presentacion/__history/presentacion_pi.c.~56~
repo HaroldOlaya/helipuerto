@@ -130,8 +130,8 @@ void main() {
         float correction_y = pid_control(error_y, &integral_y, &previous_error_y, Kp, Ki, Kd);
 
         // Calcular el ángulo de los servos basado en el punto neutro de 90 grados
-        angle_x = 90 - (int)correction_x;
-        angle_y = 90 - (int)correction_y;
+        angle_x = 90 + (int)correction_x;
+        angle_y = 90 + (int)correction_y;
 
         // Enviar los movimientos a los servos
         servo_1_write(angle_x);

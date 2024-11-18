@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 15:22
+CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 15:29
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
@@ -7098,7 +7098,7 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 15:22
 0F86:  MOVWF  71
 ....................  
 ....................         // Calcular el ángulo de los servos basado en el punto neutro de 90 grados 
-....................         angle_x = 90 + (int)correction_x; 
+....................         angle_x = 90 - (int)correction_x; 
 0F87:  MOVF   70,W
 0F88:  MOVWF  7E
 0F89:  MOVF   6F,W
@@ -7108,10 +7108,10 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 15:22
 0F8D:  MOVF   6D,W
 0F8E:  MOVWF  7B
 0F8F:  CALL   3CF
-0F90:  MOVLW  5A
-0F91:  ADDWF  78,W
+0F90:  MOVF   78,W
+0F91:  SUBLW  5A
 0F92:  MOVWF  61
-....................         angle_y = 90 + (int)correction_y; 
+....................         angle_y = 90 - (int)correction_y; 
 0F93:  MOVF   74,W
 0F94:  MOVWF  7E
 0F95:  MOVF   73,W
@@ -7121,8 +7121,8 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 15:22
 0F99:  MOVF   71,W
 0F9A:  MOVWF  7B
 0F9B:  CALL   3CF
-0F9C:  MOVLW  5A
-0F9D:  ADDWF  78,W
+0F9C:  MOVF   78,W
+0F9D:  SUBLW  5A
 0F9E:  MOVWF  62
 ....................  
 ....................         // Enviar los movimientos a los servos 
