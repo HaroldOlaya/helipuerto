@@ -1,13 +1,13 @@
 004-005 @WRITE_PROGRAM_MEMORY8.P1
 004-005 @READ_PROGRAM_MEMORY8.P2
 008     PSP_DATA
-008     lcdlat
 008     lcd
+008     lcdlat
 015     CCP_1
 015     CCP_1_LOW
 016     CCP_1_HIGH
-01B     CCP_2_LOW
 01B     CCP_2
+01B     CCP_2_LOW
 01C     CCP_2_HIGH
 020     @INTERRUPT_AREA
 021     @INTERRUPT_AREA
@@ -23,33 +23,33 @@
 02B     @TRIS_C
 02C-02D cont_st
 02E-037 pwm_st
-038-03B MAIN.Ax
 038-03B atan2.y
-03C-03F MAIN.Ay
+038-03B MAIN.Ax
 03C-03F atan2.x
+03C-03F MAIN.Ay
 040-043 atan2.z
 040     MAIN.angle_x
 041     MAIN.angle_y
 042     MAIN.x_angle
 043     MAIN.y_angle
 044-045 mpu6050_get_ay.ayv
-044-047 @MULFF.P1
-044     @PRINTF_D_794.P2
-044     lcd_init.i
-044.0   atan2.sign
+044     @PRINTF_D_794.P1
 044     mpu6050_write.add
-044     @PSTRINGCN7_794.P1
-044-045 mpu6050_get_ax.axv
-044-047 @SFTOI.P1
-044     servo_2_write.angle2
 044     servo_1_write.angle1
+044     lcd_init.i
+044     @PSTRINGCN7_794.P1
+044-047 @MULFF.P2
+044     servo_2_write.angle2
+044-047 @SFTOI.P1
+044-045 mpu6050_get_ax.axv
+044.0   atan2.sign
 044     MAIN.@SCRATCH1
 044     @PSTRINGC7_794.@SCRATCH1
 045-046 map_int.x
-045     mpu6050_write.data
-045     @PRINTF_D_794.P1
-045     atan2.quad
 045-048 lcd_init.LCD_INIT_STRING
+045     atan2.quad
+045     @PRINTF_D_794.P1
+045     mpu6050_write.data
 045     @PSTRINGC7_794.@SCRATCH2
 045     @PSTRINGCN7_794.@SCRATCH1
 046-049 mpu6050_get_ay.acy
@@ -71,11 +71,11 @@
 04A     lcd_putc.c
 04A     mpu6050_get_ax.@SCRATCH1
 04A     mpu6050_get_ay.@SCRATCH1
+04B     lcd_gotoxy.x
+04B-04C map_int.sMin
 04B     @delay_ms1.P1
 04B     @DIV88.P2
 04B     mpu6050_read.add
-04B     lcd_gotoxy.x
-04B-04C map_int.sMin
 04B     mpu6050_get_ax.@SCRATCH2
 04B     mpu6050_get_ay.@SCRATCH2
 04C     lcd_gotoxy.y
@@ -85,10 +85,10 @@
 04C     mpu6050_get_ax.@SCRATCH3
 04C     mpu6050_get_ay.@SCRATCH3
 04C     @DIV88.@SCRATCH1
-04D     @I2C_WRITE_1.P1
-04D     lcd_gotoxy.address
-04D     @I2C_READ_1.P1
 04D-04E map_int.sMax
+04D     @I2C_READ_1.P1
+04D     @I2C_WRITE_1.P2
+04D     lcd_gotoxy.address
 04D     @MULFF.@SCRATCH2
 04D     mpu6050_get_ax.@SCRATCH4
 04D     mpu6050_get_ay.@SCRATCH4
@@ -117,8 +117,8 @@
 053-054 @DIV1616.P2
 053     lcd_read_byte.@SCRATCH1
 054-057 @DIVFF.P1
-055-056 @MUL1616.P1
-055-056 @DIV1616.P2
+055-056 @DIV1616.P1
+055-056 @MUL1616.P2
 057     @MUL1616.@SCRATCH1
 057     @DIV1616.@SCRATCH1
 058     @DIVFF.@SCRATCH1
@@ -137,8 +137,8 @@
 09C.6   C1OUT
 09C.7   C2OUT
 0FF     @INTERRUPT_AREA
-10D-10E @WRITE_PROGRAM_MEMORY8.P1
-10D-10E @READ_PROGRAM_MEMORY8.P2
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
 17F     @INTERRUPT_AREA
 1FF     @INTERRUPT_AREA
 27F     @INTERRUPT_AREA
@@ -174,51 +174,53 @@ ROM Allocation:
 00004F  timer_0
 000084  @const857.call
 00008A  @const865.call
-000091  @delay_ms1
-0000A5  lcd_send_nibble
-0000B6  lcd_read_nibble
-0000BC  lcd_send_byte
-0000C2  lcd_read_byte
-0000FE  lcd_init
-00013C  @I2C_WRITE_1
-000198  mpu6050_write
-0001E0  mpu6050_init
-0001F2  servo_init
-000200  lcd_gotoxy
-000212  lcd_putc
-00023E  @PSTRINGC7_794
-000296  mpu6050_read
-0002E6  @I2C_READ_1
-00035A  @SITOF
-00037F  @DIVFF
-000449  mpu6050_get_ax
-000483  mpu6050_get_ay
-0004BD  @MULFF
-000532  @SFTOI
-000551  @PSTRINGCN7_794
-0005A8  @DIV88
-0005BD  @PRINTF_D_794
-000614  map_int
-000632  @MUL1616
-00065F  @DIV1616
-000693  servo_1_write
-0006A5  servo_2_write
-0006B7  MAIN
-0006B7  @cinit1
-0006C5  @cinit2
+000091  @const874.call
+000098  @const875.call
+00009F  @delay_ms1
+0000B3  lcd_send_nibble
+0000C4  lcd_read_nibble
+0000CA  lcd_send_byte
+0000D0  lcd_read_byte
+00010C  lcd_init
+00014A  @I2C_WRITE_1
+0001A6  mpu6050_write
+0001EE  mpu6050_init
+000200  servo_init
+00020E  lcd_gotoxy
+000220  lcd_putc
+00024C  @PSTRINGC7_794
+0002A4  mpu6050_read
+0002F4  @I2C_READ_1
+000368  @SITOF
+00038D  @DIVFF
+000457  mpu6050_get_ax
+000491  mpu6050_get_ay
+0004CB  @MULFF
+000540  @SFTOI
+00055F  @PSTRINGCN7_794
+0005B6  @DIV88
+0005CB  @PRINTF_D_794
+000622  map_int
+000640  @MUL1616
+00066D  @DIV1616
+0006A1  servo_1_write
+0006B3  servo_2_write
+000800  MAIN
+000800  @cinit1
+00080E  @cinit2
 
 Project Directory:
     C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\
 
 Project Files:
-    presentacion_pi.c                                       [18-nov.-24 14:20  CRC=08DAD01A]
+    presentacion_pi.c                                       [18-nov.-24 14:34  CRC=6B1081A9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov.-13 14:35  CRC=81334808]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sept.-13 15:38  CRC=D1A6378A]
     MPU6050.c                                               [16-dic.-22 16:45  CRC=CC9E47DB]
     servo_st.c                                              [22-ago.-21 11:38  CRC=757AE1EB]
 
-Source signature=67AC6E26
+Source signature=C9E21FB5
 
 Units:
     presentacion_pi (main)

@@ -2,14 +2,12 @@
 >>> Warning 204 "presentacion_pi.c" Line 44(1,1): Condition always FALSE
 >>> Warning 205 "presentacion_pi.c" Line 53(1,1): Unsigned variable is never less than zero
 >>> Warning 204 "presentacion_pi.c" Line 53(1,1): Condition always FALSE
->>> Warning 205 "presentacion_pi.c" Line 62(1,1): Unsigned variable is never less than zero
->>> Warning 205 "presentacion_pi.c" Line 63(1,1): Unsigned variable is never less than zero
->>> Warning 205 "presentacion_pi.c" Line 72(1,1): Unsigned variable is never less than zero
->>> Warning 205 "presentacion_pi.c" Line 73(1,1): Unsigned variable is never less than zero
->>> Warning 204 "presentacion_pi.c" Line 73(1,1): Condition always FALSE
->>> Warning 205 "presentacion_pi.c" Line 84(1,1): Unsigned variable is never less than zero
->>> Warning 205 "presentacion_pi.c" Line 85(1,1): Unsigned variable is never less than zero
->>> Warning 204 "presentacion_pi.c" Line 85(1,1): Condition always FALSE
-      Memory usage:   ROM=24%      RAM=8% - 18%
-      0 Errors,  12 Warnings.
+>>> Warning 205 "presentacion_pi.c" Line 68(1,1): Unsigned variable is never less than zero
+>>> Warning 205 "presentacion_pi.c" Line 69(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "presentacion_pi.c" Line 69(1,1): Condition always FALSE
+>>> Warning 205 "presentacion_pi.c" Line 87(1,1): Unsigned variable is never less than zero
+>>> Warning 205 "presentacion_pi.c" Line 88(1,1): Unsigned variable is never less than zero
+>>> Warning 204 "presentacion_pi.c" Line 88(1,1): Condition always FALSE
+      Memory usage:   ROM=26%      RAM=8% - 18%
+      0 Errors,  10 Warnings.
 Build Successful.
