@@ -1,6 +1,6 @@
 #include <16f877a.h>
 #include <math.h>  // Para usar atan
-#include <stdbool.h>
+
 #fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
 #use delay(clock=20000000)
 #use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
@@ -34,9 +34,7 @@ float previous_error_x = 0, previous_error_y = 0;
 bool ultimo_ajuste(int x_before, int y_before) {
     float Ax, Ay;
     int x_angle, y_angle;
-    int new_angle =x_before;
-    bool perfx=false;
-    bool perfy=false;
+
     // Bucle que se repite hasta que ambos ángulos sean 0
     do {
         // Obtener los valores del giroscopio
@@ -46,42 +44,17 @@ bool ultimo_ajuste(int x_before, int y_before) {
         // Convertir los valores a ángulos (ajustar según sea necesario)
         x_angle = (int)(Ax * 100);  // Ajusta según sea necesario
         y_angle = (int)(Ay * 100);  // Ajusta según sea necesario
-        while(!perfx){
-           if(x_angle > (setpoint+2)){
-            new_angle++;
-            servo_1_write(new_angle);
-            delay_ms(sample_time);
-           }
-           if(x_angle < (setpoint-2)){
-            new_angle--;
-            servo_1_write(new_angle);
-            delay_ms(sample_time);
-           }
-           else{
-            perfx=true;
-           }
-           lcd_gotoxy(1, 1);  // Mover el cursor a la segunda línea
-           printf(lcd_putc, "\fAx: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
-           delay_ms(200);
-        }
-        while (!perfy) {
-            if (y_angle > (setpoint + 2)) {
-                new_angle++;  // Incrementar el ángulo
-                servo_2_write(new_angle);  // Mueve el segundo servo
-                delay_ms(sample_time);
-            }
-            else if (y_angle < (setpoint - 2)) {
-                new_angle--;  // Decrementar el ángulo
-                servo_2_write(new_angle);  // Mueve el segundo servo
-                delay_ms(sample_time);
-            }
-            else {
-                perfy = true;  // Si está dentro del rango de tolerancia, salir del bucle
-            }
-           lcd_gotoxy(1, 1);  // Mover el cursor a la segunda línea
-           printf(lcd_putc, "\fAx: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
-           delay_ms(200);
-        }
+
+        // Mostrar los valores en la LCD
+        lcd_gotoxy(1, 1);  // Mover el cursor a la primera línea
+        printf(lcd_putc, "\fAjuste Final");  // Título de la pantalla
+        delay_ms(500);  // Un pequeño retardo para que se vea el título
+
+        lcd_gotoxy(1, 2);  // Mover el cursor a la segunda línea
+        printf(lcd_putc, "Ax: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
+        delay_ms(2000);  // Mostrar los valores durante 2 segundos
+
+    // Continuar si alguno de los ángulos no es 0
     } while (x_angle != 0 || y_angle != 0);
 
     // Si ambos son 0, retornar true
@@ -218,7 +191,7 @@ void main() {
         servo_2_write(angle_y);
         delay_ms(sample_time);
 
-        bool correccion = ultimo_ajuste(angle_x,angle_y);
+        bool correccion = ultimo_ajuste(angle_x,angle_y)
         
     }
 }

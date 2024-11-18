@@ -1,8 +1,8 @@
-D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
-D G "__PCM__" 3 137 ""5.015""
-D G "__DEVICE__" 3 137 "877"
-D G "__DATE__" 3 137 ""18-nov.-24""
-D G "__TIME__" 3 137 ""17:01:29"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "lcd_rw_tris" 4 126 "()   lcdtris.rw=0"
+D G "__PCM__" 4 137 ""5.015""
+D G "__DEVICE__" 4 137 "877"
+D G "__DATE__" 4 137 ""18-nov.-24""
+D G "__TIME__" 4 137 ""17:30:05"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -935,163 +935,193 @@ C L "ldexp" 2 2 6 "FUNCTION"
 V L "value" 2 2209 "float" `757 
 V L "exp" 2 2209 "sint8" `758 
 F G "ldexp" 2 2210 "float(float value,sint8 exp)" `756 
+D G "__STDBOOL_H__" 3 18 ""
+T G "bool" 3 28 "int1" `759 
+D G "true" 3 29 "1"
+D G "false" 3 30 "0"
+D G "__bool_true_false_are_defined" 3 31 "1"
 D G "use_servo_1" 0 10 ""
 D G "use_servo_2" 0 11 ""
 D G "servo_1" 0 13 "PIN_A0"
 D G "servo_2" 0 14 "PIN_A1"
-D G "__LCD_C__" 3 76 ""
-T G "LCD_PIN_MAP" 3 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `774  "this is to improve compatability with previous LCD drivers that accepted"
-D G "lcd_output_enable" 3 109 "(x) lcdlat.enable=x"
-D G "lcd_enable_tris" 3 110 "()   lcdtris.enable=0"
-D G "lcd_output_rs" 3 117 "(x) lcdlat.rs=x"
-D G "lcd_rs_tris" 3 118 "()   lcdtris.rs=0"
-D G "lcd_output_rw" 3 125 "(x) lcdlat.rw=x"
-D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
-D G "LCD_DATA_PORT" 3 149 "getenv("SFR:PORTD")" "portd"
-V G "lcd" 3 161 "LCD_PIN_MAP" `775 
-V G "lcdlat" 3 161 "LCD_PIN_MAP" `776 
-V G "lcdtris" 3 161 "LCD_PIN_MAP" `777 
-D G "LCD_TYPE" 3 179 "2" "0=5x7, 1=5x10, 2=2 lines"
-D G "LCD_LINE_TWO" 3 183 "0x40" "LCD RAM address for the second line"
-D G "LCD_LINE_LENGTH" 3 187 "20"
-f G "lcd_read_nibble" 3 190 "int8()" `778 
-F G "lcd_read_byte" 3 193 "int8()" `779 
-V L "low" 3 194 "int8" `780 
-V L "high" 3 194 "int8" `781 
-F G "lcd_read_nibble" 3 240 "int8()" `778 
-V L "n" 3 256 "int8" `783 
-F G "lcd_send_nibble" 3 257 "void(int8 n)" `782 
-V L "address" 3 274 "int8" `785 
-V L "n" 3 274 "int8" `786 
-F G "lcd_send_byte" 3 275 "void(int8 address,int8 n)" `784 
-F G "lcd_init" 3 300 "void()" `787 
-V L "i" 3 301 "int8" `788 
-V L "LCD_INIT_STRING" 3 302 "int8[4]" `789 
-C L "lcd_init" 3 2 2 "FUNCTION"
-V L "x" 3 345 "int8" `791 
-V L "y" 3 345 "int8" `792 
-F G "lcd_gotoxy" 3 346 "void(int8 x,int8 y)" `790 
-V L "address" 3 347 "int8" `793 
-V L "c" 3 363 "int8" `795 
-F G "lcd_putc" 3 364 "void(int8 c)" `794 
-V L "x" 3 406 "int8" `797 
-V L "y" 3 406 "int8" `798 
-F G "lcd_getc" 3 407 "int8(int8 x,int8 y)" `796 
-V L "value" 3 408 "int8" `799 
-C L "lcd_getc" 3 2 1 "FUNCTION"
-C L "lcd_set_cgram_char" 3 2 5 "FUNCTION"
-V L "which" 3 424 "int8" `801 
-V L "ptr" 3 424 "*int8" `802 
-F G "lcd_set_cgram_char" 3 425 "void(int8 which,*int8 ptr)" `800 
-V L "i" 3 426 "int8" `803 
-C L "lcd_set_cgram_char" 3 2 1 "FUNCTION"
-V L "on" 3 443 "int8" `805 
-F G "lcd_cursor_on" 3 444 "void(int8 on)" `804 
-C L "lcd_cursor_on" 3 2 1 "FUNCTION"
-C L "lcd_cursor_on" 3 2 1 "FUNCTION"
-C G "" 4 1 1 "*"
-C G "" 4 1 1 "*"
-D G "W_DATA" 4 9 "0xD0"
-D G "R_DATA" 4 10 "0xD1"
-D G "PWR_MGMT_1" 4 11 "0x6B"
-D G "PWR_MGMT_2" 4 12 "0x6C"
-D G "SMPRT_DIV" 4 13 "0x19"
-D G "CONFIG_R" 4 14 "0x1A"
-D G "GYRO_CONFIG" 4 15 "0x1B"
-D G "ACCEL_CONFIG" 4 16 "0x1C"
-D G "ACCEL_XOUT_H" 4 17 "0x3B"
-D G "ACCEL_XOUT_L" 4 18 "0x3C"
-D G "ACCEL_YOUT_H" 4 19 "0x3D"
-D G "ACCEL_YOUT_L" 4 20 "0x3E"
-D G "ACCEL_ZOUT_H" 4 21 "0x3F"
-D G "ACCEL_ZOUT_L" 4 22 "0x40"
-D G "TEMP_OUT_H" 4 23 "0x41"
-D G "TEMP_OUT_L" 4 24 "0x42"
-D G "GYRO_XOUT_H" 4 25 "0x43"
-D G "GYRO_XOUT_L" 4 26 "0x44"
-D G "GYRO_YOUT_H" 4 27 "0x45"
-D G "GYRO_YOUT_L" 4 28 "0x46"
-D G "GYRO_ZOUT_H" 4 29 "0x47"
-D G "GYRO_ZOUT_L" 4 30 "0x48"
-V L "add" 4 32 "int8" `807 
-V L "data" 4 32 "int8" `808 
-F G "mpu6050_write" 4 33 "void(int8 add,int8 data)" `806 
-V L "add" 4 41 "int8" `810 
-F G "mpu6050_read" 4 42 "int8(int8 add)" `809 
-V L "retval" 4 43 "int8" `811 
-F G "mpu6050_init" 4 55 "void()" `812 
-F G "mpu6050_get_ax" 4 63 "float()" `813 
-V L "axv" 4 64 "sint16" `814 
-V L "acx" 4 65 "float" `815 
-F G "mpu6050_get_ay" 4 70 "float()" `816 
-V L "ayv" 4 71 "sint16" `817 
-V L "acy" 4 72 "float" `818 
-F G "mpu6050_get_az" 4 77 "float()" `819 
-V L "azv" 4 78 "sint16" `820 
-V L "acz" 4 79 "float" `821 
-F G "mpu6050_get_gx" 4 84 "float()" `822 
-V L "gxv" 4 85 "sint16" `823 
-V L "grx" 4 86 "float" `824 
-F G "mpu6050_get_gy" 4 91 "float()" `825 
-V L "gyv" 4 92 "sint16" `826 
-V L "gry" 4 93 "float" `827 
-F G "mpu6050_get_gz" 4 98 "float()" `828 
-V L "gzv" 4 99 "sint16" `829 
-V L "grz" 4 100 "float" `830 
-F G "mpu6050_get_temp" 4 105 "float()" `831 
-V L "tmpv" 4 106 "sint16" `832 
-V L "tmp_mpu" 4 107 "float" `833 
+D G "__LCD_C__" 4 76 ""
+T G "LCD_PIN_MAP" 4 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `775  "this is to improve compatability with previous LCD drivers that accepted"
+D G "lcd_output_enable" 4 109 "(x) lcdlat.enable=x"
+D G "lcd_enable_tris" 4 110 "()   lcdtris.enable=0"
+D G "lcd_output_rs" 4 117 "(x) lcdlat.rs=x"
+D G "lcd_rs_tris" 4 118 "()   lcdtris.rs=0"
+D G "lcd_output_rw" 4 125 "(x) lcdlat.rw=x"
+D G "lcd_rw_tris" 4 126 "()   lcdtris.rw=0"
+D G "LCD_DATA_PORT" 4 149 "getenv("SFR:PORTD")" "portd"
+V G "lcd" 4 161 "LCD_PIN_MAP" `776 
+V G "lcdlat" 4 161 "LCD_PIN_MAP" `777 
+V G "lcdtris" 4 161 "LCD_PIN_MAP" `778 
+D G "LCD_TYPE" 4 179 "2" "0=5x7, 1=5x10, 2=2 lines"
+D G "LCD_LINE_TWO" 4 183 "0x40" "LCD RAM address for the second line"
+D G "LCD_LINE_LENGTH" 4 187 "20"
+f G "lcd_read_nibble" 4 190 "int8()" `779 
+F G "lcd_read_byte" 4 193 "int8()" `780 
+V L "low" 4 194 "int8" `781 
+V L "high" 4 194 "int8" `782 
+F G "lcd_read_nibble" 4 240 "int8()" `779 
+V L "n" 4 256 "int8" `784 
+F G "lcd_send_nibble" 4 257 "void(int8 n)" `783 
+V L "address" 4 274 "int8" `786 
+V L "n" 4 274 "int8" `787 
+F G "lcd_send_byte" 4 275 "void(int8 address,int8 n)" `785 
+F G "lcd_init" 4 300 "void()" `788 
+V L "i" 4 301 "int8" `789 
+V L "LCD_INIT_STRING" 4 302 "int8[4]" `790 
+C L "lcd_init" 4 2 2 "FUNCTION"
+V L "x" 4 345 "int8" `792 
+V L "y" 4 345 "int8" `793 
+F G "lcd_gotoxy" 4 346 "void(int8 x,int8 y)" `791 
+V L "address" 4 347 "int8" `794 
+V L "c" 4 363 "int8" `796 
+F G "lcd_putc" 4 364 "void(int8 c)" `795 
+V L "x" 4 406 "int8" `798 
+V L "y" 4 406 "int8" `799 
+F G "lcd_getc" 4 407 "int8(int8 x,int8 y)" `797 
+V L "value" 4 408 "int8" `800 
+C L "lcd_getc" 4 2 1 "FUNCTION"
+C L "lcd_set_cgram_char" 4 2 5 "FUNCTION"
+V L "which" 4 424 "int8" `802 
+V L "ptr" 4 424 "*int8" `803 
+F G "lcd_set_cgram_char" 4 425 "void(int8 which,*int8 ptr)" `801 
+V L "i" 4 426 "int8" `804 
+C L "lcd_set_cgram_char" 4 2 1 "FUNCTION"
+V L "on" 4 443 "int8" `806 
+F G "lcd_cursor_on" 4 444 "void(int8 on)" `805 
+C L "lcd_cursor_on" 4 2 1 "FUNCTION"
+C L "lcd_cursor_on" 4 2 1 "FUNCTION"
 C G "" 5 1 1 "*"
 C G "" 5 1 1 "*"
-D G "v_min" 5 9 "11"
-D G "v_max" 5 10 "48"
-V G "cont_st" 5 12 "int16" `834 
-V G "pwm_st" 5 13 "int8[10]" `835 
-F G "timer_0" 5 17 "void()" `836 
-F G "servo_init" 5 65 "void()" `837 
-V L "x" 5 72 "int16" `839 
-V L "eMin" 5 72 "int16" `840 
-V L "eMax" 5 72 "int16" `841 
-V L "sMin" 5 72 "int16" `842 
-V L "sMax" 5 72 "int16" `843 
-F G "map_int" 5 73 "int16(int16 x,int16 eMin,int16 eMax,int16 sMin,int16 sMax)" `838 
-V L "angle1" 5 78 "int8" `851 
-F G "servo_1_write" 5 79 "void(int8 angle1)" `850 
-V L "angle2" 5 85 "int8" `853 
-F G "servo_2_write" 5 86 "void(int8 angle2)" `852 
-V G "Kp" 0 21 "float" `854 
-V G "Ki" 0 22 "float" `855 
-V G "Kd" 0 23 "float" `856 
-V G "setpoint" 0 24 "float" `857 
-V G "sample_time" 0 25 "int8" `858 
-V G "fine_adjustment_threshold" 0 28 "float" `859 
-V G "fine_adjustment_factor" 0 29 "float" `860 
-V G "integral_x" 0 31 "float" `861 
-V G "integral_y" 0 31 "float" `862 
-V G "previous_error_x" 0 32 "float" `863 
-V G "previous_error_y" 0 32 "float" `864 
-V L "error" 0 34 "float" `866 
-V L "integral" 0 34 "*float" `867 
-V L "previous_error" 0 34 "*float" `868 
-V L "Kp" 0 34 "float" `869 
-V L "Ki" 0 34 "float" `870 
-V L "Kd" 0 34 "float" `871 
-F G "pid_control" 0 34 "float(float error,*float integral,*float previous_error,float Kp,float Ki,float Kd)" `865  "Calcular la parte proporcional"
-V L "p" 0 36 "float" `872 
+D G "W_DATA" 5 9 "0xD0"
+D G "R_DATA" 5 10 "0xD1"
+D G "PWR_MGMT_1" 5 11 "0x6B"
+D G "PWR_MGMT_2" 5 12 "0x6C"
+D G "SMPRT_DIV" 5 13 "0x19"
+D G "CONFIG_R" 5 14 "0x1A"
+D G "GYRO_CONFIG" 5 15 "0x1B"
+D G "ACCEL_CONFIG" 5 16 "0x1C"
+D G "ACCEL_XOUT_H" 5 17 "0x3B"
+D G "ACCEL_XOUT_L" 5 18 "0x3C"
+D G "ACCEL_YOUT_H" 5 19 "0x3D"
+D G "ACCEL_YOUT_L" 5 20 "0x3E"
+D G "ACCEL_ZOUT_H" 5 21 "0x3F"
+D G "ACCEL_ZOUT_L" 5 22 "0x40"
+D G "TEMP_OUT_H" 5 23 "0x41"
+D G "TEMP_OUT_L" 5 24 "0x42"
+D G "GYRO_XOUT_H" 5 25 "0x43"
+D G "GYRO_XOUT_L" 5 26 "0x44"
+D G "GYRO_YOUT_H" 5 27 "0x45"
+D G "GYRO_YOUT_L" 5 28 "0x46"
+D G "GYRO_ZOUT_H" 5 29 "0x47"
+D G "GYRO_ZOUT_L" 5 30 "0x48"
+V L "add" 5 32 "int8" `808 
+V L "data" 5 32 "int8" `809 
+F G "mpu6050_write" 5 33 "void(int8 add,int8 data)" `807 
+V L "add" 5 41 "int8" `811 
+F G "mpu6050_read" 5 42 "int8(int8 add)" `810 
+V L "retval" 5 43 "int8" `812 
+F G "mpu6050_init" 5 55 "void()" `813 
+F G "mpu6050_get_ax" 5 63 "float()" `814 
+V L "axv" 5 64 "sint16" `815 
+V L "acx" 5 65 "float" `816 
+F G "mpu6050_get_ay" 5 70 "float()" `817 
+V L "ayv" 5 71 "sint16" `818 
+V L "acy" 5 72 "float" `819 
+F G "mpu6050_get_az" 5 77 "float()" `820 
+V L "azv" 5 78 "sint16" `821 
+V L "acz" 5 79 "float" `822 
+F G "mpu6050_get_gx" 5 84 "float()" `823 
+V L "gxv" 5 85 "sint16" `824 
+V L "grx" 5 86 "float" `825 
+F G "mpu6050_get_gy" 5 91 "float()" `826 
+V L "gyv" 5 92 "sint16" `827 
+V L "gry" 5 93 "float" `828 
+F G "mpu6050_get_gz" 5 98 "float()" `829 
+V L "gzv" 5 99 "sint16" `830 
+V L "grz" 5 100 "float" `831 
+F G "mpu6050_get_temp" 5 105 "float()" `832 
+V L "tmpv" 5 106 "sint16" `833 
+V L "tmp_mpu" 5 107 "float" `834 
+C G "" 6 1 1 "*"
+C G "" 6 1 1 "*"
+D G "v_min" 6 9 "11"
+D G "v_max" 6 10 "48"
+V G "cont_st" 6 12 "int16" `835 
+V G "pwm_st" 6 13 "int8[10]" `836 
+F G "timer_0" 6 17 "void()" `837 
+F G "servo_init" 6 65 "void()" `838 
+V L "x" 6 72 "int16" `840 
+V L "eMin" 6 72 "int16" `841 
+V L "eMax" 6 72 "int16" `842 
+V L "sMin" 6 72 "int16" `843 
+V L "sMax" 6 72 "int16" `844 
+F G "map_int" 6 73 "int16(int16 x,int16 eMin,int16 eMax,int16 sMin,int16 sMax)" `839 
+V L "angle1" 6 78 "int8" `852 
+F G "servo_1_write" 6 79 "void(int8 angle1)" `851 
+V L "angle2" 6 85 "int8" `854 
+F G "servo_2_write" 6 86 "void(int8 angle2)" `853 
+V G "Kp" 0 21 "float" `855 
+V G "Ki" 0 22 "float" `856 
+V G "Kd" 0 23 "float" `857 
+V G "setpoint" 0 24 "float" `858 
+V G "sample_time" 0 25 "int8" `859 
+V G "fine_adjustment_threshold" 0 28 "float" `860 
+V G "fine_adjustment_factor" 0 29 "float" `861 
+V G "integral_x" 0 31 "float" `862 
+V G "integral_y" 0 31 "float" `863 
+V G "previous_error_x" 0 32 "float" `864 
+V G "previous_error_y" 0 32 "float" `865 
+V L "x_before" 0 34 "int8" `867 
+V L "y_before" 0 34 "int8" `868 
+F G "ultimo_ajuste" 0 34 "int8(int8 x_before,int8 y_before)" `866 
+V L "Ax" 0 35 "float" `869 
+V L "Ay" 0 35 "float" `870 
+V L "x_angle" 0 36 "int8" `871 
+V L "y_angle" 0 36 "int8" `872 
+V L "new_angle" 0 37 "int8" `873 
+V L "perfx" 0 38 "bool" `874 
+V L "perfy" 0 39 "bool" `875 
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+V L "error" 0 92 "float" `887 
+V L "integral" 0 92 "*float" `888 
+V L "previous_error" 0 92 "*float" `889 
+V L "Kp" 0 92 "float" `890 
+V L "Ki" 0 92 "float" `891 
+V L "Kd" 0 92 "float" `892 
+F G "pid_control" 0 92 "float(float error,*float integral,*float previous_error,float Kp,float Ki,float Kd)" `886  "Calcular la parte proporcional"
+V L "p" 0 94 "float" `893 
 C L "pid_control" 0 20 1 "FUNCTION"
-V L "i" 0 40 "float" `873 
+V L "i" 0 98 "float" `894 
 C L "pid_control" 0 20 1 "FUNCTION"
-V L "D" 0 43 "float" `874 
+V L "D" 0 101 "float" `895 
 C L "pid_control" 0 20 1 "FUNCTION"
 C L "pid_control" 0 20 1 "FUNCTION"
 C L "fine_tune_adjustment" 0 20 1 "FUNCTION"
-V L "error" 0 53 "float" `876 
-V L "current_correction" 0 53 "float" `877 
-V L "fine_adjustment_factor" 0 53 "float" `878 
-F G "fine_tune_adjustment" 0 53 "float(float error,float current_correction,float fine_adjustment_factor)" `875 
+V L "error" 0 111 "float" `897 
+V L "current_correction" 0 111 "float" `898 
+V L "fine_adjustment_factor" 0 111 "float" `899 
+F G "fine_tune_adjustment" 0 111 "float(float error,float current_correction,float fine_adjustment_factor)" `896 
 C L "fine_tune_adjustment" 0 20 1 "FUNCTION"
-F G "menu_configuracion" 0 61 "void()" `879  "Menu interactivo para cambiar PID y setpoint"
-V L "option" 0 63 "int8" `880 
+F G "menu_configuracion" 0 119 "void()" `900  "Menu interactivo para cambiar PID y setpoint"
+V L "option" 0 121 "int8" `901 
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
@@ -1106,30 +1136,29 @@ C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
-F G "MAIN" 0 116 "void()" `902 
+F G "MAIN" 0 174 "void()" `915 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "Ax" 0 123 "float" `907 
-V L "Ay" 0 123 "float" `908 
-V L "angle_x" 0 124 "int8" `909 
-V L "angle_y" 0 124 "int8" `910 
-C L "MAIN" 0 20 1 "FUNCTION"
-C L "MAIN" 0 20 1 "FUNCTION"
-C L "MAIN" 0 20 1 "FUNCTION"
-C L "MAIN" 0 20 1 "FUNCTION"
-V L "x_angle" 0 138 "int8" `911 
-V L "y_angle" 0 139 "int8" `912 
-C L "MAIN" 0 20 1 "FUNCTION"
-C L "MAIN" 0 20 1 "FUNCTION"
-V L "error_x" 0 146 "float" `914 
-V L "error_y" 0 147 "float" `915 
-C L "MAIN" 0 20 1 "FUNCTION"
-V L "correction_x" 0 150 "float" `916 
-V L "correction_y" 0 151 "float" `917 
+V L "Ax" 0 181 "float" `920 
+V L "Ay" 0 181 "float" `921 
+V L "angle_x" 0 182 "int8" `922 
+V L "angle_y" 0 182 "int8" `923 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
+V L "x_angle" 0 196 "int8" `924 
+V L "y_angle" 0 197 "int8" `925 
+C L "MAIN" 0 20 1 "FUNCTION"
+C L "MAIN" 0 20 1 "FUNCTION"
+V L "error_x" 0 204 "float" `927 
+V L "error_y" 0 205 "float" `928 
+C L "MAIN" 0 20 1 "FUNCTION"
+V L "correction_x" 0 208 "float" `929 
+V L "correction_y" 0 209 "float" `930 
+C L "MAIN" 0 20 1 "FUNCTION"
+C L "MAIN" 0 20 1 "FUNCTION"
+V L "correccion" 0 221 "bool" `931 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

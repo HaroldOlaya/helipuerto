@@ -218,7 +218,7 @@ void main() {
         servo_2_write(angle_y);
         delay_ms(sample_time);
 
-        bool correccion = ultimo_ajuste(angle_x,angle_y);
+        bool correccion = ultimo_ajuste(angle_x,angle_y)
         
     }
 }

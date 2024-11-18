@@ -1,6 +1,6 @@
 #include <16f877a.h>
 #include <math.h>  // Para usar atan
-#include <stdbool.h>
+
 #fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
 #use delay(clock=20000000)
 #use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
@@ -30,64 +30,6 @@ float fine_adjustment_factor = 0.2;  // Factor de ajuste fino
 
 float integral_x = 0, integral_y = 0;
 float previous_error_x = 0, previous_error_y = 0;
-
-bool ultimo_ajuste(int x_before, int y_before) {
-    float Ax, Ay;
-    int x_angle, y_angle;
-    int new_angle =x_before;
-    bool perfx=false;
-    bool perfy=false;
-    // Bucle que se repite hasta que ambos ángulos sean 0
-    do {
-        // Obtener los valores del giroscopio
-        Ax = MPU6050_get_Ax();
-        Ay = MPU6050_get_Ay();
-
-        // Convertir los valores a ángulos (ajustar según sea necesario)
-        x_angle = (int)(Ax * 100);  // Ajusta según sea necesario
-        y_angle = (int)(Ay * 100);  // Ajusta según sea necesario
-        while(!perfx){
-           if(x_angle > (setpoint+2)){
-            new_angle++;
-            servo_1_write(new_angle);
-            delay_ms(sample_time);
-           }
-           if(x_angle < (setpoint-2)){
-            new_angle--;
-            servo_1_write(new_angle);
-            delay_ms(sample_time);
-           }
-           else{
-            perfx=true;
-           }
-           lcd_gotoxy(1, 1);  // Mover el cursor a la segunda línea
-           printf(lcd_putc, "\fAx: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
-           delay_ms(200);
-        }
-        while (!perfy) {
-            if (y_angle > (setpoint + 2)) {
-                new_angle++;  // Incrementar el ángulo
-                servo_2_write(new_angle);  // Mueve el segundo servo
-                delay_ms(sample_time);
-            }
-            else if (y_angle < (setpoint - 2)) {
-                new_angle--;  // Decrementar el ángulo
-                servo_2_write(new_angle);  // Mueve el segundo servo
-                delay_ms(sample_time);
-            }
-            else {
-                perfy = true;  // Si está dentro del rango de tolerancia, salir del bucle
-            }
-           lcd_gotoxy(1, 1);  // Mover el cursor a la segunda línea
-           printf(lcd_putc, "\fAx: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
-           delay_ms(200);
-        }
-    } while (x_angle != 0 || y_angle != 0);
-
-    // Si ambos son 0, retornar true
-    return true;
-}
-
 
 float pid_control(float error, float* integral, float* previous_error, float Kp, float Ki, float Kd) {
     // Calcular la parte proporcional
@@ -208,6 +150,10 @@ void main() {
         float correction_x = pid_control(error_x, &integral_x, &previous_error_x, Kp, Ki, Kd);
         float correction_y = pid_control(error_y, &integral_y, &previous_error_y, Kp, Ki, Kd);
 
+        // Aplicar el ajuste fino
+        correction_x = fine_tune_adjustment(error_x, correction_x, fine_adjustment_factor);
+        correction_y = fine_tune_adjustment(error_y, correction_y, fine_adjustment_factor);
+
         // Calcular el ángulo de los servos basado en el punto neutro de 90 grados
         angle_x = 90 - (int)correction_x;
         angle_y = 90 - (int)correction_y;
@@ -218,8 +164,10 @@ void main() {
         servo_2_write(angle_y);
         delay_ms(sample_time);
 
-        bool correccion = ultimo_ajuste(angle_x,angle_y);
-        
+        // Mostrar los ángulos en la LCD
+        lcd_gotoxy(1, 2);
+        printf(lcd_putc, "\fServo1: %d  Servo2: %d", angle_x, angle_y);
+        delay_ms(500);
     }
 }
 
