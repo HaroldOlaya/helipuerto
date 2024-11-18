@@ -65,7 +65,7 @@ void ultimo_ajuste(int x_before, int y_before) {
                 servo_2_write(new_angleY);  // Mueve el segundo servo
                 delay_ms(sample_time);
             }
-            if (y_angle < (setpoint - 2)) {
+            else if (y_angle < (setpoint - 2)) {
                 new_angleY--;  // Decrementar el ángulo
                 servo_2_write(new_angleY);  // Mueve el segundo servo
                 delay_ms(sample_time);
