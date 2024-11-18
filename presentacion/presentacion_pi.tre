@@ -1,5 +1,5 @@
 ÀÄpresentacion_pi
-   ÃÄMAIN  2/594  Ram=1
+   ÃÄMAIN  2/591  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄlcd_init  0/76  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -159,7 +159,7 @@
    ³  ³  ÀÄmap_int  1/129  Ram=14
    ³  ³     ÀÄ*
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÀÄultimo_ajuste  2/596  Ram=18
+   ³  ÀÄultimo_ajuste  2/590  Ram=19
    ³     ÃÄmpu6050_get_ax  1/72  Ram=12
    ³     ³  ÀÄ*
    ³     ÃÄ@MULFF  0/119  Ram=13

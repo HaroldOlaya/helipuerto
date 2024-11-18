@@ -38,6 +38,10 @@ void ultimo_ajuste(int x_before, int y_before) {
     int new_angleY =y_before;
     bool perfx=false;
     bool perfy=false;
+    // Bucle que se repite hasta que ambos ángulos sean 0
+    do {
+        // Obtener los valores del giroscopio
+          // Ajusta según sea necesario
         while(!perfx){
         Ax = MPU6050_get_Ax();
         x_angle = (int)(Ax * 100);  
@@ -55,7 +59,7 @@ void ultimo_ajuste(int x_before, int y_before) {
             perfx=true;
            }
            lcd_gotoxy(1, 1);  // Mover el cursor a la segunda línea
-           printf(lcd_putc, "\fAX: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
+           printf(lcd_putc, "\fAx: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
            delay_ms(200);
         }
         while (!perfy) {
@@ -75,10 +79,10 @@ void ultimo_ajuste(int x_before, int y_before) {
                 perfy = true;  // Si está dentro del rango de tolerancia, salir del bucle
             }
            lcd_gotoxy(1, 1);  // Mover el cursor a la segunda línea
-           printf(lcd_putc, "\fAx: %d  AY: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
+           printf(lcd_putc, "\fAx: %d  Ay: %d", x_angle, y_angle);  // Mostrar los valores del giroscopio
            delay_ms(200);
         }
-    
+    }
 }
 
 
