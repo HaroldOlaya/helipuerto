@@ -61,12 +61,12 @@ void ultimo_ajuste(int x_before, int y_before) {
         Ay = MPU6050_get_Ay();
         y_angle = (int)(Ay * 100);
             if (y_angle > (setpoint + 2)) {
-                new_angleY++;  // Incrementar el ángulo
+                new_angleY--;  // Incrementar el ángulo
                 servo_2_write(new_angleY);  // Mueve el segundo servo
                 delay_ms(sample_time);
             }
             else if (y_angle < (setpoint - 2)) {
-                new_angleY--;  // Decrementar el ángulo
+                new_angleY++;  // Decrementar el ángulo
                 servo_2_write(new_angleY);  // Mueve el segundo servo
                 delay_ms(sample_time);
             }

@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:03
+CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:22
 
                Filename:   C:\Users\harol\OneDrive\Documents\GitHub\helipuerto\presentacion\presentacion_pi.lst
 
@@ -6198,9 +6198,9 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:03
 1196:  BCF    0A.3
 1197:  BTFSS  03.0
 1198:  GOTO   1AB
-....................                 new_angleY--;  // Incrementar el ángulo 
+....................                 new_angleY++;  // Incrementar el ángulo 
 1199:  BSF    03.5
-119A:  DECF   31,F
+119A:  INCF   31,F
 ....................                 servo_2_write(new_angleY);  // Mueve el segundo servo 
 119B:  MOVF   31,W
 119C:  MOVWF  33
@@ -6289,9 +6289,9 @@ CCS PCM C Compiler, Version 5.015, 5967               18-nov.-24 18:03
 11EC:  BCF    0A.3
 11ED:  BTFSS  03.0
 11EE:  GOTO   201
-....................                 new_angleY++;  // Decrementar el ángulo 
+....................                 new_angleY--;  // Decrementar el ángulo 
 11EF:  BSF    03.5
-11F0:  INCF   31,F
+11F0:  DECF   31,F
 ....................                 servo_2_write(new_angleY);  // Mueve el segundo servo 
 11F1:  MOVF   31,W
 11F2:  MOVWF  33
