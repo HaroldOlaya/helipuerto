@@ -1,6 +1,6 @@
 #include <16f877a.h>
 #include <math.h>  // Para usar atan
-#include <stdbool.h>
+
 #fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
 #use delay(clock=20000000)
 #use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
@@ -26,8 +26,6 @@ void main() {
 
     float Ax, Ay;
     int angle_x, angle_y;
-    bool servo_1_active = true;  // Estado del servo 1 (activo mientras fuera de rango)
-    bool servo_2_active = true;  // Estado del servo 2 (activo mientras fuera de rango)
 
     while (true) {
         // Obtener los valores iniciales del giroscopio
@@ -66,8 +64,8 @@ void main() {
         servo_2_write(angle_y);
         delay_ms(500);
 
-        // Ajuste fino para Servo 1 (X) mientras esté fuera de rango
-        while (servo_1_active && (x_angle < -2 || x_angle > 2)) {
+        // Ajuste fino para Servo 1 (X)
+        while (x_angle < -2 || x_angle > 2) {
             if (x_angle < -2) {
                 angle_x--;  // Incrementar el ángulo si está por debajo del rango
             } else if (x_angle > 2) {
@@ -83,15 +81,11 @@ void main() {
 
             lcd_gotoxy(1, 1);
             printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
-
-            // Verificar si el valor de x_angle está dentro del rango
-            if (x_angle >= -2 && x_angle <= 2) {
-                servo_1_active = false;  // Detener corrección cuando esté dentro del rango
-            }
+            delay_ms(200);
         }
 
-        // Ajuste fino para Servo 2 (Y) mientras esté fuera de rango
-        while (servo_2_active && (y_angle < -2 || y_angle > 2)) {
+        // Ajuste fino para Servo 2 (Y)
+        while (y_angle < -2 || y_angle > 2) {
             if (y_angle < -2) {
                 angle_y--;  // Incrementar el ángulo si está por debajo del rango
             } else if (y_angle > 2) {
@@ -107,17 +101,7 @@ void main() {
 
             lcd_gotoxy(1, 1);
             printf(lcd_putc, "\fAx:%d Ay:%d", x_angle, y_angle);
-
-            // Verificar si el valor de y_angle está dentro del rango
-            if (y_angle >= -2 && y_angle <= 2) {
-                servo_2_active = false;  // Detener corrección cuando esté dentro del rango
-            }
-        }
-
-        // Si ambos servos están dentro de rango, no corregir más.
-        if (!servo_1_active && !servo_2_active) {
-            lcd_gotoxy(1, 2);
-            printf(lcd_putc, "Corrigiendo...");
+            delay_ms(200);
         }
     }
 }

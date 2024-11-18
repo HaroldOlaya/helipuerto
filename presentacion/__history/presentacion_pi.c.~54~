@@ -1,6 +1,6 @@
 #include <16f877a.h>
 #include <math.h>  // Para usar atan
-#include <stdbool.h>
+
 #fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, NOBROWNOUT
 #use delay(clock=20000000)
 #use I2C(MASTER, SDA=PIN_C4, SCL=PIN_C3, SLOW)
