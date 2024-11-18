@@ -162,10 +162,6 @@
    ³  ÀÄultimo_ajuste  2/596  Ram=18
    ³     ÃÄmpu6050_get_ax  1/72  Ram=12
    ³     ³  ÀÄ*
-   ³     ÃÄmpu6050_get_ay  1/72  Ram=12
-   ³     ³  ÀÄ*
-   ³     ÃÄ@MULFF  0/119  Ram=13
-   ³     ÃÄ@SFTOI  0/33  Ram=4
    ³     ÃÄ@MULFF  0/119  Ram=13
    ³     ÃÄ@SFTOI  0/33  Ram=4
    ³     ÃÄ@ADDFF  0/326  Ram=16
@@ -191,6 +187,10 @@
    ³     ÃÄ@PRINTF_D_795  0/99  Ram=6
    ³     ³  ÀÄ*
    ³     ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄmpu6050_get_ay  1/72  Ram=12
+   ³     ³  ÀÄ*
+   ³     ÃÄ@MULFF  0/119  Ram=13
+   ³     ÃÄ@SFTOI  0/33  Ram=4
    ³     ÃÄ@ADDFF  0/326  Ram=16
    ³     ÃÄ@ITOF  1/31  Ram=2
    ³     ÃÄ@FLT  1/65  Ram=10

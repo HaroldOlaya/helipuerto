@@ -1,8 +1,7 @@
-D G "lcd_rw_tris" 4 126 "()   lcdtris.rw=0"
-D G "__PCM__" 4 137 ""5.015""
-D G "__DEVICE__" 4 137 "877"
-D G "__DATE__" 4 137 ""18-nov.-24""
-D G "__TIME__" 4 137 ""17:30:05"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 227 ""5.015""
+D G "__DEVICE__" 0 227 "877"
+D G "__DATE__" 0 227 ""18-nov.-24""
+D G "__TIME__" 0 227 ""17:36:09"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -1086,6 +1085,7 @@ V L "new_angle" 0 37 "int8" `873
 V L "perfx" 0 38 "bool" `874 
 V L "perfy" 0 39 "bool" `875 
 C L "ultimo_ajuste" 0 20 1 "FUNCTION"
+C L "ultimo_ajuste" 0 20 2 "FUNCTION"
 C L "ultimo_ajuste" 0 20 1 "FUNCTION"
 C L "ultimo_ajuste" 0 20 1 "FUNCTION"
 C L "ultimo_ajuste" 0 20 1 "FUNCTION"
@@ -1096,32 +1096,28 @@ C L "ultimo_ajuste" 0 20 1 "FUNCTION"
 C L "ultimo_ajuste" 0 20 1 "FUNCTION"
 C L "ultimo_ajuste" 0 20 1 "FUNCTION"
 C L "ultimo_ajuste" 0 20 1 "FUNCTION"
-C L "ultimo_ajuste" 0 20 1 "FUNCTION"
-C L "ultimo_ajuste" 0 20 1 "FUNCTION"
-C L "ultimo_ajuste" 0 20 1 "FUNCTION"
-C L "ultimo_ajuste" 0 20 1 "FUNCTION"
-V L "error" 0 92 "float" `887 
-V L "integral" 0 92 "*float" `888 
-V L "previous_error" 0 92 "*float" `889 
-V L "Kp" 0 92 "float" `890 
-V L "Ki" 0 92 "float" `891 
-V L "Kd" 0 92 "float" `892 
-F G "pid_control" 0 92 "float(float error,*float integral,*float previous_error,float Kp,float Ki,float Kd)" `886  "Calcular la parte proporcional"
-V L "p" 0 94 "float" `893 
+V L "error" 0 91 "float" `887 
+V L "integral" 0 91 "*float" `888 
+V L "previous_error" 0 91 "*float" `889 
+V L "Kp" 0 91 "float" `890 
+V L "Ki" 0 91 "float" `891 
+V L "Kd" 0 91 "float" `892 
+F G "pid_control" 0 91 "float(float error,*float integral,*float previous_error,float Kp,float Ki,float Kd)" `886  "Calcular la parte proporcional"
+V L "p" 0 93 "float" `893 
 C L "pid_control" 0 20 1 "FUNCTION"
-V L "i" 0 98 "float" `894 
+V L "i" 0 97 "float" `894 
 C L "pid_control" 0 20 1 "FUNCTION"
-V L "D" 0 101 "float" `895 
+V L "D" 0 100 "float" `895 
 C L "pid_control" 0 20 1 "FUNCTION"
 C L "pid_control" 0 20 1 "FUNCTION"
 C L "fine_tune_adjustment" 0 20 1 "FUNCTION"
-V L "error" 0 111 "float" `897 
-V L "current_correction" 0 111 "float" `898 
-V L "fine_adjustment_factor" 0 111 "float" `899 
-F G "fine_tune_adjustment" 0 111 "float(float error,float current_correction,float fine_adjustment_factor)" `896 
+V L "error" 0 110 "float" `897 
+V L "current_correction" 0 110 "float" `898 
+V L "fine_adjustment_factor" 0 110 "float" `899 
+F G "fine_tune_adjustment" 0 110 "float(float error,float current_correction,float fine_adjustment_factor)" `896 
 C L "fine_tune_adjustment" 0 20 1 "FUNCTION"
-F G "menu_configuracion" 0 119 "void()" `900  "Menu interactivo para cambiar PID y setpoint"
-V L "option" 0 121 "int8" `901 
+F G "menu_configuracion" 0 118 "void()" `900  "Menu interactivo para cambiar PID y setpoint"
+V L "option" 0 120 "int8" `901 
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
@@ -1136,29 +1132,29 @@ C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
 C L "menu_configuracion" 0 20 1 "FUNCTION"
-F G "MAIN" 0 174 "void()" `915 
+F G "MAIN" 0 173 "void()" `915 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "Ax" 0 181 "float" `920 
-V L "Ay" 0 181 "float" `921 
-V L "angle_x" 0 182 "int8" `922 
-V L "angle_y" 0 182 "int8" `923 
+V L "Ax" 0 180 "float" `920 
+V L "Ay" 0 180 "float" `921 
+V L "angle_x" 0 181 "int8" `922 
+V L "angle_y" 0 181 "int8" `923 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "x_angle" 0 196 "int8" `924 
-V L "y_angle" 0 197 "int8" `925 
+V L "x_angle" 0 195 "int8" `924 
+V L "y_angle" 0 196 "int8" `925 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "error_x" 0 204 "float" `927 
-V L "error_y" 0 205 "float" `928 
+V L "error_x" 0 203 "float" `927 
+V L "error_y" 0 204 "float" `928 
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "correction_x" 0 208 "float" `929 
-V L "correction_y" 0 209 "float" `930 
+V L "correction_x" 0 207 "float" `929 
+V L "correction_y" 0 208 "float" `930 
 C L "MAIN" 0 20 1 "FUNCTION"
 C L "MAIN" 0 20 1 "FUNCTION"
-V L "correccion" 0 221 "bool" `931 
+V L "correccion" 0 220 "bool" `931 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

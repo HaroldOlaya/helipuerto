@@ -40,10 +40,13 @@ bool ultimo_ajuste(int x_before, int y_before) {
     // Bucle que se repite hasta que ambos ángulos sean 0
     do {
         // Obtener los valores del giroscopio
-          // Ajusta según sea necesario
-        while(!perfx){
         Ax = MPU6050_get_Ax();
-        x_angle = (int)(Ax * 100);  
+        Ay = MPU6050_get_Ay();
+
+        // Convertir los valores a ángulos (ajustar según sea necesario)
+        x_angle = (int)(Ax * 100);  // Ajusta según sea necesario
+        y_angle = (int)(Ay * 100);  // Ajusta según sea necesario
+        while(!perfx){
            if(x_angle > (setpoint+2)){
             new_angle++;
             servo_1_write(new_angle);
@@ -62,8 +65,6 @@ bool ultimo_ajuste(int x_before, int y_before) {
            delay_ms(200);
         }
         while (!perfy) {
-        Ay = MPU6050_get_Ay();
-        y_angle = (int)(Ay * 100);
             if (y_angle > (setpoint + 2)) {
                 new_angle++;  // Incrementar el ángulo
                 servo_2_write(new_angle);  // Mueve el segundo servo

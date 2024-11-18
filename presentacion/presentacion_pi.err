@@ -1,4 +1,4 @@
->>> Warning 202 "presentacion_pi.c" Line 221(14,24): Variable never used:   correccion
+>>> Warning 202 "presentacion_pi.c" Line 220(14,24): Variable never used:   correccion
       Memory usage:   ROM=59%      RAM=19% - 43%
       0 Errors,  1 Warnings.
 Build Successful.
