@@ -24,10 +24,6 @@ float Kd = 0.0;  // Ganancia derivativa
 float setpoint = 0;  // Valor deseado para el ángulo
 int sample_time = 500;  // Tiempo entre muestras (en milisegundos)
 
-// Parámetros de ajuste fino
-float fine_adjustment_threshold = 5.0;  // Umbral de error para entrar en el ajuste fino
-float fine_adjustment_factor = 0.2;  // Factor de ajuste fino
-
 float integral_x = 0, integral_y = 0;
 float previous_error_x = 0, previous_error_y = 0;
 
@@ -47,15 +43,6 @@ float pid_control(float error, float* integral, float* previous_error, float Kp,
 
     // Salida del PID
     return P + I + D;
-}
-
-// Función para el ajuste fino
-float fine_tune_adjustment(float error, float current_correction, float fine_adjustment_factor) {
-    if (fabs(error) < fine_adjustment_threshold) {
-        // Si el error es pequeño, aplicar un ajuste fino
-        return current_correction * fine_adjustment_factor;
-    }
-    return current_correction;
 }
 
 void menu_configuracion() {
@@ -149,10 +136,6 @@ void main() {
         // Calcular las correcciones PID para ambos ejes
         float correction_x = pid_control(error_x, &integral_x, &previous_error_x, Kp, Ki, Kd);
         float correction_y = pid_control(error_y, &integral_y, &previous_error_y, Kp, Ki, Kd);
-
-        // Aplicar el ajuste fino
-        correction_x = fine_tune_adjustment(error_x, correction_x, fine_adjustment_factor);
-        correction_y = fine_tune_adjustment(error_y, correction_y, fine_adjustment_factor);
 
         // Calcular el ángulo de los servos basado en el punto neutro de 90 grados
         angle_x = 90 - (int)correction_x;
